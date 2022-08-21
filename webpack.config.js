@@ -1,5 +1,5 @@
+/* eslint-disable */
 const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const modeConfiguration = (env) => require(`./build-utils/webpack.${env}`)(env);
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');

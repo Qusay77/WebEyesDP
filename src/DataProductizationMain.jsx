@@ -12,7 +12,7 @@ const DPMain = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Reactuu
+          Learn React
         </a>
       </header>
     </div>
