@@ -1,7 +1,7 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 const LoadApp = Loadable({
-  loader: () => import('./DataProductizationMain'),
+  loader: () => import('./App'),
   loading() {
     return <div>Loading...</div>;
   },

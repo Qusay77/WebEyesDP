@@ -1,0 +1,605 @@
+{
+    "results": {
+        "business": {
+            "elements": [
+                {
+                    "clients_counter": 2,
+                    "lostRevenue": 270507.93260362,
+                    "element_key": "add_coupon",
+                    "element_type": "goal",
+                    "title": "Add Coupon"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 328441.21947553,
+                    "element_key": "add_cart_item",
+                    "element_type": "goal",
+                    "title": "Add to Cart"
+                },
+                {
+                    "clients_counter": 2,
+                    "lostRevenue": 275352.21853264,
+                    "element_key": "place_order",
+                    "element_type": "goal",
+                    "title": "Place Order"
+                },
+                {
+                    "clients_counter": 2,
+                    "lostRevenue": 47834.761338635,
+                    "element_key": "customer_login",
+                    "element_type": "goal",
+                    "title": "Login"
+                },
+                {
+                    "clients_counter": 2,
+                    "lostRevenue": 17785.156943932,
+                    "element_key": "customer_register",
+                    "element_type": "goal",
+                    "title": "Register"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 5807.6770658249,
+                    "element_key": "remove_item",
+                    "element_type": "goal",
+                    "title": "Remove Item"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 546.60490031293,
+                    "element_key": "stock_check",
+                    "element_type": "goal",
+                    "title": "Stock Check"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 37620.082264037,
+                    "element_key": "search",
+                    "element_type": "goal",
+                    "title": "Search"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 17983.301220295,
+                    "element_key": "custom_goal_1",
+                    "element_type": "goal",
+                    "title": "Promo Code"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 7789.1198294593,
+                    "element_key": "update_cart_item",
+                    "element_type": "goal",
+                    "title": "Update cart item"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 4974.1045928477,
+                    "element_key": "update_cart",
+                    "element_type": "goal",
+                    "title": "Update Item"
+                }
+            ],
+            "totalLostRevenue": 1014642.1787671
+        },
+        "tech": {
+            "elements": [
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 7501632.9821397,
+                    "element_key": "cdn.syteapi.com",
+                    "element_type": "failed_call",
+                    "title": "cdn.syteapi.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 7455567.8541658,
+                    "element_key": "www.atterley.com",
+                    "element_type": "js_error",
+                    "title": "www.atterley.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 221183.67291163,
+                    "element_key": 2,
+                    "element_type": "reserved_page_group",
+                    "title": "Product Pages Load Time"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 16671.449459544,
+                    "element_key": "boutique.atterley.com",
+                    "element_type": "js_error",
+                    "title": "boutique.atterley.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 847.23759548504,
+                    "element_key": "cognito-idp.eu-west-1.amazonaws.com",
+                    "element_type": "failed_call",
+                    "title": "cognito-idp.eu-west-1.amazonaws.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 546.60490031293,
+                    "element_key": "chrome-extension",
+                    "element_type": "js_error",
+                    "title": "chrome-extension"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 478.27928777381,
+                    "element_key": "safari-extension",
+                    "element_type": "js_error",
+                    "title": "safari-extension"
+                },
+                {
+                    "clients_counter": 2,
+                    "lostRevenue": 12059.470613154,
+                    "element_key": 6,
+                    "element_type": "reserved_page_group",
+                    "title": "Login Load Time"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 273.30245015647,
+                    "element_key": "cdn.cookielaw.org",
+                    "element_type": "js_error",
+                    "title": "cdn.cookielaw.org"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 273.30245015647,
+                    "element_key": "cdn.syteapi.com",
+                    "element_type": "js_error",
+                    "title": "cdn.syteapi.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 273.30245015647,
+                    "element_key": "dev-rebuild.atterley.com",
+                    "element_type": "js_error",
+                    "title": "dev-rebuild.atterley.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 191.31171510953,
+                    "element_key": "192.168.0.103",
+                    "element_type": "failed_call",
+                    "title": "192.168.0.103"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 163.98147009388,
+                    "element_key": "activity.wisepops.com",
+                    "element_type": "failed_call",
+                    "title": "activity.wisepops.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 136.65122507823,
+                    "element_key": "loader.wisepops.com",
+                    "element_type": "js_error",
+                    "title": "loader.wisepops.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 109.32098006259,
+                    "element_key": "connect.facebook.net",
+                    "element_type": "js_error",
+                    "title": "connect.facebook.net"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 109.32098006259,
+                    "element_key": "api.ometria.com",
+                    "element_type": "failed_call",
+                    "title": "api.ometria.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 109.32098006259,
+                    "element_key": "vue-stage.atterley.com",
+                    "element_type": "failed_call",
+                    "title": "vue-stage.atterley.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 68.325612539116,
+                    "element_key": "y6zsgaaqjbdq3pjfhchnhmlv7a.appsync-api.eu-west-1.amazonaws.com",
+                    "element_type": "failed_call",
+                    "title": "y6zsgaaqjbdq3pjfhchnhmlv7a.appsync-api.eu-west-1.amazonaws.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40.99536752347,
+                    "element_key": "127.0.0.1",
+                    "element_type": "js_error",
+                    "title": "127.0.0.1"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40.99536752347,
+                    "element_key": "192.168.0.103",
+                    "element_type": "js_error",
+                    "title": "192.168.0.103"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40.99536752347,
+                    "element_key": "cdn.ometria.com",
+                    "element_type": "js_error",
+                    "title": "cdn.ometria.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40.99536752347,
+                    "element_key": "images.atterley.com",
+                    "element_type": "js_error",
+                    "title": "images.atterley.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40.99536752347,
+                    "element_key": "translate.google.com",
+                    "element_type": "js_error",
+                    "title": "translate.google.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40.99536752347,
+                    "element_key": "www.googletagmanager.com",
+                    "element_type": "js_error",
+                    "title": "www.googletagmanager.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40.99536752347,
+                    "element_key": "stage.syteapi.com",
+                    "element_type": "failed_call",
+                    "title": "stage.syteapi.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "imagemod.syteapi.com",
+                    "element_type": "failed_call",
+                    "title": "imagemod.syteapi.com"
+                },
+                {
+                    "clients_counter": 2,
+                    "lostRevenue": 1455.3355470832,
+                    "element_key": "stats.g.doubleclick.net",
+                    "element_type": "failed_call",
+                    "title": "stats.g.doubleclick.net"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "www.google-analytics.com",
+                    "element_type": "failed_call",
+                    "title": "www.google-analytics.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 13.665122507823,
+                    "element_key": "pro.ip-api.com",
+                    "element_type": "failed_call",
+                    "title": "pro.ip-api.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 217029.47566925,
+                    "element_key": "api.flow.io",
+                    "element_type": "failed_call",
+                    "title": "api.flow.io"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 72493.474904003,
+                    "element_key": 3,
+                    "element_type": "reserved_page_group",
+                    "title": "Category Pages Load Time"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 40667.404583282,
+                    "element_key": "staticw2.yotpo.com",
+                    "element_type": "failed_call",
+                    "title": "staticw2.yotpo.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 33370.229164104,
+                    "element_key": 4,
+                    "element_type": "reserved_page_group",
+                    "title": "Home Load Time"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 24556.225146558,
+                    "element_key": "www.dvf.com",
+                    "element_type": "failed_call",
+                    "title": "www.dvf.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 24528.894901543,
+                    "element_key": "e.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "e.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 21180.939887126,
+                    "element_key": 5,
+                    "element_type": "reserved_page_group",
+                    "title": "Cart Load Time"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 20661.665231829,
+                    "element_key": "b.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "b.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 18734.882958226,
+                    "element_key": "n.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "n.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 16384.48188688,
+                    "element_key": "connect.nosto.com",
+                    "element_type": "failed_call",
+                    "title": "connect.nosto.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 15919.867721614,
+                    "element_key": "ids.cdnwidget.com",
+                    "element_type": "failed_call",
+                    "title": "ids.cdnwidget.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 15728.556006505,
+                    "element_key": "a.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "a.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 13733.448120362,
+                    "element_key": "europe.dvf.com",
+                    "element_type": "failed_call",
+                    "title": "europe.dvf.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 9920.8789406797,
+                    "element_key": "l.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "l.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 9825.2230831249,
+                    "element_key": 8,
+                    "element_type": "reserved_page_group",
+                    "title": "Checkout Load Time"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 9333.2786728433,
+                    "element_key": "https___dvf-sia__myshopify__com.preview.builder.codes",
+                    "element_type": "failed_call",
+                    "title": "https___dvf-sia__myshopify__com.preview.builder.codes"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 8677.3527924678,
+                    "element_key": "k.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "k.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 8636.3574249443,
+                    "element_key": "d.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "d.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 8581.696934913,
+                    "element_key": "uk.dvf.com",
+                    "element_type": "failed_call",
+                    "title": "uk.dvf.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 8486.0410773583,
+                    "element_key": "g.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "g.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 8404.0503423113,
+                    "element_key": "bsrx9ma6.klarnaservices.com",
+                    "element_type": "failed_call",
+                    "title": "bsrx9ma6.klarnaservices.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 8021.4269120923,
+                    "element_key": "m.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "m.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 7652.468604381,
+                    "element_key": "i.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "i.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 6012.6539034422,
+                    "element_key": "j.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "j.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 5807.6770658249,
+                    "element_key": "hk.dvf.com",
+                    "element_type": "failed_call",
+                    "title": "hk.dvf.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 5643.695595731,
+                    "element_key": 7,
+                    "element_type": "reserved_page_group",
+                    "title": "Register Load Time"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 4536.8206725973,
+                    "element_key": "h.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "h.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 2227.4149687752,
+                    "element_key": "static-forms.klaviyo.com",
+                    "element_type": "failed_call",
+                    "title": "static-forms.klaviyo.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 1175.2005356728,
+                    "element_key": "cdn.builder.io",
+                    "element_type": "failed_call",
+                    "title": "cdn.builder.io"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 1147.8702906572,
+                    "element_key": "cdn.shopify.com",
+                    "element_type": "failed_call",
+                    "title": "cdn.shopify.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 1147.8702906572,
+                    "element_key": "https___dvf-hongkong__myshopify__com.preview.builder.codes",
+                    "element_type": "failed_call",
+                    "title": "https___dvf-hongkong__myshopify__com.preview.builder.codes"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 710.58637040681,
+                    "element_key": "f.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "f.clarity.ms"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 573.93514532858,
+                    "element_key": "shop.app",
+                    "element_type": "failed_call",
+                    "title": "shop.app"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 464.61416526599,
+                    "element_key": "www-dvf-com.translate.goog",
+                    "element_type": "failed_call",
+                    "title": "www-dvf-com.translate.goog"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 286.96757266429,
+                    "element_key": "data.cdnbasket.net",
+                    "element_type": "failed_call",
+                    "title": "data.cdnbasket.net"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 109.32098006259,
+                    "element_key": "a.klaviyo.com",
+                    "element_type": "failed_call",
+                    "title": "a.klaviyo.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 54.660490031293,
+                    "element_key": "webcache.googleusercontent.com",
+                    "element_type": "failed_call",
+                    "title": "webcache.googleusercontent.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "adclick.g.doubleclick.net",
+                    "element_type": "failed_call",
+                    "title": "adclick.g.doubleclick.net"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "europe-dvf-com.translate.goog",
+                    "element_type": "failed_call",
+                    "title": "europe-dvf-com.translate.goog"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "0hdvy2p0qhng5avl-52534444186.shopifypreview.com",
+                    "element_type": "failed_call",
+                    "title": "0hdvy2p0qhng5avl-52534444186.shopifypreview.com"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "https___dvf-uk__myshopify__com.preview.builder.codes",
+                    "element_type": "failed_call",
+                    "title": "https___dvf-uk__myshopify__com.preview.builder.codes"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "https___www__dvf__com.preview.builder.codes",
+                    "element_type": "failed_call",
+                    "title": "https___www__dvf__com.preview.builder.codes"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "suggest-cache.searchspring.net",
+                    "element_type": "failed_call",
+                    "title": "suggest-cache.searchspring.net"
+                },
+                {
+                    "clients_counter": 1,
+                    "lostRevenue": 27.330245015647,
+                    "element_key": "www.clarity.ms",
+                    "element_type": "failed_call",
+                    "title": "www.clarity.ms"
+                }
+            ],
+            "totalLostRevenue": 15865125.240848
+        },
+        "totalLostRevenue": 1136799689.8017
+    },
+    "hasError": 0,
+    "isAuthenticated": true
+}
