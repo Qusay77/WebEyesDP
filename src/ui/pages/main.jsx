@@ -1,8 +1,8 @@
 import React from 'react';
-import DPTemplate from '../templates/DPTemplate';
+import DPPageTemplate from '../templates/DataProductization/DPPageTemplate';
 
 const DPMain = () => {
-  return <DPTemplate />;
+  return <DPPageTemplate />;
 };
 
 export default DPMain;
