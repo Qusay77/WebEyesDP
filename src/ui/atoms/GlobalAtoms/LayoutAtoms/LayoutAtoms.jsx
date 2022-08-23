@@ -5,6 +5,7 @@ const FullFlexColumn = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding: ${({ padding }) => padding ?? 0};
 `;
 
 export { FullFlexColumn };
