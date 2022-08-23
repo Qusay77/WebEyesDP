@@ -3,6 +3,8 @@ import {
   DropDownLabelContainer,
   DropDownMenuContainer,
   DropDownOptionsContainer,
+  DropMenuWrapper,
+  TextWrap,
 } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/MenuAtoms';
 import { DropDownMenuLabelOrOptionAtom } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/ParagraphAtoms';
 import DropDownArrow from './DropDownArrow';
@@ -19,27 +21,30 @@ const DropDownMolecule = ({ values }) => {
         setIsOpen(false);
       }}
     >
-      <DropDownMenuContainer isOpen={isOpen}>
-        <DropDownLabelContainer>
-          <DropDownMenuLabelOrOptionAtom>
-            {prefix} {choice}
-          </DropDownMenuLabelOrOptionAtom>
-          <DropDownArrow onClick={() => setIsOpen((prev) => !prev)} />
-        </DropDownLabelContainer>
-        <DropDownOptionsContainer>
-          {isOpen &&
-            options.map(({ label, value }) => (
-              <DropDownMenuLabelOrOptionAtom
-                onClick={() => setChoice(value)}
-                key={value}
-                isBold={choice === value}
-                clickable
-              >
-                {prefix} {label}
-              </DropDownMenuLabelOrOptionAtom>
-            ))}
-        </DropDownOptionsContainer>
-      </DropDownMenuContainer>
+      <DropMenuWrapper>
+        <DropDownMenuContainer isOpen={isOpen}>
+          <DropDownLabelContainer>
+            <DropDownMenuLabelOrOptionAtom>
+              {prefix} {choice}
+            </DropDownMenuLabelOrOptionAtom>
+            <DropDownArrow onClick={() => setIsOpen((prev) => !prev)} />
+          </DropDownLabelContainer>
+          <DropDownOptionsContainer>
+            {isOpen &&
+              options.map(({ label, value }) => (
+                <TextWrap key={value}>
+                  <DropDownMenuLabelOrOptionAtom
+                    onClick={() => setChoice(value)}
+                    isBold={choice === value}
+                    clickable
+                  >
+                    {prefix} {label}
+                  </DropDownMenuLabelOrOptionAtom>
+                </TextWrap>
+              ))}
+          </DropDownOptionsContainer>
+        </DropDownMenuContainer>
+      </DropMenuWrapper>
     </OutsideClickHandler>
   );
 };

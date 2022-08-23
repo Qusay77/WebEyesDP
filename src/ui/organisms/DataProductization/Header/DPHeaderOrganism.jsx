@@ -4,7 +4,7 @@ import DPHeader from '../../../molecules/DataProductization/Header/DPHeaderMolec
 
 const DPHeaderOrganism = () => {
   return (
-    <HeaderContainer start>
+    <HeaderContainer start="true">
       <DPHeader />
     </HeaderContainer>
   );

@@ -12,7 +12,7 @@ const ActionHeader = () => {
       <BlockAtom flex={2}>
         <ActionHeaderText />
       </BlockAtom>
-      <BlockAtom flex={1} end>
+      <BlockAtom flex={1} end="true">
         <ActionHeaderButton />
       </BlockAtom>
     </ActionHeaderContainer>

@@ -9,6 +9,9 @@ const DropDownMenuLabelOrOptionAtom = styled.p`
   line-height: 21.94px;
   color: ${({ theme }) => theme.colors.black};
   cursor: ${({ clickable }) => (clickable ? 'pointer' : 'auto')};
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export { DropDownMenuLabelOrOptionAtom };

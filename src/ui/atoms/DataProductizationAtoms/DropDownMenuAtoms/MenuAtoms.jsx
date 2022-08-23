@@ -14,6 +14,9 @@ const DropDownLabelContainer = styled.div`
   align-items: center;
   height: 56px;
 `;
+const DropMenuWrapper = styled.div`
+  position: relative;
+`;
 const DropDownMenuContainer = styled.div`
   box-sizing: border-box;
   width: 254px;
@@ -26,6 +29,7 @@ const DropDownMenuContainer = styled.div`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 0 16px;
+  z-index: 99;
   ${Arrow} {
     transform: ${({ isOpen }) =>
       isOpen ? 'rotate(-135deg)' : 'rotate(45deg)'};
@@ -34,16 +38,20 @@ const DropDownMenuContainer = styled.div`
     ${({ isOpen }) => (isOpen ? 'border-bottom: 1px solid #c6e2ff;' : '')}
   }
 `;
-
+const TextWrap = styled.div`
+  position: relative;
+  ${({ width }) => `width:${width}`}
+`;
 const DropDownOptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: fit-content;
   max-height: 432px;
+  padding-inline-end: 10px;
   padding-bottom: 16px;
-  overflow: scroll;
-  ${DropDownMenuLabelOrOptionAtom} {
+  overflow-y: scroll;
+  ${TextWrap} {
     margin-top: 16px;
   }
 `;
@@ -64,4 +72,6 @@ export {
   ArrowContainer,
   Arrow,
   DropDownOptionsContainer,
+  DropMenuWrapper,
+  TextWrap,
 };

@@ -6,6 +6,7 @@ const ButtonAtom = styled.div`
   background: ${({ theme }) => theme.colors.ButtonGreen};
   border-radius: 70px;
   display: flex;
+  user-select: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
