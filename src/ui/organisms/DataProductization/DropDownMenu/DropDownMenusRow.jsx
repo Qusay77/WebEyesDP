@@ -1,5 +1,5 @@
 import React from 'react';
-import DropDownMenusContainer from '../../../atoms/DataProductizationAtoms/ContainerAtoms/DropDownMenusContainerAtom';
+import DropDownMenusContainer from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/DropDownMenusContainerAtom';
 import DropDownBlock from '../../../molecules/DataProductization/DropDownMenu/DropDownBlock';
 
 const options = [...Array(100)].map((_, i) => ({ label: i, value: i }));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropDownBlockContainer } from '../../../atoms/DataProductizationAtoms/DropDownBlockAtoms/DropDownBlockAtoms';
+import { DropDownBlockContainer } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/DropDownBlockAtoms';
 import { DropDownMenuLabelOrOptionAtom } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/ParagraphAtoms';
 import DropDownMolecule from './DropDownMolecule';
 
