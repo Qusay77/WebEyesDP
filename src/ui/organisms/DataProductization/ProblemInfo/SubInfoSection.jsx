@@ -12,7 +12,7 @@ const BlocksLayout = styled(VariableFlexLayout)`
 
     &:nth-child(odd) {
       border-bottom: 1px solid #c6e2ff;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
       padding-bottom: 16px;
       height: fit-content;
     }

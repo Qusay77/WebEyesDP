@@ -9,7 +9,7 @@ import DPHeaderContainer from '../../organisms/DataProductization/Header/DPHeade
 import ProblemInfo from '../../organisms/DataProductization/ProblemInfo/ProblemInfo';
 
 import DPData from './../../../dummy.json';
-const Colors = ['#FF6663', '#714AFF'];
+const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
   const { sections, currency, totalLostRevenue } = DPData;

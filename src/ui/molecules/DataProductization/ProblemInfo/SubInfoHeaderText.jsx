@@ -15,8 +15,7 @@ const SubInfoHeaderText = ({ problem, color, currency }) => {
     <SubInfoRow header>
       <CircledText>
         <ColoredLittleCircle
-          color={color}
-          opacity={(percentage / 2 + 50) / 100}
+          color={`rgba(${color},${(percentage / 2 + 50) / 100})`}
         />
         <InfoText header>{title}</InfoText>
       </CircledText>
