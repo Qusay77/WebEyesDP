@@ -8,8 +8,16 @@ const HeaderContainer = styled.div`
     (start && 'flex-start') || (center && 'center') || (end && 'flex-end')};
 `;
 
+const MainCOntainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+`;
+
 const WrapContainer = styled.div`
   width: 100%;
+  max-width: 1170px;
   height: 100%;
   position: relative;
   > div:not(:nth-child(1)) {
@@ -17,4 +25,4 @@ const WrapContainer = styled.div`
   }
 `;
 
-export { HeaderContainer, WrapContainer };
+export { HeaderContainer, WrapContainer, MainCOntainer };

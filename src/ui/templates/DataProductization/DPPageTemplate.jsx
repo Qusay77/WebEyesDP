@@ -1,18 +1,38 @@
 import React from 'react';
-import { WrapContainer } from '../../atoms/GlobalAtoms/ContainerAtoms/ContainerAtoms';
+import {
+  MainCOntainer,
+  WrapContainer,
+} from '../../atoms/GlobalAtoms/ContainerAtoms/ContainerAtoms';
 import ActionHeader from '../../organisms/DataProductization/ActionHeader/ActionHeader';
 import DropDownMenu from '../../organisms/DataProductization/DropDownMenu/DropDownMenusRow';
-import DPHeaderOrganism from '../../organisms/DataProductization/Header/DPHeaderOrganism';
+import DPHeaderContainer from '../../organisms/DataProductization/Header/DPHeaderContainer';
 import ProblemInfo from '../../organisms/DataProductization/ProblemInfo/ProblemInfo';
 
+import DPData from './../../../dummy.json';
+const Colors = ['#FF6663', '#714AFF'];
+
 const DPPageTemplate = () => {
+  const { sections, currency, totalLostRevenue } = DPData;
+  const Sections = Object.entries(sections).map(([k, v]) => ({
+    name: k,
+    ...v,
+  }));
   return (
-    <WrapContainer>
-      <DPHeaderOrganism />
-      <DropDownMenu />
-      <ActionHeader />
-      <ProblemInfo />
-    </WrapContainer>
+    <MainCOntainer>
+      <WrapContainer>
+        <DPHeaderContainer />
+        <DropDownMenu />
+        <ActionHeader Info={{ currency, totalLostRevenue }} />
+        {Sections.map((sect, i) => (
+          <ProblemInfo
+            currency={currency}
+            section={sect}
+            color={Colors[i]}
+            key={`problem-info-${i}`}
+          />
+        ))}
+      </WrapContainer>
+    </MainCOntainer>
   );
 };
 

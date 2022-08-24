@@ -5,10 +5,10 @@ import ActionHeaderButton from '../../../molecules/DataProductization/ActionHead
 import ActionHeaderText from '../../../molecules/DataProductization/ActionHeader/ActionHeaderText';
 import ActionHeaderTotal from '../../../molecules/DataProductization/ActionHeader/ActionHeaderTotal';
 
-const ActionHeader = () => {
+const ActionHeader = ({ Info }) => {
   return (
     <ActionHeaderContainer>
-      <ActionHeaderTotal />
+      <ActionHeaderTotal Info={Info} />
       <BlockAtom flex={2}>
         <ActionHeaderText />
       </BlockAtom>

@@ -1,13 +1,19 @@
 import React from 'react';
 import InfoContainer from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/InfoContainer';
+import { InfoContainerLayout } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/InfoContainerLayout';
 import InfoHeader from '../../../molecules/DataProductization/ProblemInfo/InfoHeader';
-import InfoTextRow from '../../../molecules/DataProductization/ProblemInfo/InfoTextRow';
+import MainTextInfoSection from './MainTextInfoSection';
+import SubInfoSection from './SubInfoSection';
 
-const ProblemInfo = () => {
+const ProblemInfo = ({ section, color, currency }) => {
+  const { name } = section;
   return (
     <InfoContainer>
-      <InfoHeader />
-      <InfoTextRow />
+      <InfoHeader text={name} />
+      <InfoContainerLayout>
+        <MainTextInfoSection color={color} section={section} />
+        <SubInfoSection currency={currency} color={color} section={section} />
+      </InfoContainerLayout>
     </InfoContainer>
   );
 };

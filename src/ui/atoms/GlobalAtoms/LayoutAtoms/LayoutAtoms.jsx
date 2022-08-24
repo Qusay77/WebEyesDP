@@ -8,4 +8,13 @@ const FullFlexColumn = styled.div`
   padding: ${({ padding }) => padding ?? 0};
 `;
 
-export { FullFlexColumn };
+const VariableFlexLayout = styled.div`
+  width: ${({ width }) => width ?? 'fit-content'};
+  height: ${({ height }) => height ?? 'fit-content'};
+  display: flex;
+  flex-direction: ${({ dir }) => dir};
+  flex-wrap: ${({ wrap }) => wrap ?? 'unset'};
+  padding: ${({ padding }) => padding ?? 0};
+`;
+
+export { FullFlexColumn, VariableFlexLayout };

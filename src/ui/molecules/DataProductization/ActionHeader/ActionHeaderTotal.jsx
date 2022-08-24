@@ -5,11 +5,15 @@ import {
   TotalTextAtom,
 } from '../../../atoms/DataProductizationAtoms/ActionHeader/ParagraphAtoms';
 
-const ActionHeaderTotal = () => {
+const ActionHeaderTotal = ({ Info }) => {
+  const { currency, totalLostRevenue } = Info;
   return (
     <BlockAtom flex={1}>
       <TextAtom>Your lost monthly revenue is</TextAtom>
-      <TotalTextAtom>$67,804</TotalTextAtom>
+      <TotalTextAtom>
+        {currency}
+        {totalLostRevenue}
+      </TotalTextAtom>
     </BlockAtom>
   );
 };

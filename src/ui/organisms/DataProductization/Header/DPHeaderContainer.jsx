@@ -2,7 +2,7 @@ import React from 'react';
 import { HeaderContainer } from '../../../atoms/GlobalAtoms/ContainerAtoms/ContainerAtoms';
 import DPHeader from '../../../molecules/DataProductization/Header/DPHeaderMolecule';
 
-const DPHeaderOrganism = () => {
+const DPHeaderContainer = () => {
   return (
     <HeaderContainer start="true">
       <DPHeader />
@@ -10,4 +10,4 @@ const DPHeaderOrganism = () => {
   );
 };
 
-export default DPHeaderOrganism;
+export default DPHeaderContainer;

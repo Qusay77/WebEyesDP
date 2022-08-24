@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const ColoredLittleCircle = styled.div`
   width: 10px;
   height: 10px;
-  background-color: #ff6663;
+  background-color: ${({ color }) => color};
+  opacity: ${({ opacity }) => opacity};
   border-radius: 50%;
 `;
 
