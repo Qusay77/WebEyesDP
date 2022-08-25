@@ -6,7 +6,7 @@ const InfoContainerLayout = styled.div`
   justify-content: start;
   align-items: start;
   > div:nth-child(1) {
-    border-right: 1px solid #c6e2ff;
+    border-right: 1px solid ${({ theme }) => theme.colors.borderBlue};
   }
   width: 100%;
 `;

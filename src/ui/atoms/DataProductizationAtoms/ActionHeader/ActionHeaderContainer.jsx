@@ -11,7 +11,7 @@ const ActionHeaderContainer = styled.div`
   width: 100%;
   height: 125px;
   background: rgba(198, 226, 255, 0.1);
-  border: 1px solid #c6e2ff;
+  border: 1px solid ${({ theme }) => theme.colors.borderBlue};
   border-radius: 5px;
 `;
 

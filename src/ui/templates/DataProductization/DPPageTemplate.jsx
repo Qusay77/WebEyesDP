@@ -29,6 +29,7 @@ const DPPageTemplate = () => {
             section={sect}
             color={Colors[i]}
             key={`problem-info-${i}`}
+            index={i}
           />
         ))}
       </WrapContainer>

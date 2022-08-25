@@ -9,17 +9,17 @@ import {
   InfoText,
 } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/ParagraphAtoms';
 
-const InfoTextRow = ({ problem, color }) => {
+const InfoTextRow = ({ problem, color, colorReady, noTopMargin }) => {
   const { title, percentage } = problem;
   return (
-    <InfoTextRowContainer>
+    <InfoTextRowContainer noTopMargin={noTopMargin}>
       <CircledText>
         <ColoredLittleCircle
-          color={`rgba(${color},${(percentage / 2 + 50) / 100})`}
+          color={colorReady ?? `rgba(${color},${(percentage / 2 + 50) / 100})`}
         />
         <InfoText>{title}</InfoText>
       </CircledText>
-      <InfoNumber>{percentage ? `%${percentage}` : ''}</InfoNumber>
+      {percentage ? <InfoNumber>%{percentage}</InfoNumber> : ''}
     </InfoTextRowContainer>
   );
 };

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { DropDownMenuLabelOrOptionAtom } from './ParagraphAtoms';
 
 const Arrow = styled.i`
   border: solid #4b9df7;
@@ -16,6 +15,7 @@ const DropDownLabelContainer = styled.div`
 `;
 const DropMenuWrapper = styled.div`
   position: relative;
+  z-index: 1;
 `;
 const DropDownMenuContainer = styled.div`
   box-sizing: border-box;
@@ -25,7 +25,7 @@ const DropDownMenuContainer = styled.div`
   overflow: hidden;
   max-height: 489px;
   background: #ffffff;
-  border: 1px solid #c6e2ff;
+  border: 1px solid ${({ theme }) => theme.colors.borderBlue};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 0 16px;
@@ -35,7 +35,10 @@ const DropDownMenuContainer = styled.div`
       isOpen ? 'rotate(-135deg)' : 'rotate(45deg)'};
   }
   ${DropDownLabelContainer} {
-    ${({ isOpen }) => (isOpen ? 'border-bottom: 1px solid #c6e2ff;' : '')}
+    ${({ isOpen }) =>
+      isOpen
+        ? `border-bottom: 1px solid ${(theme) => theme.borderBlue})};`
+        : ''}
   }
 `;
 const TextWrap = styled.div`

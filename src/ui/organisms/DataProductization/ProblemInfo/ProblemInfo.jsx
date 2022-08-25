@@ -5,7 +5,7 @@ import InfoHeader from '../../../molecules/DataProductization/ProblemInfo/InfoHe
 import MainTextInfoSection from './MainTextInfoSection';
 import SubInfoSection from './SubInfoSection';
 
-const ProblemInfo = ({ section, color, currency }) => {
+const ProblemInfo = ({ section, color, currency, index }) => {
   const { name } = section;
   return (
     <InfoContainer>
@@ -15,6 +15,7 @@ const ProblemInfo = ({ section, color, currency }) => {
           currency={currency}
           color={color}
           section={section}
+          index={index}
         />
         <SubInfoSection currency={currency} color={color} section={section} />
       </InfoContainerLayout>

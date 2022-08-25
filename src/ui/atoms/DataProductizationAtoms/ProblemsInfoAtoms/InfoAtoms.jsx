@@ -5,7 +5,7 @@ const InfoTextRowContainer = styled.div`
   height: 19px;
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
+  margin-top: ${({ noTopMargin }) => (noTopMargin ? 'unset' : '16px')};
 `;
 
 const SubInfoRow = styled.div`

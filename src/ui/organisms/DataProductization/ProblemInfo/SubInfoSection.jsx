@@ -11,7 +11,7 @@ const BlocksLayout = styled(VariableFlexLayout)`
     height: 125px;
 
     &:nth-child(odd) {
-      border-bottom: 1px solid #c6e2ff;
+      border-bottom: 1px solid ${({ theme }) => theme.colors.borderBlue};
       margin-bottom: 16px;
       padding-bottom: 16px;
       height: fit-content;

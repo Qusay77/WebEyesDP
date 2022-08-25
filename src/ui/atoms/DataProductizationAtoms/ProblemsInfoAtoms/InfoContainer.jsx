@@ -10,7 +10,7 @@ const InfoContainer = styled.div`
   gap: 16px;
   height: 376px;
   background: #ffffff;
-  border: 1px solid #c6e2ff;
+  border: 1px solid ${({ theme }) => theme.colors.borderBlue};
   border-radius: 5px;
 `;
 
