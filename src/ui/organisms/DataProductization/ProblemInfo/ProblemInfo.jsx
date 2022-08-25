@@ -11,7 +11,11 @@ const ProblemInfo = ({ section, color, currency }) => {
     <InfoContainer>
       <InfoHeader text={name} />
       <InfoContainerLayout>
-        <MainTextInfoSection color={color} section={section} />
+        <MainTextInfoSection
+          currency={currency}
+          color={color}
+          section={section}
+        />
         <SubInfoSection currency={currency} color={color} section={section} />
       </InfoContainerLayout>
     </InfoContainer>

@@ -11,6 +11,7 @@ const theme = {
   colors: {
     black: '#0D142E',
     ButtonGreen: '#04e08f',
+    lightBlack: '#444C6A',
   },
 };
 

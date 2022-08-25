@@ -5,7 +5,7 @@ const TextAtom = styled.p`
   font-size: 16px;
   line-height: 24px;
   display: inline;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.lightBlack};
 `;
 
 const TotalTextAtom = styled.p`

@@ -1,10 +1,17 @@
 import React from 'react';
 import { VariableFlexLayout } from '../../../atoms/GlobalAtoms/LayoutAtoms/LayoutAtoms';
+import InfoChartBlock from '../../../molecules/DataProductization/ProblemInfo/InfoChartBlock';
 import InfoTextRow from '../../../molecules/DataProductization/ProblemInfo/InfoTextRow';
-const MainTextInfoSection = ({ section, color }) => {
-  const { problems, currency } = section;
+const MainTextInfoSection = ({ section, color, currency }) => {
+  const { problems, totalLostRevenue } = section;
   return (
-    <VariableFlexLayout dir={'column'} padding={'0 24px 0 0'}>
+    <VariableFlexLayout height={'282px'} dir={'column'} padding={'0 24px 0 0'}>
+      <InfoChartBlock
+        problems={problems}
+        totalLostRevenue={totalLostRevenue}
+        currency={currency}
+        color={color}
+      />
       {problems.map(({ title, percentage }, i) => (
         <InfoTextRow
           currency={currency}

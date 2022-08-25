@@ -22,7 +22,6 @@ const DropDownMenu = () => {
         }}
       ></DropDownBlock>
       <DropDownBlock values={{ options, label: 'Test3' }}></DropDownBlock>
-      <DropDownBlock values={{ options, label: 'Test4' }}></DropDownBlock>
     </DropDownMenusContainer>
   );
 };

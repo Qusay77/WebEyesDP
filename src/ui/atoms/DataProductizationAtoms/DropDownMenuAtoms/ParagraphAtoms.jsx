@@ -7,7 +7,7 @@ const DropDownMenuLabelOrOptionAtom = styled.p`
   ${({ isLabel }) => (isLabel ? 'margin-bottom: 8px' : '')};
   font-size: 18px;
   line-height: 21.94px;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.lightBlack};
   cursor: ${({ clickable }) => (clickable ? 'pointer' : 'auto')};
   text-overflow: ellipsis;
   overflow: hidden;

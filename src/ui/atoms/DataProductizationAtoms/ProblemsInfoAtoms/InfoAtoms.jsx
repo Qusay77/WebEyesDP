@@ -22,4 +22,29 @@ const CircledText = styled.div`
   align-items: center;
 `;
 
-export { InfoTextRowContainer, CircledText, SubInfoRow };
+const ChartBlock = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 120px;
+  justify-content: flex-start;
+`;
+
+const ChartTextBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  justify-content: center;
+`;
+
+const TextBlock = styled.div`
+  display: inline;
+`;
+
+export {
+  InfoTextRowContainer,
+  CircledText,
+  SubInfoRow,
+  ChartBlock,
+  ChartTextBlock,
+  TextBlock,
+};
