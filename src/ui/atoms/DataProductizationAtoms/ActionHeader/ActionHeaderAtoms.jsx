@@ -1,17 +1,5 @@
 import styled from 'styled-components';
 
-const ButtonAtom = styled.div`
-  width: 220px;
-  height: 52px;
-  background: ${({ theme }) => theme.colors.ButtonGreen};
-  border-radius: 70px;
-  display: flex;
-  user-select: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
-
 const BlockAtom = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,4 +16,4 @@ const TextAtomsContainer = styled.div`
   text-align: start;
 `;
 
-export { ButtonAtom, BlockAtom, TextAtomsContainer };
+export { BlockAtom, TextAtomsContainer };

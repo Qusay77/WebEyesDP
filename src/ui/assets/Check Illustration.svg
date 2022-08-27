@@ -1,0 +1,18 @@
+<svg width="268" height="218" viewBox="0 0 268 218" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="8.5" cy="27.5" r="8.5" fill="#489BF7" fill-opacity="0.1"/>
+<circle cx="240.5" cy="63.5" r="27.5" fill="#489BF7" fill-opacity="0.1"/>
+<circle cx="82.5" cy="196.5" r="21.5" fill="#489BF7" fill-opacity="0.1"/>
+<circle cx="123" cy="102" r="102" fill="url(#paint0_linear_139_4458)"/>
+<mask id="mask0_139_4458" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="43" y="22" width="160" height="160">
+<rect x="43" y="22" width="160" height="160" fill="white"/>
+</mask>
+<g mask="url(#mask0_139_4458)">
+<path d="M107.09 139.5C106.201 139.5 105.368 139.36 104.59 139.08C103.812 138.804 103.09 138.333 102.423 137.667L73.7567 109C72.5345 107.778 71.95 106.193 72.0033 104.247C72.0611 102.304 72.7011 100.722 73.9233 99.5C75.1456 98.2778 76.7011 97.6667 78.59 97.6667C80.4789 97.6667 82.0345 98.2778 83.2567 99.5L107.09 123.333L163.59 66.8333C164.812 65.6111 166.397 65 168.343 65C170.286 65 171.868 65.6111 173.09 66.8333C174.312 68.0556 174.923 69.6378 174.923 71.58C174.923 73.5267 174.312 75.1111 173.09 76.3333L111.757 137.667C111.09 138.333 110.368 138.804 109.59 139.08C108.812 139.36 107.979 139.5 107.09 139.5Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_139_4458" x1="48" y1="7.5" x2="198.5" y2="189.5" gradientUnits="userSpaceOnUse">
+<stop offset="0.239583" stop-color="#6BAEF8"/>
+<stop offset="1" stop-color="#6BAEF8" stop-opacity="0.44"/>
+</linearGradient>
+</defs>
+</svg>

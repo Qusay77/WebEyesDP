@@ -13,6 +13,7 @@ const theme = {
     ButtonGreen: '#04e08f',
     lightBlack: '#444C6A',
     borderBlue: '#C6E2FF',
+    closeButtonGrey: '#B0B0B0',
   },
 };
 

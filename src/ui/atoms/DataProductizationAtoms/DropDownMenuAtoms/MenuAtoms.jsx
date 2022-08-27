@@ -35,10 +35,8 @@ const DropDownMenuContainer = styled.div`
       isOpen ? 'rotate(-135deg)' : 'rotate(45deg)'};
   }
   ${DropDownLabelContainer} {
-    ${({ isOpen }) =>
-      isOpen
-        ? `border-bottom: 1px solid ${(theme) => theme.borderBlue})};`
-        : ''}
+    ${({ isOpen, theme }) =>
+      isOpen ? `border-bottom: 1px solid ${theme.colors.borderBlue};` : ''}
   }
 `;
 const TextWrap = styled.div`

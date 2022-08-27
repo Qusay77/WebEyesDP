@@ -1,10 +1,12 @@
 import React from 'react';
-import { ButtonAtom } from '../../../atoms/DataProductizationAtoms/ActionHeader/ActionHeaderAtoms';
-import { ButtonTextAtom } from '../../../atoms/DataProductizationAtoms/ActionHeader/ParagraphAtoms';
+import {
+  ButtonAtom,
+  ButtonTextAtom,
+} from '../../../atoms/GlobalAtoms/Buttons/GreenButtonAtoms';
 
-const ActionHeaderButton = () => {
+const ActionHeaderButton = ({ action }) => {
   return (
-    <ButtonAtom>
+    <ButtonAtom height={'52px'} width={'220px'} onClick={action}>
       <ButtonTextAtom>Test my Real Data!</ButtonTextAtom>
     </ButtonAtom>
   );

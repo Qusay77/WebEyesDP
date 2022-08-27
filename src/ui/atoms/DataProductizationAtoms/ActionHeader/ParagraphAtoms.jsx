@@ -15,11 +15,4 @@ const TotalTextAtom = styled.p`
   color: ${({ theme }) => theme.colors.black};
 `;
 
-const ButtonTextAtom = styled.p`
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19.5px;
-  color: #fff;
-`;
-
-export { TextAtom, TotalTextAtom, ButtonTextAtom };
+export { TextAtom, TotalTextAtom };
