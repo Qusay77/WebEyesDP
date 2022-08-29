@@ -4,9 +4,14 @@ import {
   ButtonTextAtom,
 } from '../../atoms/GlobalAtoms/Buttons/GreenButtonAtoms';
 
-const FlowModalFooterButton = ({ action, text }) => {
+const FlowModalFooterButton = ({ action, text, disabled }) => {
   return (
-    <ButtonAtom height={'62px'} width={'434px'} onClick={action}>
+    <ButtonAtom
+      disabled={disabled}
+      height={'62px'}
+      width={'434px'}
+      onClick={action}
+    >
       <ButtonTextAtom>{text}</ButtonTextAtom>
     </ButtonAtom>
   );

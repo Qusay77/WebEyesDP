@@ -16,6 +16,7 @@ const DropDownLabelContainer = styled.div`
 const DropMenuWrapper = styled.div`
   position: relative;
   z-index: 1;
+  user-select: none;
 `;
 const DropDownMenuContainer = styled.div`
   box-sizing: border-box;
@@ -25,6 +26,7 @@ const DropDownMenuContainer = styled.div`
   overflow: hidden;
   max-height: 489px;
   background: #ffffff;
+
   border: 1px solid ${({ theme }) => theme.colors.borderBlue};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -41,6 +43,13 @@ const DropDownMenuContainer = styled.div`
     ${({ isOpen, theme }) =>
       isOpen ? `border-bottom: 1px solid ${theme.colors.borderBlue};` : ''}
   }
+
+  ${({ disabled }) =>
+    disabled &&
+    `
+  opacity:0.5;
+  pointer-events:none;
+  `}
 `;
 const TextWrap = styled.div`
   position: relative;

@@ -10,6 +10,7 @@ const DropDownBlock = ({
   menuWidth,
   labelBottomMargin,
   placeholder,
+  disabled,
 }) => {
   const { options, label, key } = values;
   return (
@@ -26,6 +27,7 @@ const DropDownBlock = ({
       <DropDownMolecule
         placeholder={placeholder}
         menuWidth={menuWidth}
+        disabled={disabled}
         values={{ options, key }}
       />
     </DropDownBlockContainer>

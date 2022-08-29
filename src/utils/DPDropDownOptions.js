@@ -33,4 +33,24 @@ const MonthlyVisitsOptions = [
   { label: '10.0M', value: 10000000 },
 ];
 
-export { IndustryOptions, AverageOrderValueOptions, MonthlyVisitsOptions };
+const platformOptions = [
+  {
+    label: 'Shopify Plus',
+    value: 'Shopify Plus',
+  },
+  {
+    label: 'Magento',
+    value: 'Magento',
+  },
+  {
+    label: 'Other',
+    value: 'Other',
+  },
+];
+
+export {
+  IndustryOptions,
+  AverageOrderValueOptions,
+  MonthlyVisitsOptions,
+  platformOptions,
+};

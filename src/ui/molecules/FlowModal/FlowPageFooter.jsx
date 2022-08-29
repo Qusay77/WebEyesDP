@@ -3,16 +3,27 @@ import { FlowFooterContainer } from '../../atoms/DataProductizationAtoms/FlowMod
 import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 import FlowModalFooterButton from './FlowModalFooterButton';
 
-const FlowPageFooter = ({ footerText, action, tools, hasReportButton }) => {
+const FlowPageFooter = ({
+  footerText,
+  action,
+  tools,
+  hasReportButton,
+  disabled,
+}) => {
   const { flow, moveAction } = tools;
   return (
     <FlowFooterContainer>
       <FlowModalFooterButton
+        disabled={disabled}
         action={() => (flow ? moveAction() : action('freeTrail'))}
         text={footerText}
       />
       {!flow || hasReportButton ? (
-        <MainText onClick={() => action('monthlyReport')} clickable>
+        <MainText
+          disabled={disabled}
+          onClick={() => action('monthlyReport')}
+          clickable
+        >
           I only want to get a monthly report
         </MainText>
       ) : (

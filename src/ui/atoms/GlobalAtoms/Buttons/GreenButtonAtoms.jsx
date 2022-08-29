@@ -10,6 +10,12 @@ const ButtonAtom = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  ${({ disabled }) =>
+    disabled &&
+    `
+  opacity: 0.5;
+  pointer-events:none;
+  `}
 `;
 const ButtonTextAtom = styled.p`
   font-weight: 700;

@@ -26,7 +26,7 @@ const MainFlowSecondStepModalPage = () => {
     <MainFlowSecondStepModalPageContainer>
       <FlowModalTextSection dynamicText={dynamicText} />
       <InfoOptionsContainer>
-        <FlowModalOptionsSection />
+        <FlowModalOptionsSection disabled />
         <FlowModalPasswordSection />
       </InfoOptionsContainer>
     </MainFlowSecondStepModalPageContainer>

@@ -19,6 +19,12 @@ const MainText = styled.p`
   overflow: hidden;
   user-select: none;
   display: inline;
+  ${({ disabled }) =>
+    disabled &&
+    `
+  opacity: 0.5;
+  pointer-events:none;
+  `}
 `;
 
 const OptionalLabelContainer = styled.div`

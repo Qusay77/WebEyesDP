@@ -12,7 +12,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { useSelector, useDispatch } from 'react-redux';
 import { setChoice } from '../../../../redux/DPSlice';
 
-const DropDownMolecule = ({ values, menuWidth, placeholder }) => {
+const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
   const { options, key } = values;
   const choice = useSelector(({ DPState }) => DPState[key]);
   const dispatch = useDispatch();
@@ -24,12 +24,18 @@ const DropDownMolecule = ({ values, menuWidth, placeholder }) => {
       }}
     >
       <DropMenuWrapper>
-        <DropDownMenuContainer menuWidth={menuWidth} isOpen={isOpen}>
+        <DropDownMenuContainer
+          disabled={disabled}
+          menuWidth={menuWidth}
+          isOpen={isOpen}
+        >
           <DropDownLabelContainer>
             <DropDownMenuLabelOrOptionAtom>
               {placeholder && !choice ? placeholder : choice.label}
             </DropDownMenuLabelOrOptionAtom>
-            <DropDownArrow onClick={() => setIsOpen((prev) => !prev)} />
+            <DropDownArrow
+              onClick={() => !disabled && setIsOpen((prev) => !prev)}
+            />
           </DropDownLabelContainer>
           <DropDownOptionsContainer>
             {isOpen &&
