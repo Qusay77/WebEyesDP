@@ -11,7 +11,7 @@ const DropDownBlock = ({
   labelBottomMargin,
   placeholder,
 }) => {
-  const { options, label } = values;
+  const { options, label, key } = values;
   return (
     <DropDownBlockContainer>
       <TextWrap width={labelWidth}>
@@ -26,7 +26,7 @@ const DropDownBlock = ({
       <DropDownMolecule
         placeholder={placeholder}
         menuWidth={menuWidth}
-        values={{ options }}
+        values={{ options, key }}
       />
     </DropDownBlockContainer>
   );

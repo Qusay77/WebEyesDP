@@ -19,7 +19,7 @@ const BlocksLayout = styled(VariableFlexLayout)`
   }
 `;
 
-const SubInfoSection = ({ section, color, currency }) => {
+const SubInfoSection = ({ section, color }) => {
   const { problems } = section;
   return (
     <BlocksLayout
@@ -30,17 +30,9 @@ const SubInfoSection = ({ section, color, currency }) => {
     >
       {problems.map((problem, i) => (
         <BlockContainer key={`block-${i}`}>
-          <SubInfoHeaderText
-            color={color}
-            currency={currency}
-            problem={problem}
-          />
+          <SubInfoHeaderText color={color} problem={problem} />
           {problem.subCategories.map((category, i) => (
-            <SubInfoText
-              category={category}
-              currency={currency}
-              key={`cat-${i}`}
-            />
+            <SubInfoText category={category} key={`cat-${i}`} />
           ))}
         </BlockContainer>
       ))}

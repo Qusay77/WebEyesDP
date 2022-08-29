@@ -1,31 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { getCall } from '../../../redux/apiCalls/getCall';
 import {
-  MainCOntainer,
+  MainContainer,
   WrapContainer,
 } from '../../atoms/GlobalAtoms/ContainerAtoms/ContainerAtoms';
 import ActionHeader from '../../organisms/DataProductization/ActionHeader/ActionHeader';
 import DropDownMenu from '../../organisms/DataProductization/DropDownMenu/DropDownMenusRow';
 import DPHeaderContainer from '../../organisms/DataProductization/Header/DPHeaderContainer';
 import ProblemInfo from '../../organisms/DataProductization/ProblemInfo/ProblemInfo';
-
-import DPData from './../../../dummy.json';
+import { useSelector, useDispatch } from 'react-redux';
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
-  const { sections, currency, totalLostRevenue } = DPData;
-  const Sections = Object.entries(sections).map(([k, v]) => ({
-    name: k,
-    ...v,
-  }));
+  const { lostRevenueData } = useSelector(({ DPState }) => DPState);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCall());
+  }, []);
+  const { sections, totalLostRevenue } = lostRevenueData || {};
+  const Sections = sections
+    ? Object.entries(sections).map(([k, v]) => ({
+        name: k,
+        ...v,
+      }))
+    : [];
   return (
-    <MainCOntainer>
-      <WrapContainer>
+    <MainContainer>
+      <WrapContainer visible={lostRevenueData}>
         <DPHeaderContainer />
         <DropDownMenu />
-        <ActionHeader Info={{ currency, totalLostRevenue }} />
+        <ActionHeader Info={{ totalLostRevenue }} />
         {Sections.map((sect, i) => (
           <ProblemInfo
-            currency={currency}
             section={sect}
             color={Colors[i]}
             key={`problem-info-${i}`}
@@ -33,7 +39,7 @@ const DPPageTemplate = () => {
           />
         ))}
       </WrapContainer>
-    </MainCOntainer>
+    </MainContainer>
   );
 };
 

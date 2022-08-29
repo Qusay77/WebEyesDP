@@ -9,7 +9,7 @@ import {
   InfoText,
 } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/ParagraphAtoms';
 
-const SubInfoHeaderText = ({ problem, color, currency }) => {
+const SubInfoHeaderText = ({ problem, color }) => {
   const { title, lostRevenue, percentage } = problem;
   return (
     <SubInfoRow header>
@@ -19,9 +19,7 @@ const SubInfoHeaderText = ({ problem, color, currency }) => {
         />
         <InfoText header>{title}</InfoText>
       </CircledText>
-      <InfoNumber header>
-        {lostRevenue ? `${currency ?? ''}${lostRevenue}` : ''}
-      </InfoNumber>
+      <InfoNumber header>{lostRevenue ? lostRevenue : ''}</InfoNumber>
     </SubInfoRow>
   );
 };

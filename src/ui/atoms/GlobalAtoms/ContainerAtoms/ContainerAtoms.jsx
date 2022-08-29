@@ -8,7 +8,7 @@ const HeaderContainer = styled.div`
     (start && 'flex-start') || (center && 'center') || (end && 'flex-end')};
 `;
 
-const MainCOntainer = styled.div`
+const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -19,10 +19,11 @@ const WrapContainer = styled.div`
   width: 100%;
   max-width: 1170px;
   height: 100%;
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   position: relative;
   > div:not(:nth-child(1)) {
     margin-top: 24px;
   }
 `;
 
-export { HeaderContainer, WrapContainer, MainCOntainer };
+export { HeaderContainer, WrapContainer, MainContainer };

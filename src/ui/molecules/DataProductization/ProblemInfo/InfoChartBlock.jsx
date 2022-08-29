@@ -10,18 +10,12 @@ import {
 } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/ParagraphAtoms';
 import PercentagePieChart from '../../../organisms/DataProductization/ProblemInfo/PieChart';
 
-const InfoChartBlock = ({
-  problems,
-  color,
-  totalLostRevenue,
-  currency,
-  index,
-}) => {
+const InfoChartBlock = ({ problems, color, totalLostRevenue, index }) => {
   return (
     <ChartBlock>
       <PercentagePieChart problems={problems} color={color} index={index} />
       <ChartTextBlock>
-        <TotalNumberText>{`${currency}${totalLostRevenue}`}</TotalNumberText>
+        <TotalNumberText>{`${totalLostRevenue}`}</TotalNumberText>
         <TextBlock>
           <TotalInfoText isBold>Lost </TotalInfoText>
           <TotalInfoText>over Business Problems</TotalInfoText>

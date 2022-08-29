@@ -9,10 +9,13 @@ import {
 import { DropDownMenuLabelOrOptionAtom } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/ParagraphAtoms';
 import DropDownArrow from './DropDownArrow';
 import OutsideClickHandler from 'react-outside-click-handler';
+import { useSelector, useDispatch } from 'react-redux';
+import { setChoice } from '../../../../redux/DPSlice';
 
 const DropDownMolecule = ({ values, menuWidth, placeholder }) => {
-  const { options } = values;
-  const [choice, setChoice] = useState(placeholder ? null : options[0]);
+  const { options, key } = values;
+  const choice = useSelector(({ DPState }) => DPState[key]);
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <OutsideClickHandler
@@ -33,7 +36,7 @@ const DropDownMolecule = ({ values, menuWidth, placeholder }) => {
               options.map((option) => (
                 <TextWrap key={option.value}>
                   <DropDownMenuLabelOrOptionAtom
-                    onClick={() => setChoice(option)}
+                    onClick={() => dispatch(setChoice({ option, key }))}
                     isBold={choice?.value === option.value}
                     clickable
                   >
