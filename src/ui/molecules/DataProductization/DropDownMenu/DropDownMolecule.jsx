@@ -10,10 +10,9 @@ import { DropDownMenuLabelOrOptionAtom } from '../../../atoms/DataProductization
 import DropDownArrow from './DropDownArrow';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-const DropDownMolecule = ({ values }) => {
+const DropDownMolecule = ({ values, menuWidth, placeholder }) => {
   const { options } = values;
-  const prefix = null;
-  const [choice, setChoice] = useState(2);
+  const [choice, setChoice] = useState(placeholder ? null : options[0]);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <OutsideClickHandler
@@ -22,23 +21,23 @@ const DropDownMolecule = ({ values }) => {
       }}
     >
       <DropMenuWrapper>
-        <DropDownMenuContainer isOpen={isOpen}>
+        <DropDownMenuContainer menuWidth={menuWidth} isOpen={isOpen}>
           <DropDownLabelContainer>
             <DropDownMenuLabelOrOptionAtom>
-              {prefix} {choice}
+              {placeholder && !choice ? placeholder : choice.label}
             </DropDownMenuLabelOrOptionAtom>
             <DropDownArrow onClick={() => setIsOpen((prev) => !prev)} />
           </DropDownLabelContainer>
           <DropDownOptionsContainer>
             {isOpen &&
-              options.map(({ label, value }) => (
-                <TextWrap key={value}>
+              options.map((option) => (
+                <TextWrap key={option.value}>
                   <DropDownMenuLabelOrOptionAtom
-                    onClick={() => setChoice(value)}
-                    isBold={choice === value}
+                    onClick={() => setChoice(option)}
+                    isBold={choice?.value === option.value}
                     clickable
                   >
-                    {prefix} {label}
+                    {option.label}
                   </DropDownMenuLabelOrOptionAtom>
                 </TextWrap>
               ))}

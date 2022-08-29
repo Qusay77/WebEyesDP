@@ -8,20 +8,21 @@ const customStyles = {
     backdropFilter: 'blur(20px)',
   },
   content: {
-    top: '30%',
+    top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     padding: '0',
+    overflow: 'visible',
   },
 };
 
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('section');
 
-const CustomModal = ({ modalIsOpen, setIsOpen, Content }) => {
+const CustomModal = ({ modalIsOpen, setIsOpen, Content, ContentProps }) => {
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -29,7 +30,7 @@ const CustomModal = ({ modalIsOpen, setIsOpen, Content }) => {
       style={customStyles}
       contentLabel="Custom Modal"
     >
-      <Content />
+      <Content {...ContentProps} />
     </Modal>
   );
 };

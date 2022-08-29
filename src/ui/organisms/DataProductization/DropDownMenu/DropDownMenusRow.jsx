@@ -7,8 +7,16 @@ const options = [...Array(100)].map((_, i) => ({ label: i, value: i }));
 const DropDownMenu = () => {
   return (
     <DropDownMenusContainer>
-      <DropDownBlock values={{ options, label: 'Test1' }}></DropDownBlock>
       <DropDownBlock
+        labelWidth={'258px'}
+        menuWidth={'254px'}
+        labelBottomMargin={'8px'}
+        values={{ options, label: 'Test1' }}
+      />
+      <DropDownBlock
+        labelWidth={'258px'}
+        menuWidth={'254px'}
+        labelBottomMargin={'8px'}
         values={{
           options: [
             {
@@ -20,8 +28,13 @@ const DropDownMenu = () => {
           label:
             'Test222222rqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq222',
         }}
-      ></DropDownBlock>
-      <DropDownBlock values={{ options, label: 'Test3' }}></DropDownBlock>
+      />
+      <DropDownBlock
+        labelWidth={'258px'}
+        menuWidth={'254px'}
+        labelBottomMargin={'8px'}
+        values={{ options, label: 'Test3' }}
+      />
     </DropDownMenusContainer>
   );
 };

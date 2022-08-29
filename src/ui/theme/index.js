@@ -14,6 +14,7 @@ const theme = {
     lightBlack: '#444C6A',
     borderBlue: '#C6E2FF',
     closeButtonGrey: '#B0B0B0',
+    optional: '#444C6A4D',
   },
 };
 

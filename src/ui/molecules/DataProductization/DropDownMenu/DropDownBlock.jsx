@@ -4,17 +4,30 @@ import { TextWrap } from '../../../atoms/DataProductizationAtoms/DropDownMenuAto
 import { DropDownMenuLabelOrOptionAtom } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/ParagraphAtoms';
 import DropDownMolecule from './DropDownMolecule';
 
-const DropDownBlock = ({ values }) => {
+const DropDownBlock = ({
+  values,
+  labelWidth,
+  menuWidth,
+  labelBottomMargin,
+  placeholder,
+}) => {
   const { options, label } = values;
   return (
     <DropDownBlockContainer>
-      <TextWrap width={'258px'}>
-        <DropDownMenuLabelOrOptionAtom isLabel>
+      <TextWrap width={labelWidth}>
+        <DropDownMenuLabelOrOptionAtom
+          labelBottomMargin={labelBottomMargin}
+          isLabel
+        >
           {label}
         </DropDownMenuLabelOrOptionAtom>
       </TextWrap>
 
-      <DropDownMolecule values={{ options }} />
+      <DropDownMolecule
+        placeholder={placeholder}
+        menuWidth={menuWidth}
+        values={{ options }}
+      />
     </DropDownBlockContainer>
   );
 };

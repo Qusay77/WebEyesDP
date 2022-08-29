@@ -19,7 +19,7 @@ const DropMenuWrapper = styled.div`
 `;
 const DropDownMenuContainer = styled.div`
   box-sizing: border-box;
-  width: 254px;
+  width: ${({ menuWidth }) => menuWidth};
   height: ${({ isOpen }) => (isOpen ? 'fit-content' : '56px')};
   min-height: 56px;
   overflow: hidden;
@@ -29,7 +29,10 @@ const DropDownMenuContainer = styled.div`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 0 16px;
-  z-index: 99;
+
+  position: absolute;
+  z-index: 9999;
+
   ${Arrow} {
     transform: ${({ isOpen }) =>
       isOpen ? 'rotate(-135deg)' : 'rotate(45deg)'};

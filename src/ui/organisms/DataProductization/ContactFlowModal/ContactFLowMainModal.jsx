@@ -7,6 +7,7 @@ const ContactFlowMainModal = ({ modalIsOpen, setIsOpen }) => {
     <CustomModal
       modalIsOpen={modalIsOpen}
       setIsOpen={setIsOpen}
+      ContentProps={{ setIsOpen }}
       Content={FlowPageController}
     />
   );

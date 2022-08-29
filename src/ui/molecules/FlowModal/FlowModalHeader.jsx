@@ -3,11 +3,11 @@ import { FlowHeaderContainer } from '../../atoms/DataProductizationAtoms/FlowMod
 import { HeaderText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 import CloseButton from './CloseButton';
 
-const FlowModalHeader = ({ action }) => {
+const FlowModalHeader = ({ action, text, headerSpacing }) => {
   return (
     <FlowHeaderContainer>
-      <HeaderText>Let Webeyez analyze your real Data</HeaderText>
-      <CloseButton action={action} />
+      <HeaderText>{text}</HeaderText>
+      <CloseButton headerSpacing={headerSpacing} action={action} />
     </FlowHeaderContainer>
   );
 };
