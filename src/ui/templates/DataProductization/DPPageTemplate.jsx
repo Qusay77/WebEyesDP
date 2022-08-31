@@ -11,6 +11,7 @@ import ProblemInfo from '../../organisms/DataProductization/ProblemInfo/ProblemI
 import { useSelector, useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import theme from '../../theme';
+import ActionHeaderButton from '../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
@@ -37,6 +38,7 @@ const DPPageTemplate = () => {
         <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
           <ActionHeader Info={{ totalLostRevenue }} />
           <DropDownMenu />
+          <ActionHeaderButton mobile action={() => dispatch(getCall(true))} />
         </MediaQuery>
         {Sections.map((sect, i) => (
           <ProblemInfo

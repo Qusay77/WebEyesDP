@@ -8,6 +8,7 @@ const theme = {
     laptopL: '1440px',
     desktop: '2560px',
     magicMachine: '1200px',
+    magicMachineInt: 1200,
   },
   colors: {
     black: '#0D142E',

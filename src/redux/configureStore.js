@@ -5,12 +5,15 @@ import {
 } from '@reduxjs/toolkit';
 import { getCall } from './apiCalls/getCall';
 import DPState, { setChoice, setParams } from './DPSlice';
-
+import theme from '../ui/theme';
 const listenerMiddleware = createListenerMiddleware();
 listenerMiddleware.startListening({
   actionCreator: setChoice,
   effect: async (action) => {
-    if (action.payload.key !== 'platform') store.dispatch(getCall(true));
+    const currentSize = window.innerWidth;
+    const isMobile = currentSize <= theme.breakpoints.magicMachineInt;
+    if (action.payload.key !== 'platform' && !isMobile)
+      store.dispatch(getCall(true));
   },
 });
 listenerMiddleware.startListening({
