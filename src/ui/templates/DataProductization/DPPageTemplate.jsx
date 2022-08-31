@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import theme from '../../theme';
 import ActionHeaderButton from '../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
+import MobileInfoHeader from '../../molecules/DataProductization/Header/MobileInfoHeader';
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
@@ -39,6 +40,7 @@ const DPPageTemplate = () => {
           <ActionHeader Info={{ totalLostRevenue }} />
           <DropDownMenu />
           <ActionHeaderButton mobile action={() => dispatch(getCall(true))} />
+          <MobileInfoHeader />
         </MediaQuery>
         {Sections.map((sect, i) => (
           <ProblemInfo

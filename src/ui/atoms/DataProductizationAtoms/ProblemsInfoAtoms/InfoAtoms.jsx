@@ -6,6 +6,10 @@ const InfoTextRowContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: ${({ noTopMargin }) => (noTopMargin ? 'unset' : '16px')};
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    width: 100%;
+  }
 `;
 
 const SubInfoRow = styled.div`
@@ -14,6 +18,10 @@ const SubInfoRow = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: ${({ header }) => (header ? '0' : '16px;')};
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    width: 100%;
+  }
 `;
 
 const CircledText = styled.div`
@@ -27,6 +35,10 @@ const ChartBlock = styled.div`
   flex-direction: row;
   height: 120px;
   justify-content: flex-start;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    height: 100px;
+  }
 `;
 
 const ChartTextBlock = styled.div`
@@ -34,6 +46,10 @@ const ChartTextBlock = styled.div`
   flex-direction: column;
   margin-left: 16px;
   justify-content: center;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    gap: 14px;
+  }
 `;
 
 const TextBlock = styled.div`

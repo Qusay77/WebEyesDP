@@ -13,4 +13,12 @@ const ParagraphHeaderAtom = styled.p`
   }
 `;
 
-export { ParagraphHeaderAtom };
+const MobileInfoHeaderAtom = styled.p`
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: ${({ theme }) => theme.colors.lightBlack};
+  margin-top: 80px;
+`;
+
+export { ParagraphHeaderAtom, MobileInfoHeaderAtom };

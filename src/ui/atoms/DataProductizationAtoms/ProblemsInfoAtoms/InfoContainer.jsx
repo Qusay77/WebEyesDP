@@ -12,6 +12,10 @@ const InfoContainer = styled.div`
   background: #ffffff;
   border: 1px solid ${({ theme }) => theme.colors.borderBlue};
   border-radius: 5px;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    height: fit-content;
+  }
 `;
 
 export default InfoContainer;

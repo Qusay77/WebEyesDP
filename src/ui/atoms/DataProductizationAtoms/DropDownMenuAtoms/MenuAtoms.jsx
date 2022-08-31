@@ -5,6 +5,7 @@ const Arrow = styled.i`
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(-135deg)' : 'rotate(45deg)')};
 `;
 
 const DropDownLabelContainer = styled.div`

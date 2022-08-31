@@ -29,9 +29,6 @@ const WrapContainer = styled.div`
       theme.breakpoints.magicMachine}) {
     max-width: ${({ theme }) => theme.breakpoints.mobileM};
     padding: 0 8px;
-    > div:not(:nth-child(1)) {
-      margin-top: 48px;
-    }
   }
 `;
 

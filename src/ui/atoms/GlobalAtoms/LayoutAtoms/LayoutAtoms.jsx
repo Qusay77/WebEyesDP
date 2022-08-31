@@ -9,7 +9,7 @@ const FullFlexColumn = styled.div`
 `;
 
 const VariableFlexLayout = styled.div`
-  width: ${({ width }) => width ?? 'fit-content'};
+  width: fit-content;
   height: ${({ height }) => height ?? 'fit-content'};
   display: flex;
   flex-direction: ${({ dir }) => dir};

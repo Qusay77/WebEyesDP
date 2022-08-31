@@ -4,6 +4,7 @@ const HeaderText = styled.p`
   font-weight: 700;
   font-size: 18px;
   line-height: 30px;
+  white-space: nowrap;
   display: inline;
   color: ${({ theme }) => theme.colors.lightBlack};
   &::first-letter {
@@ -38,6 +39,10 @@ const TotalNumberText = styled.p`
   font-size: 32px;
   line-height: 52.61px;
   color: ${({ theme }) => theme.colors.lightBlack};
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    line-height: 39px;
+  }
 `;
 
 const TotalInfoText = styled.p`
@@ -46,6 +51,12 @@ const TotalInfoText = styled.p`
   line-height: 29.59px;
   color: ${({ theme }) => theme.colors.lightBlack};
   display: inline;
+
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 export {

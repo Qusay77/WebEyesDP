@@ -1,6 +1,8 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import CustomPieChartToolTip from './CustomPieChartToolTip';
+import { useMediaQuery } from 'react-responsive';
+import theme from '../../../theme';
 
 const PercentagePieChart = ({ problems, color, index }) => {
   const data = problems.map(({ percentage, title, lostRevenue }) => ({
@@ -24,16 +26,21 @@ const PercentagePieChart = ({ problems, color, index }) => {
         'px)';
     }
   };
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
+
+  const chartDims = isMobile
+    ? { cx: 45, cy: 45, innerRadius: 35, outerRadius: 50 }
+    : { cx: 55, cy: 55, innerRadius: 40, outerRadius: 60 };
+
   return (
     <ResponsiveContainer width={120} height={120}>
       <PieChart>
         <Pie
           stroke="none"
           data={data}
-          cx={55}
-          cy={55}
-          innerRadius={40}
-          outerRadius={60}
+          {...chartDims}
           dataKey="value"
           onMouseMove={onPieEnter}
         >

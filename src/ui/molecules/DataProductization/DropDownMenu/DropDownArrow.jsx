@@ -4,10 +4,10 @@ import {
   ArrowContainer,
 } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/MenuAtoms';
 
-const DropDownArrow = ({ onClick }) => {
+const DropDownArrow = ({ isOpen, onClick }) => {
   return (
     <ArrowContainer onClick={onClick}>
-      <Arrow />
+      <Arrow isOpen={isOpen} />
     </ArrowContainer>
   );
 };

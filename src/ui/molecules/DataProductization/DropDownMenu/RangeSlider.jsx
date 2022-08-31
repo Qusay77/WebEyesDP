@@ -21,6 +21,7 @@ const RangeSlider = ({ values }) => {
     <RangeInputContainer>
       <RangeInput
         value={range}
+        gradientValue={(range * 100) / (options.length - 1)}
         onChange={(e) => setRange(e.target.value)}
         type="range"
         min="0"

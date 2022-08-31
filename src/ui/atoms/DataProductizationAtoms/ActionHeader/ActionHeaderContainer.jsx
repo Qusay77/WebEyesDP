@@ -17,6 +17,7 @@ const ActionHeaderContainer = styled.div`
       theme.breakpoints.magicMachine}) {
     border: none;
     padding: 0;
+    background: #fff;
   }
 `;
 
