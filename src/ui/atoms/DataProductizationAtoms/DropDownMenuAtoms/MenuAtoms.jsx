@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Arrow = styled.i`
-  border: solid #4b9df7;
+  border: solid ${({ theme }) => theme.colors.sliderBlue};
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
@@ -50,9 +50,17 @@ const DropDownMenuContainer = styled.div`
   opacity:0.5;
   pointer-events:none;
   `}
+
+  @media screen and (max-width: ${({ theme }) =>
+    theme.breakpoints.magicMachine}) {
+    width: 100%;
+  }
 `;
 const TextWrap = styled.div`
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   ${({ width }) => `width:${width}`}
 `;
 const DropDownOptionsContainer = styled.div`

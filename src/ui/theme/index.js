@@ -7,6 +7,7 @@ const theme = {
     laptop: '1024px',
     laptopL: '1440px',
     desktop: '2560px',
+    magicMachine: '1200px',
   },
   colors: {
     black: '#0D142E',
@@ -15,6 +16,8 @@ const theme = {
     borderBlue: '#C6E2FF',
     closeButtonGrey: '#B0B0B0',
     optional: '#444C6A4D',
+    sliderBlue: '#4B9DF7',
+    chipBlue: '#EDF5FE',
   },
 };
 

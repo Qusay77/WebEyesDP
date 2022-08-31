@@ -13,6 +13,10 @@ const DropDownMenuLabelOrOptionAtom = styled.p`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    font-size: 16px;
+  }
 `;
 
 export { DropDownMenuLabelOrOptionAtom };

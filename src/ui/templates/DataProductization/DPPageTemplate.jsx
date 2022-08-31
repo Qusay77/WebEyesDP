@@ -9,6 +9,8 @@ import DropDownMenu from '../../organisms/DataProductization/DropDownMenu/DropDo
 import DPHeaderContainer from '../../organisms/DataProductization/Header/DPHeaderContainer';
 import ProblemInfo from '../../organisms/DataProductization/ProblemInfo/ProblemInfo';
 import { useSelector, useDispatch } from 'react-redux';
+import MediaQuery from 'react-responsive';
+import theme from '../../theme';
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
@@ -28,8 +30,14 @@ const DPPageTemplate = () => {
     <MainContainer>
       <WrapContainer visible={lostRevenueData}>
         <DPHeaderContainer />
-        <DropDownMenu />
-        <ActionHeader Info={{ totalLostRevenue }} />
+        <MediaQuery minWidth={theme.breakpoints.magicMachine}>
+          <DropDownMenu />
+          <ActionHeader Info={{ totalLostRevenue }} />
+        </MediaQuery>
+        <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
+          <ActionHeader Info={{ totalLostRevenue }} />
+          <DropDownMenu />
+        </MediaQuery>
         {Sections.map((sect, i) => (
           <ProblemInfo
             section={sect}

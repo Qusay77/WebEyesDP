@@ -24,6 +24,15 @@ const WrapContainer = styled.div`
   > div:not(:nth-child(1)) {
     margin-top: 24px;
   }
+
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    max-width: ${({ theme }) => theme.breakpoints.mobileM};
+    padding: 0 8px;
+    > div:not(:nth-child(1)) {
+      margin-top: 48px;
+    }
+  }
 `;
 
 export { HeaderContainer, WrapContainer, MainContainer };

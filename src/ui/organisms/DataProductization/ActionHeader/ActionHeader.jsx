@@ -7,6 +7,8 @@ import ActionHeaderTotal from '../../../molecules/DataProductization/ActionHeade
 import ContactFlowMainModal from '../ContactFlowModal/ContactFLowMainModal';
 import { useDispatch } from 'react-redux';
 import { resetParams } from '../../../../redux/DPSlice';
+import MediaQuery from 'react-responsive';
+import theme from '../../../theme';
 
 const ActionHeader = ({ Info }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -19,13 +21,20 @@ const ActionHeader = ({ Info }) => {
   }, [modalIsOpen]);
   return (
     <ActionHeaderContainer>
-      <ActionHeaderTotal Info={Info} />
-      <BlockAtom flex={2}>
-        <ActionHeaderText />
-      </BlockAtom>
-      <BlockAtom flex={1} end="true">
-        <ActionHeaderButton action={() => setIsOpen(true)} />
-      </BlockAtom>
+      <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
+        <BlockAtom flex={1}>
+          <ActionHeaderText />
+        </BlockAtom>
+      </MediaQuery>
+      <MediaQuery minWidth={theme.breakpoints.magicMachine}>
+        <ActionHeaderTotal Info={Info} />
+        <BlockAtom flex={2}>
+          <ActionHeaderText />
+        </BlockAtom>
+        <BlockAtom flex={1} end="true">
+          <ActionHeaderButton action={() => setIsOpen(true)} />
+        </BlockAtom>
+      </MediaQuery>
       <ContactFlowMainModal setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
     </ActionHeaderContainer>
   );
