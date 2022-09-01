@@ -4,6 +4,7 @@ import {
   IndustryOptions,
   MonthlyVisitsOptions,
 } from '../utils/DPDropDownOptions';
+import { validateEmail, validatePassword } from '../utils/validation';
 
 const initialState = {
   industryId: IndustryOptions[0],
@@ -19,11 +20,33 @@ const initialState = {
     subscribeToMonthlyReport: false,
     subscribed_emails: null,
   },
+  validations: {
+    emailValid: { value: null, func: validateEmail, key: 'email' },
+    passwordValid: { value: null, func: validatePassword, key: 'password' },
+  },
+};
+
+const setValidationsFun = (state, { payload }) => {
+  const { types } = payload;
+  types.map((k) => {
+    const { func, key } = state.validations[k];
+    state.validations[k].value = func(state.params[key]);
+  });
 };
 
 const setParamsFun = (state, { payload }) => {
-  const { params } = payload;
+  const { params, validate } = payload;
   Object.entries(params).map(([k, v]) => {
+    const { func } = state.validations[validate] || {};
+    if (validate && state.validations[validate].value === null) {
+      if (func(v)) {
+        state.validations[validate].value = func(v);
+      }
+    }
+    if (validate && state.validations[validate].value !== null) {
+      const { func } = state.validations[validate];
+      state.validations[validate].value = func(v);
+    }
     state.params[k] = v;
   });
 };
@@ -45,6 +68,7 @@ const DPSlice = createSlice({
   name: 'dataProductization',
   initialState,
   reducers: {
+    setValidations: setValidationsFun,
     resetParams: resetParamsFun,
     setParams: setParamsFun,
     setChoice: setChoiceFun,
@@ -54,7 +78,12 @@ const DPSlice = createSlice({
   },
 });
 
-export const { setChoice, setLostRevenueData, setParams, resetParams } =
-  DPSlice.actions;
+export const {
+  setChoice,
+  setLostRevenueData,
+  setParams,
+  resetParams,
+  setValidations,
+} = DPSlice.actions;
 export { initialState };
 export default DPSlice.reducer;

@@ -19,7 +19,7 @@ const InfoTextRow = ({ problem, color, colorReady, noTopMargin }) => {
         />
         <InfoText>{title}</InfoText>
       </CircledText>
-      {percentage ? <InfoNumber>%{percentage}</InfoNumber> : ''}
+      {percentage ? <InfoNumber>{percentage}%</InfoNumber> : ''}
     </InfoTextRowContainer>
   );
 };

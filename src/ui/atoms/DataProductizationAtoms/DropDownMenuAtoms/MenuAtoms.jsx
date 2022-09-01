@@ -13,6 +13,7 @@ const DropDownLabelContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 56px;
+  cursor: pointer;
 `;
 const DropMenuWrapper = styled.div`
   position: relative;
@@ -42,7 +43,9 @@ const DropDownMenuContainer = styled.div`
   }
   ${DropDownLabelContainer} {
     ${({ isOpen, theme }) =>
-      isOpen ? `border-bottom: 1px solid ${theme.colors.borderBlue};` : ''}
+      isOpen
+        ? `border-bottom: 1px solid ${theme.colors.borderBlue};height:57px;`
+        : ''}
   }
 
   ${({ disabled }) =>
@@ -62,7 +65,8 @@ const TextWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${({ width }) => `width:${width}`}
+  ${({ width }) => `width:${width}`};
+  cursor: ${({ clickable }) => (clickable ? 'pointer' : 'auto')};
 `;
 const DropDownOptionsContainer = styled.div`
   display: flex;

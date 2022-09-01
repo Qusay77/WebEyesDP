@@ -5,16 +5,24 @@ import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/Par
 import { useSelector, useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
 
-const TextInputBlock = () => {
+const TextInputBlock = ({ disabled }) => {
   const { email } = useSelector(({ DPState }) => DPState.params);
+  const { emailValid } = useSelector(({ DPState }) => DPState.validations);
   const dispatch = useDispatch();
   return (
     <TextInputBlockContainer>
       <MainText isLabel>Email Address</MainText>
       <TextInput
-        onChange={(e) =>
-          dispatch(setParams({ params: { email: e.target.value } }))
-        }
+        disabled={disabled}
+        error={emailValid.value === false}
+        onChange={(e) => {
+          dispatch(
+            setParams({
+              params: { email: e.target.value },
+              validate: 'emailValid',
+            }),
+          );
+        }}
         value={email ?? ''}
         placeholder={'ceo@mydomain.com'}
       />

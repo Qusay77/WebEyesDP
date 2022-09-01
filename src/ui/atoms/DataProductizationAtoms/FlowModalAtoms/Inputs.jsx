@@ -22,7 +22,7 @@ const Checkbox = styled.input`
   }
 
   &:checked {
-    background: ${({ theme }) => theme.colors.borderBlue};
+    background: ${({ theme }) => theme.colors.checkboxBlue};
     outline: none;
   }
   &:focus,
@@ -38,15 +38,26 @@ const Checkbox = styled.input`
 const TextInput = styled.input`
   color: ${({ theme, optional }) =>
     optional ? theme.colors.optional : theme.colors.lightBlack};
-  border: 1px solid ${({ theme }) => theme.colors.borderBlue};
+  border: 1px solid
+    ${({ theme, error }) =>
+      error ? theme.colors.borderRed : theme.colors.borderBlue};
   border-radius: 5px;
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.borderBlue};
+    outline: 2px solid
+      ${({ theme, error }) =>
+        error ? theme.colors.borderRed : theme.colors.borderBlue};
   }
   width: ${({ fullWidth }) => (fullWidth ? '100%' : '348px')};
   height: 56px;
   padding: 0 16px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
+  ${({ disabled }) =>
+    disabled &&
+    `
+  opacity: 0.5;
+  pointer-events:none;
+  `}
 `;
 
 export { Checkbox, TextInput };

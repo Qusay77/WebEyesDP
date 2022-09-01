@@ -10,7 +10,7 @@ const SubInfoText = ({ category }) => {
   return (
     <SubInfoRow>
       <SmallInfoText>{title}</SmallInfoText>
-      <InfoNumber>{lostRevenue ? lostRevenue : ''}</InfoNumber>
+      <InfoNumber>{lostRevenue ?? ''}</InfoNumber>
     </SubInfoRow>
   );
 };

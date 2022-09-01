@@ -17,6 +17,7 @@ const DropDownMenuLabelOrOptionAtom = styled.p`
       theme.breakpoints.magicMachine}) {
     font-size: 16px;
   }
+  ${({ placeholderColor }) => (placeholderColor ? `opacity:0.5;` : '')}
 `;
 
 export { DropDownMenuLabelOrOptionAtom };

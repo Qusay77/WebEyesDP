@@ -45,7 +45,7 @@ const CustomPieChartToolTip = ({ active, payload }) => {
           <InfoTextRow noTopMargin colorReady={color} problem={{ title }} />
           <ValueText>
             <InfoNumber header>%{value}</InfoNumber>
-            <InfoNumber header>${lostRevenue}</InfoNumber>
+            <InfoNumber header>{lostRevenue}</InfoNumber>
           </ValueText>
         </ToolTipContentContainer>
       </ToolTipContainer>

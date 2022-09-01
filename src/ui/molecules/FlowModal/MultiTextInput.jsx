@@ -8,6 +8,7 @@ import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/Par
 import PlusSignButton from './PlusSignButton';
 import { useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
+import { validateEmail } from '../../../utils/validation';
 
 const MultiTextInput = () => {
   const [inputs, setInputs] = useState(['']);
@@ -23,16 +24,23 @@ const MultiTextInput = () => {
 
   useEffect(() => {
     if (inputs[0].length) {
-      dispatch(setParams({ params: { subscribed_emails: inputs.join(',') } }));
+      dispatch(
+        setParams({
+          params: {
+            subscribed_emails: inputs.filter((e) => validateEmail(e)).join(','),
+          },
+        }),
+      );
     }
   }, [inputs]);
   return (
     <TextInputBlockContainer>
-      <MainText isLabel>Email Address</MainText>
+      <MainText isLabel>Email Addresses</MainText>
       <MultiInputsContainer>
         {inputs.map((input, i) => (
           <TextInput
             value={input}
+            error={input.length && !validateEmail(input)}
             onChange={(e) => setValues(i, e.target.value)}
             placeholder={'ceo@mydomain.com'}
             key={`input-${i}`}

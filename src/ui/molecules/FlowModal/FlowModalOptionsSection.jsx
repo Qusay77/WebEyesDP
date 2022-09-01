@@ -19,7 +19,7 @@ const FlowModalOptionsSection = ({ disabled }) => {
           key: 'platform',
         }}
       />
-      <TextInputBlock />
+      <TextInputBlock disabled={disabled} />
     </FlowModalOptionsContainer>
   );
 };

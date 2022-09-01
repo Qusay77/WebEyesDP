@@ -46,7 +46,7 @@ const FlowPageController = ({ setIsOpen }) => {
     freeTrail: {
       0: {
         component: <FlowOneSecondStepModalPage />,
-        headerText: 'Take control over your lost revenue!',
+        headerText: 'Take Control Over Your Lost Revenue!',
         buttonText: 'Take me to the Main Page',
         headerSpacing: '315px',
         hasCheck: true,
@@ -56,7 +56,7 @@ const FlowPageController = ({ setIsOpen }) => {
     monthlyReport: {
       0: {
         component: <FlowTwoSecondStepModalPage />,
-        headerText: 'Thank you for your subscription!',
+        headerText: 'Thank You For Your Subscription!',
         buttonText: 'Take me to the Main Page',
         headerSpacing: '315px',
         hasCheck: true,
@@ -66,19 +66,19 @@ const FlowPageController = ({ setIsOpen }) => {
     registration: {
       0: {
         component: <MainFlowSecondStepModalPage />,
-        headerText: 'Let Webeyez analyze your real Data',
+        headerText: 'Let Webeyez Analyze Your Real Data',
         buttonText: 'Create an Account',
         hasReportButton: true,
       },
       1: {
         component: <MainFlowThirdStepModalPage />,
-        headerText: 'Just one more Step!',
+        headerText: 'Just One More Step!',
         buttonText: 'Sign Up',
         flowAction: registrationFlowAction,
       },
       2: {
         component: <MainFlowFourthStepModalPage />,
-        headerText: 'Thank you for your registration!',
+        headerText: 'Thank You For Your Registration!',
         headerSpacing: '315px',
         buttonText: 'Take me to the Main Page',
         hasCheck: true,
@@ -96,7 +96,7 @@ const FlowPageController = ({ setIsOpen }) => {
       setStep((prev) => prev + 1);
     }
   };
-
+  const { passwordValid } = useSelector(({ DPState }) => DPState.validations);
   return (
     <FlowPageContainer
       hasCheck={flows[flow]?.[step]?.hasCheck}
@@ -107,13 +107,14 @@ const FlowPageController = ({ setIsOpen }) => {
         text={
           flow
             ? flows[flow]?.[step]?.headerText
-            : 'Let Webeyez analyze your real Data'
+            : 'Let Webeyez Analyze Your Real Data'
         }
         action={() => setIsOpen(false)}
       />
       {!flow ? <FirstStepModalPage /> : ''}
       {flows[flow]?.[step]?.component ?? ''}
       <FlowPageFooter
+        passwordCheck={flow === 'registration' && !passwordValid.value}
         tools={{ flow, moveAction }}
         action={(flow) => flowController(flow)}
         disabled={!params.email || !platform}

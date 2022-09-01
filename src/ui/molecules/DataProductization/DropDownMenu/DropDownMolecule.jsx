@@ -29,22 +29,29 @@ const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
           menuWidth={menuWidth}
           isOpen={isOpen}
         >
-          <DropDownLabelContainer>
-            <DropDownMenuLabelOrOptionAtom>
+          <DropDownLabelContainer
+            onClick={() => !disabled && setIsOpen((prev) => !prev)}
+          >
+            <DropDownMenuLabelOrOptionAtom
+              placeholderColor={placeholder && !choice}
+            >
               {placeholder && !choice ? placeholder : choice.label}
             </DropDownMenuLabelOrOptionAtom>
-            <DropDownArrow
-              onClick={() => !disabled && setIsOpen((prev) => !prev)}
-            />
+            <DropDownArrow />
           </DropDownLabelContainer>
           <DropDownOptionsContainer>
             {isOpen &&
               options.map((option) => (
-                <TextWrap key={option.value}>
+                <TextWrap
+                  onClick={() => {
+                    dispatch(setChoice({ option, key }));
+                    setIsOpen(false);
+                  }}
+                  clickable
+                  key={option.value}
+                >
                   <DropDownMenuLabelOrOptionAtom
-                    onClick={() => dispatch(setChoice({ option, key }))}
                     isBold={choice?.value === option.value}
-                    clickable
                   >
                     {option.label}
                   </DropDownMenuLabelOrOptionAtom>

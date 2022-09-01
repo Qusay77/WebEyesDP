@@ -7,6 +7,7 @@ import { TextInput } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/In
 import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 import { useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
+import { validatePassword } from '../../../utils/validation';
 
 const FlowModalPasswordSection = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,13 @@ const FlowModalPasswordSection = () => {
   const [passwords, setPasswords] = useState(['', '']);
 
   useEffect(() => {
-    if (passwords[1].length && passwords[0] === passwords[1]) {
-      dispatch(setParams({ params: { password: passwords[1] } }));
+    if (validatePassword(passwords)) {
+      dispatch(
+        setParams({
+          validate: 'passwordValid',
+          params: { password: passwords[1] },
+        }),
+      );
     }
   }, [passwords]);
   return (
@@ -24,12 +30,18 @@ const FlowModalPasswordSection = () => {
       <MultiInputsContainer>
         {passwords.map((password, i) => (
           <TextInput
-            onChange={(e) =>
+            onChange={(e) => {
               setPasswords((prev) => {
                 const newArr = [...prev];
                 newArr[i] = e.target.value;
                 return newArr;
-              })
+              });
+            }}
+            error={
+              i
+                ? password.length && !validatePassword(passwords)
+                : password.length &&
+                  (password.length < 8 || /\s/.test(password))
             }
             value={password}
             type="password"

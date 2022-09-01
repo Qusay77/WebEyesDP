@@ -2,16 +2,22 @@ import styled from 'styled-components';
 import topSVG from '../../../assets/Background Illustration - Circle.svg';
 import BottomSVG from '../../../assets/Background Illustration.svg';
 import CheckBG from '../../../assets/Check Illustration.svg';
+import { DropDownMenuContainer } from '../DropDownMenuAtoms/MenuAtoms';
+import { TextInput } from './Inputs';
 
 const FlowPageContainer = styled.div`
   width: fit-content;
   height: fit-content;
-  background-image: url(${topSVG}), url(${BottomSVG}),
-    ${({ hasCheck }) => (hasCheck ? `url(${CheckBG})` : '')};
+  background-image: url(${topSVG}),
+    url(${BottomSVG}) ${({ hasCheck }) => (hasCheck ? `,url(${CheckBG})` : '')};
   background-position: left top, right bottom, 95% 125px;
   background-repeat: no-repeat, no-repeat, no-repeat;
   padding: 56px 56px ${({ fullBottom }) => (fullBottom ? '56px' : '32px')} 56px;
   width: 944px;
+
+  ${DropDownMenuContainer}, ${TextInput} {
+    box-shadow: unset !important;
+  }
 `;
 const FlowHeaderContainer = styled.div`
   display: flex;
