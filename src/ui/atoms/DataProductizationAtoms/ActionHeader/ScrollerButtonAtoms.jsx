@@ -3,7 +3,6 @@ import { Arrow } from '../DropDownMenuAtoms/MenuAtoms';
 
 const ScrollerContainer = styled.div`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-  background-position: top 100%;
   width: 40px;
   height: 40px;
   border-radius: 63px;
@@ -17,8 +16,7 @@ const ScrollerContainer = styled.div`
     border-width: 0 3px 3px 0;
     padding: 5px;
     position: relative;
-    top: 3px;
-    left: 1px;
+    top: 2px;
   }
 `;
 

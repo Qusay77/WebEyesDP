@@ -8,6 +8,8 @@ import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/Par
 import { useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
 import { validatePassword } from '../../../utils/validation';
+import { useMediaQuery } from 'react-responsive';
+import theme from '../../theme';
 
 const FlowModalPasswordSection = () => {
   const dispatch = useDispatch();
@@ -24,8 +26,12 @@ const FlowModalPasswordSection = () => {
       );
     }
   }, [passwords]);
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
+
   return (
-    <TextInputBlockContainer>
+    <TextInputBlockContainer extraMargin={isMobile && '130px'}>
       <MainText isLabel>Password</MainText>
       <MultiInputsContainer>
         {passwords.map((password, i) => (

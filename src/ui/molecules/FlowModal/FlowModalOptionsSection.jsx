@@ -9,6 +9,7 @@ const FlowModalOptionsSection = ({ disabled }) => {
     <FlowModalOptionsContainer>
       <DropDownBlock
         labelWidth={'352px'}
+        persist
         menuWidth={'348px'}
         disabled={disabled}
         placeholder={'Platform Name'}

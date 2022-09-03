@@ -1,9 +1,26 @@
 import React from 'react';
-import { CheckBoxRowContainer } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/FlowPageContainers';
+import {
+  CheckBoxRowContainer,
+  MobileCheckBoxTextContainer,
+} from '../../atoms/DataProductizationAtoms/FlowModalAtoms/FlowPageContainers';
 import { Checkbox } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/Inputs';
 import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 import { useSelector, useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
+import theme from '../../theme';
+import MediaQuery from 'react-responsive';
+
+const dynamicText = [
+  { text: 'I want to get a' },
+  { text: 'Monthly Report', bold: true },
+  { text: 'based on real industry data' },
+];
+const dynamicTextMobile = [
+  { text: 'I want to get a' },
+  { text: 'Monthly Report', bold: true },
+  { text: 'based', newLine: true },
+  { text: 'on real industry data' },
+];
 
 const CheckboxRow = ({ marginTop }) => {
   const { subscribeToMonthlyReport } = useSelector(
@@ -23,9 +40,22 @@ const CheckboxRow = ({ marginTop }) => {
         checked={subscribeToMonthlyReport}
         type="checkbox"
       />
-      <MainText>I want to get a</MainText>
-      <MainText isBold> Monthly Report </MainText>
-      <MainText>based on real industry data</MainText>
+      <MediaQuery minWidth={theme.breakpoints.magicMachine}>
+        {dynamicText.map(({ text, bold, newLine }, i) => (
+          <MainText key={`text-${i}`} isBold={bold}>
+            {bold ? ` ${text} ` : text} {newLine ? <br /> : ''}
+          </MainText>
+        ))}
+      </MediaQuery>
+      <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
+        <MobileCheckBoxTextContainer>
+          {dynamicTextMobile.map(({ text, bold, newLine }, i) => (
+            <MainText key={`text-${i}`} isBold={bold}>
+              {bold ? ` ${text} ` : text} {newLine ? <br /> : ''}
+            </MainText>
+          ))}
+        </MobileCheckBoxTextContainer>
+      </MediaQuery>
     </CheckBoxRowContainer>
   );
 };

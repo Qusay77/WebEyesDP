@@ -9,6 +9,8 @@ import PlusSignButton from './PlusSignButton';
 import { useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
 import { validateEmail } from '../../../utils/validation';
+import theme from '../../theme';
+import { useMediaQuery } from 'react-responsive';
 
 const MultiTextInput = () => {
   const [inputs, setInputs] = useState(['']);
@@ -33,8 +35,13 @@ const MultiTextInput = () => {
       );
     }
   }, [inputs]);
+
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
+
   return (
-    <TextInputBlockContainer>
+    <TextInputBlockContainer {...(isMobile ? { extraMargin: '8px' } : {})}>
       <MainText isLabel>Email Addresses</MainText>
       <MultiInputsContainer>
         {inputs.map((input, i) => (

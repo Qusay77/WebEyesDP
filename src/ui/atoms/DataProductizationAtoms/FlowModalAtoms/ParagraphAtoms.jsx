@@ -5,6 +5,19 @@ const HeaderText = styled.p`
   font-size: 48px;
   line-height: 58.51px;
   color: ${({ theme }) => theme.colors.black};
+  ${({ soloCheck, isCustomPositioned }) =>
+    soloCheck
+      ? `
+  margin-top: ${isCustomPositioned ? '300px' : '410px'};
+  `
+      : ''}
+  @media screen and (max-width: ${({ theme }) =>
+    theme.breakpoints.magicMachine}) {
+    height: fit-content;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 37px;
+  }
 `;
 
 const MainText = styled.p`
@@ -38,6 +51,10 @@ const CloseSymbol = styled.p`
   font-size: 18px;
   cursor: pointer;
   margin-inline-start: ${({ headerSpacing }) => headerSpacing ?? '124px'};
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    margin-inline-start: ${({ headerSpacing }) => headerSpacing ?? '70px'};
+  }
 `;
 
 export { MainText, HeaderText, CloseSymbol, OptionalLabelContainer };

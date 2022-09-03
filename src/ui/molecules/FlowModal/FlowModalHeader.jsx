@@ -3,11 +3,22 @@ import { FlowHeaderContainer } from '../../atoms/DataProductizationAtoms/FlowMod
 import { HeaderText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 import CloseButton from './CloseButton';
 
-const FlowModalHeader = ({ action, text, headerSpacing }) => {
+const FlowModalHeader = ({
+  action,
+  text,
+  headerSpacing,
+  soloCheck,
+  isCustomPositioned,
+}) => {
   return (
     <FlowHeaderContainer>
-      <HeaderText>{text}</HeaderText>
-      <CloseButton headerSpacing={headerSpacing} action={action} />
+      <HeaderText isCustomPositioned={isCustomPositioned} soloCheck={soloCheck}>
+        {text}
+      </HeaderText>
+      <CloseButton
+        headerSpacing={soloCheck ? '0px' : headerSpacing}
+        action={action}
+      />
     </FlowHeaderContainer>
   );
 };

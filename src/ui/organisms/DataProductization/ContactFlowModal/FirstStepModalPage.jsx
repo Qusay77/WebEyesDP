@@ -3,6 +3,8 @@ import FlowModalTextSection from '../../../molecules/FlowModal/FlowModalTextSect
 import FlowModalOptionsSection from '../../../molecules/FlowModal/FlowModalOptionsSection';
 import { FirstStepModalPageContainer } from '../../../atoms/DataProductizationAtoms/FlowModalAtoms/FlowPageContainers';
 import CheckboxRow from '../../../molecules/FlowModal/CheckboxRow';
+import { useMediaQuery } from 'react-responsive';
+import theme from '../../../theme';
 
 const dynamicText = [
   { text: 'Webeyez can show you your lost revenue and much more with your' },
@@ -12,10 +14,21 @@ const dynamicText = [
   { text: 'Monthly Report', bold: true },
   { text: 'based on real industry data!' },
 ];
+const dynamicTextMobile = [
+  { text: 'WebeyeZ can show you your lost revenue', newLine: true },
+  { text: 'and much more with your' },
+  { text: 'real-time data', bold: true, newLine: true },
+  { text: 'in a few small steps!' },
+];
 const FirstStepModalPage = () => {
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
   return (
     <FirstStepModalPageContainer>
-      <FlowModalTextSection dynamicText={dynamicText} />
+      <FlowModalTextSection
+        dynamicText={isMobile ? dynamicTextMobile : dynamicText}
+      />
       <FlowModalOptionsSection />
       <CheckboxRow />
     </FirstStepModalPageContainer>

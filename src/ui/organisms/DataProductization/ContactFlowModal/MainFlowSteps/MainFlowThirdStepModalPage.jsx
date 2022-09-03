@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import {
   InfoOptionsContainer,
   MainFlowSecondStepModalPageContainer,
@@ -7,6 +8,7 @@ import CheckboxRow from '../../../../molecules/FlowModal/CheckboxRow';
 import FlowModalCompanyInfoSection from '../../../../molecules/FlowModal/FlowModalCompanyInfoSection';
 import FlowModalFullNameSection from '../../../../molecules/FlowModal/FlowModalFullNameSection';
 import FlowModalTextSection from '../../../../molecules/FlowModal/FlowModalTextSection';
+import theme from '../../../../theme';
 
 const dynamicText = [
   {
@@ -16,10 +18,16 @@ const dynamicText = [
   { text: 'You can also set up these details later on inside the system.' },
 ];
 const MainFlowThirdStepModalPage = () => {
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
   return (
     <MainFlowSecondStepModalPageContainer>
       <FlowModalTextSection dynamicText={dynamicText} />
-      <InfoOptionsContainer marginTop={'64px'}>
+      <InfoOptionsContainer
+        marginTop={isMobile ? '40px' : '64px'}
+        isMobile={isMobile}
+      >
         <FlowModalCompanyInfoSection />
         <FlowModalFullNameSection />
         <CheckboxRow marginTop={0} />

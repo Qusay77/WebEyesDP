@@ -52,7 +52,13 @@ const DPPageTemplate = () => {
             index={i}
           />
         ))}
-        <ScrollButton />
+        {lostRevenueData ? (
+          <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
+            <ScrollButton />
+          </MediaQuery>
+        ) : (
+          ''
+        )}
       </WrapContainer>
       {lostRevenueData ? (
         <MediaQuery maxWidth={theme.breakpoints.magicMachine}>

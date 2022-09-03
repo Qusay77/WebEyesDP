@@ -1,12 +1,8 @@
 import React from 'react';
-
-import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
+import { FlowOneSecondStepModalPageContainer } from '../../../../atoms/DataProductizationAtoms/FlowModalAtoms/FlowPageContainers';
 import FlowModalTextSection from '../../../../molecules/FlowModal/FlowModalTextSection';
-
-const SecondStepModalPageContainer = styled.div`
-  padding-top: 80px;
-  padding-bottom: 137px;
-`;
+import theme from '../../../../theme';
 
 const dynamicText = [
   { text: 'Our team will contact you soon to create your', newLine: true },
@@ -14,12 +10,24 @@ const dynamicText = [
   { text: 'real data', bold: true, newLine: true },
   { text: 'and take control over your monthly lost revenue' },
 ];
+const dynamicTextMobile = [
+  { text: 'Our team will contact you soon to create', newLine: true },
+  { text: 'your account so you can start analyzing', newLine: true },
+  { text: 'your' },
+  { text: 'real data,', bold: true, newLine: true },
+  { text: 'and take control over your monthly lost revenue' },
+];
 
 const FlowOneSecondStepModalPage = () => {
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
   return (
-    <SecondStepModalPageContainer>
-      <FlowModalTextSection dynamicText={dynamicText} />
-    </SecondStepModalPageContainer>
+    <FlowOneSecondStepModalPageContainer>
+      <FlowModalTextSection
+        dynamicText={isMobile ? dynamicTextMobile : dynamicText}
+      />
+    </FlowOneSecondStepModalPageContainer>
   );
 };
 

@@ -2,19 +2,34 @@ import styled from 'styled-components';
 import topSVG from '../../../assets/Background Illustration - Circle.svg';
 import BottomSVG from '../../../assets/Background Illustration.svg';
 import CheckBG from '../../../assets/Check Illustration.svg';
+import { ButtonAtom } from '../../GlobalAtoms/Buttons/GreenButtonAtoms';
 import { DropDownMenuContainer } from '../DropDownMenuAtoms/MenuAtoms';
 import { TextInput } from './Inputs';
+import { MainText } from './ParagraphAtoms';
 
 const FlowPageContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
-  background-image: url(${topSVG}),
-    url(${BottomSVG}) ${({ hasCheck }) => (hasCheck ? `,url(${CheckBG})` : '')};
-  background-position: left top, right bottom, 95% 125px;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  padding: 56px 56px ${({ fullBottom }) => (fullBottom ? '56px' : '32px')} 56px;
-  width: 944px;
-
+  width: ${({ theme }) => theme.breakpoints.mobileM};
+  padding: 16px;
+  @media screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    height: fit-content;
+    background-image: url(${topSVG}),
+      url(${BottomSVG})
+        ${({ hasCheck }) => (hasCheck ? `,url(${CheckBG})` : '')};
+    background-position: left top, right bottom, 95% 125px;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    padding: 56px 56px ${({ fullBottom }) => (fullBottom ? '56px' : '32px')}
+      56px;
+    width: 944px;
+  }
+  ${({ soloCheck, isCustomPositioned }) =>
+    soloCheck &&
+    `
+  background-image: url(${CheckBG});
+    background-position: ${isCustomPositioned ? 'center 64px' : 'center 100px'};
+    background-repeat: no-repeat;
+    height: fit-content;
+  `}
   ${DropDownMenuContainer}, ${TextInput} {
     box-shadow: unset !important;
   }
@@ -30,10 +45,29 @@ const FlowFooterContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 32px;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    ${ButtonAtom} {
+      width: 342px;
+      height: 52px;
+    }
+    ${MainText} {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
 `;
 
 const FlowTextContainer = styled.div`
   padding-inline-end: 53px;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    padding-inline-end: unset;
+    ${MainText} {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
 `;
 
 const FirstStepModalPageContainer = styled.div`
@@ -49,12 +83,24 @@ const FlowModalOptionsContainer = styled.div`
   gap: 16px;
   height: 94px;
   margin-top: 40px;
+
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    flex-direction: column;
+  }
 `;
 
 const TextInputBlockContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: fit-content;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    margin-top: ${({ extraMargin }) => extraMargin ?? '60px'};
+    ${MainText} {
+      font-size: 16px;
+    }
+  }
 `;
 
 const CheckBoxRowContainer = styled.div`
@@ -63,6 +109,17 @@ const CheckBoxRowContainer = styled.div`
   align-items: center;
   gap: 8px;
   margin-top: ${({ marginTop }) => marginTop ?? '16px'};
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    margin-top: 130px;
+    ${MainText} {
+      font-size: 16px;
+    }
+  }
+`;
+
+const MobileCheckBoxTextContainer = styled.div`
+  display: inline;
 `;
 
 const InputsContainers = styled.div`
@@ -70,10 +127,23 @@ const InputsContainers = styled.div`
   flex-wrap: wrap;
   margin-top: 24px;
 `;
-
-const SecondStepModalPageContainer = styled.div`
+const FlowOneSecondStepModalPageContainer = styled.div`
+  padding-top: 80px;
+  padding-bottom: 137px;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+`;
+const FlowTwoSecondStepModalPageContainer = styled.div`
   padding-top: 24px;
   padding-bottom: 60px;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
 `;
 
 const MultiInputsContainer = styled.div`
@@ -87,6 +157,17 @@ const InfoOptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: ${({ marginTop }) => marginTop ?? 'unset'};
+  ${({ isMobile }) =>
+    isMobile
+      ? `
+    ${TextInputBlockContainer}{
+      margin-top:unset;
+    }
+    ${CheckBoxRowContainer}{
+      margin-top:24px;
+    }
+  `
+      : ''}
 `;
 
 const MainFlowSecondStepModalPageContainer = styled.div`
@@ -97,9 +178,16 @@ const MainFlowSecondStepModalPageContainer = styled.div`
 const MainFlowThanksPageContainer = styled.div`
   padding-top: 66px;
   padding-bottom: 122px;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
 `;
 
 export {
+  FlowOneSecondStepModalPageContainer,
+  MobileCheckBoxTextContainer,
   FlowPageContainer,
   FlowHeaderContainer,
   FlowFooterContainer,
@@ -109,7 +197,7 @@ export {
   TextInputBlockContainer,
   CheckBoxRowContainer,
   InputsContainers,
-  SecondStepModalPageContainer,
+  FlowTwoSecondStepModalPageContainer,
   MultiInputsContainer,
   InfoOptionsContainer,
   MainFlowSecondStepModalPageContainer,

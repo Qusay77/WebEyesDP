@@ -7,18 +7,22 @@ import {
 import { TextAtom } from '../../../atoms/DataProductizationAtoms/ActionHeader/ParagraphAtoms';
 import { TotalNumberText } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/ParagraphAtoms';
 import ActionHeaderButton from '../../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
-
+import { useDispatch } from 'react-redux';
+import { setIsModalOpen } from '../../../../redux/DPSlice';
 const MobileFooter = () => {
   const { totalLostRevenue } = useSelector(
     ({ DPState }) => DPState.lostRevenueData || {},
   );
+  const dispatch = useDispatch();
 
   return (
     <MobileFooterContainer>
       <MobileFooterContent>
         <TextAtom>Your lost monthly revenue is</TextAtom>
         <TotalNumberText>{totalLostRevenue}</TotalNumberText>
-        <ActionHeaderButton mobile />
+        <ActionHeaderButton
+          action={() => dispatch(setIsModalOpen({ open: true }))}
+        />
       </MobileFooterContent>
     </MobileFooterContainer>
   );

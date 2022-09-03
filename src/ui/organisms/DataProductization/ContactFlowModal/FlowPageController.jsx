@@ -12,6 +12,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { verificationCall } from '../../../../redux/apiCalls/verificationCall';
 import { updateCall } from '../../../../redux/apiCalls/UpdateCall';
 import { setFlowOrStep, setParams } from '../../../../redux/DPSlice';
+import { useMediaQuery } from 'react-responsive';
+import theme from '../../../theme';
 
 const FlowPageController = ({ setIsOpen }) => {
   const { platform, params, flow, step } = useSelector(
@@ -44,6 +46,11 @@ const FlowPageController = ({ setIsOpen }) => {
   const monthlyReportAction = () => {
     dispatch(updateCall()).then(() => homePageAction());
   };
+
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
+
   const flows = {
     freeTrail: {
       0: {
@@ -68,7 +75,9 @@ const FlowPageController = ({ setIsOpen }) => {
     registration: {
       0: {
         component: <MainFlowSecondStepModalPage />,
-        headerText: 'Let Webeyez Analyze Your Real Data',
+        headerText: isMobile
+          ? 'Lost Revenue Simulation'
+          : 'Let Webeyez Analyze Your Real Data',
         buttonText: 'Create an Account',
         hasReportButton: true,
       },
@@ -103,12 +112,26 @@ const FlowPageController = ({ setIsOpen }) => {
     <FlowPageContainer
       hasCheck={flows[flow]?.[step]?.hasCheck}
       fullBottom={flow}
+      isCustomPositioned={flow && flow == 'monthlyReport' && step === 0}
+      soloCheck={
+        isMobile &&
+        ((flow === 'registration' && step === 2) ||
+          (flow && flow !== 'registration' && step === 0))
+      }
     >
       <FlowModalHeader
+        isCustomPositioned={flow && flow == 'monthlyReport' && step === 0}
         headerSpacing={flows[flow]?.[step]?.headerSpacing}
+        soloCheck={
+          isMobile &&
+          ((flow === 'registration' && step === 2) ||
+            (flow && flow !== 'registration' && step === 0))
+        }
         text={
           flow
             ? flows[flow]?.[step]?.headerText
+            : isMobile
+            ? 'Lost Revenue Simulation'
             : 'Let Webeyez Analyze Your Real Data'
         }
         action={() => setIsOpen(false)}
