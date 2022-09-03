@@ -10,7 +10,9 @@ const HeaderContainer = styled.div`
 
 const MainContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: fit-content;
 `;
@@ -28,6 +30,15 @@ const WrapContainer = styled.div`
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
     max-width: ${({ theme }) => theme.breakpoints.mobileM};
+    > div:last-child {
+      margin-top: unset;
+    }
+    > div:nth-child(1) {
+      margin-top: unset;
+    }
+    > div:nth-child(2) {
+      margin-top: 48px;
+    }
     padding: 0 8px;
   }
 `;

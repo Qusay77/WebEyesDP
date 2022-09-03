@@ -12,6 +12,9 @@ const initialState = {
   numberOfVisits: MonthlyVisitsOptions[6],
   platform: null,
   lostRevenueData: null,
+  isModalOpen: false,
+  flow: null,
+  step: 0,
   params: {
     email: null,
     password: null,
@@ -50,12 +53,6 @@ const setParamsFun = (state, { payload }) => {
     state.params[k] = v;
   });
 };
-
-const setChoiceFun = (state, { payload }) => {
-  const { option, key } = payload;
-  state[key] = option;
-};
-
 const resetParamsFun = (state) => {
   // eslint-disable-next-line no-unused-vars
   const { industryId, aov, numberOfVisits, lostRevenueData, ...rest } =
@@ -63,11 +60,39 @@ const resetParamsFun = (state) => {
   const resetState = { ...state, ...rest };
   return resetState;
 };
+const setIsModalOpenFun = (state, { payload }) => {
+  const { open } = payload;
+  if (!open) {
+    // eslint-disable-next-line no-unused-vars
+    const { industryId, aov, numberOfVisits, lostRevenueData, ...rest } =
+      initialState;
+    const resetState = { ...state, ...rest };
+    return resetState;
+  }
+  state.isModalOpen = open;
+};
+
+const setFlowOrStepFun = (state, { payload }) => {
+  const { flow, step } = payload;
+  if (flow) {
+    state.flow = flow;
+  }
+  if (step) {
+    state.step = state.step + step;
+  }
+};
+
+const setChoiceFun = (state, { payload }) => {
+  const { option, key } = payload;
+  state[key] = option;
+};
 
 const DPSlice = createSlice({
   name: 'dataProductization',
   initialState,
   reducers: {
+    setFlowOrStep: setFlowOrStepFun,
+    setIsModalOpen: setIsModalOpenFun,
     setValidations: setValidationsFun,
     resetParams: resetParamsFun,
     setParams: setParamsFun,
@@ -79,6 +104,8 @@ const DPSlice = createSlice({
 });
 
 export const {
+  setFlowOrStep,
+  setIsModalOpen,
   setChoice,
   setLostRevenueData,
   setParams,

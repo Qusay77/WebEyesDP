@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FirstStepModalPage from './FirstStepModalPage';
 import FlowPageFooter from '../../../molecules/FlowModal/FlowPageFooter';
 import FlowModalHeader from '../../../molecules/FlowModal/FlowModalHeader';
@@ -11,29 +11,31 @@ import MainFlowFourthStepModalPage from './MainFlowSteps/MainFlowFourthStepModal
 import { useSelector, useDispatch } from 'react-redux';
 import { verificationCall } from '../../../../redux/apiCalls/verificationCall';
 import { updateCall } from '../../../../redux/apiCalls/UpdateCall';
-import { setParams } from '../../../../redux/DPSlice';
+import { setFlowOrStep, setParams } from '../../../../redux/DPSlice';
 
 const FlowPageController = ({ setIsOpen }) => {
-  const { platform, params } = useSelector(({ DPState }) => DPState);
+  const { platform, params, flow, step } = useSelector(
+    ({ DPState }) => DPState,
+  );
   const dispatch = useDispatch();
 
-  const [flow, setFlow] = useState(null);
-  const [step, setStep] = useState(0);
   const homePageAction = () => {
     window.location.href = '/';
   };
   const registrationFlowAction = () => {
-    dispatch(verificationCall()).then(() => setStep((prev) => prev + 1));
+    dispatch(verificationCall()).then(() =>
+      dispatch(setFlowOrStep({ step: +1 })),
+    );
   };
   const otherPlatformAction = (flow) => {
     if (flow === 'monthlyReport') {
       dispatch(setParams({ params: { subscribeToMonthlyReport: true } }));
     }
-    dispatch(updateCall()).then(() => setFlow(flow));
+    dispatch(updateCall()).then(() => dispatch(setFlowOrStep({ flow })));
   };
   const flowController = (flow) => {
     if (platform?.value !== 'Other' && flow !== 'monthlyReport') {
-      setFlow('registration');
+      dispatch(setFlowOrStep({ flow: 'registration' }));
     } else {
       otherPlatformAction(flow);
     }
@@ -93,7 +95,7 @@ const FlowPageController = ({ setIsOpen }) => {
     } else if (flows[flow]?.[step].finalAction) {
       flows[flow]?.[step].finalAction();
     } else {
-      setStep((prev) => prev + 1);
+      dispatch(setFlowOrStep({ step: +1 }));
     }
   };
   const { passwordValid } = useSelector(({ DPState }) => DPState.validations);

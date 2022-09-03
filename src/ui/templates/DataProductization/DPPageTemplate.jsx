@@ -13,6 +13,8 @@ import MediaQuery from 'react-responsive';
 import theme from '../../theme';
 import ActionHeaderButton from '../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
 import MobileInfoHeader from '../../molecules/DataProductization/Header/MobileInfoHeader';
+import MobileFooter from '../../organisms/DataProductization/ActionHeader/MobileFooter';
+import ScrollButton from '../../organisms/DataProductization/ActionHeader/ScrollButton';
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
@@ -21,7 +23,7 @@ const DPPageTemplate = () => {
   useEffect(() => {
     dispatch(getCall());
   }, []);
-  const { sections, totalLostRevenue } = lostRevenueData || {};
+  const { sections } = lostRevenueData || {};
   const Sections = sections
     ? Object.entries(sections).map(([k, v]) => ({
         name: k,
@@ -29,15 +31,15 @@ const DPPageTemplate = () => {
       }))
     : [];
   return (
-    <MainContainer>
+    <MainContainer id="header-container">
       <WrapContainer visible={lostRevenueData}>
         <DPHeaderContainer />
         <MediaQuery minWidth={theme.breakpoints.magicMachine}>
           <DropDownMenu />
-          <ActionHeader Info={{ totalLostRevenue }} />
+          <ActionHeader />
         </MediaQuery>
         <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
-          <ActionHeader Info={{ totalLostRevenue }} />
+          <ActionHeader />
           <DropDownMenu />
           <ActionHeaderButton mobile action={() => dispatch(getCall(true))} />
           <MobileInfoHeader />
@@ -50,7 +52,15 @@ const DPPageTemplate = () => {
             index={i}
           />
         ))}
+        <ScrollButton />
       </WrapContainer>
+      {lostRevenueData ? (
+        <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
+          <MobileFooter />
+        </MediaQuery>
+      ) : (
+        ''
+      )}
     </MainContainer>
   );
 };

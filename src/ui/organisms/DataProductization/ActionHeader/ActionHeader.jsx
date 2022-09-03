@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BlockAtom } from '../../../atoms/DataProductizationAtoms/ActionHeader/ActionHeaderAtoms';
 import ActionHeaderContainer from '../../../atoms/DataProductizationAtoms/ActionHeader/ActionHeaderContainer';
 import ActionHeaderButton from '../../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
 import ActionHeaderText from '../../../molecules/DataProductization/ActionHeader/ActionHeaderText';
 import ActionHeaderTotal from '../../../molecules/DataProductization/ActionHeader/ActionHeaderTotal';
 import ContactFlowMainModal from '../ContactFlowModal/ContactFLowMainModal';
-import { useDispatch } from 'react-redux';
-import { resetParams } from '../../../../redux/DPSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import theme from '../../../theme';
+import { setIsModalOpen } from '../../../../redux/DPSlice';
 
-const ActionHeader = ({ Info }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+const ActionHeader = () => {
+  const { isModalOpen, lostRevenueData } = useSelector(
+    ({ DPState }) => DPState,
+  );
+  const { totalLostRevenue } = lostRevenueData || {};
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!modalIsOpen) {
-      dispatch(resetParams());
-    }
-  }, [modalIsOpen]);
   return (
     <ActionHeaderContainer>
       <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
@@ -27,15 +25,20 @@ const ActionHeader = ({ Info }) => {
         </BlockAtom>
       </MediaQuery>
       <MediaQuery minWidth={theme.breakpoints.magicMachine}>
-        <ActionHeaderTotal Info={Info} />
+        <ActionHeaderTotal Info={{ totalLostRevenue }} />
         <BlockAtom flex={2}>
           <ActionHeaderText />
         </BlockAtom>
         <BlockAtom flex={1} end="true">
-          <ActionHeaderButton action={() => setIsOpen(true)} />
+          <ActionHeaderButton
+            action={() => dispatch(setIsModalOpen({ open: true }))}
+          />
         </BlockAtom>
       </MediaQuery>
-      <ContactFlowMainModal setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
+      <ContactFlowMainModal
+        setIsOpen={(open) => dispatch(setIsModalOpen({ open }))}
+        modalIsOpen={isModalOpen}
+      />
     </ActionHeaderContainer>
   );
 };
