@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 
 const customStyles = {
   overlay: {
+    position: 'fixed',
     zIndex: '9999',
     background: 'rgba(0, 0, 0, 0.5)',
     backdropFilter: 'blur(20px)',
@@ -16,6 +17,7 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     padding: '0',
     overflow: 'visible',
+    position: 'absolute',
   },
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BlockAtom } from '../../../atoms/DataProductizationAtoms/ActionHeader/ActionHeaderAtoms';
 import ActionHeaderContainer from '../../../atoms/DataProductizationAtoms/ActionHeader/ActionHeaderContainer';
 import ActionHeaderButton from '../../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
@@ -16,7 +16,10 @@ const ActionHeader = () => {
   );
   const { totalLostRevenue } = lostRevenueData || {};
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    isModalOpen && (document.body.style.overflow = 'hidden');
+    !isModalOpen && (document.body.style.overflow = 'unset');
+  }, [isModalOpen]);
   return (
     <ActionHeaderContainer>
       <MediaQuery maxWidth={theme.breakpoints.magicMachine}>

@@ -10,9 +10,11 @@ import { MainText } from './ParagraphAtoms';
 const FlowPageContainer = styled.div`
   width: ${({ theme }) => theme.breakpoints.mobileM};
   padding: 16px;
+  height: fit-content;
+  max-height: 100vh;
+  overflow-y: auto;
   @media screen and (min-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
-    height: fit-content;
     background-image: url(${topSVG}),
       url(${BottomSVG})
         ${({ hasCheck }) => (hasCheck ? `,url(${CheckBG})` : '')};
@@ -28,7 +30,6 @@ const FlowPageContainer = styled.div`
   background-image: url(${CheckBG});
     background-position: ${isCustomPositioned ? 'center 64px' : 'center 100px'};
     background-repeat: no-repeat;
-    height: fit-content;
   `}
   ${DropDownMenuContainer}, ${TextInput} {
     box-shadow: unset !important;

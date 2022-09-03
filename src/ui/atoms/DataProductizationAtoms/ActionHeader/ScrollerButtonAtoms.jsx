@@ -30,6 +30,7 @@ const ScrollerWrap = styled.div`
   position: sticky;
   bottom: 200px;
   float: right;
+  z-index: 999;
 `;
 
 export { ScrollerContainer, ScrollerWrap };
