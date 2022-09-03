@@ -6,6 +6,8 @@ import {
 import { getCall } from './apiCalls/getCall';
 import DPState, { setChoice, setParams } from './DPSlice';
 import theme from '../ui/theme';
+import loaderState from './counterSlice';
+
 const listenerMiddleware = createListenerMiddleware();
 listenerMiddleware.startListening({
   actionCreator: setChoice,
@@ -24,6 +26,7 @@ listenerMiddleware.startListening({
 });
 const root = combineReducers({
   DPState,
+  loaderState,
 });
 
 const store = configureStore({

@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import theme from './ui/theme';
 import GlobalCSS from './ui/theme/global.css';
 import store from './redux/configureStore';
-import DPMain from './ui/pages/main';
+import Main from './ui/pages/main';
 
 const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalCSS />
-        <DPMain />
+        <Main />
       </ThemeProvider>
     </Provider>
   );
