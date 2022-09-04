@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import {
+  MenuToolTip,
+  ToolTipText,
+} from '../../GlobalAtoms/Tooltip/TooltipAtoms';
 
 const Arrow = styled.i`
   border: solid ${({ theme }) => theme.colors.sliderBlue};
@@ -67,6 +71,11 @@ const TextWrap = styled.div`
   align-items: center;
   ${({ width }) => `width:${width}`};
   cursor: ${({ clickable }) => (clickable ? 'pointer' : 'auto')};
+  &:hover {
+    span {
+      visibility: visible;
+    }
+  }
 `;
 const DropDownOptionsContainer = styled.div`
   display: flex;

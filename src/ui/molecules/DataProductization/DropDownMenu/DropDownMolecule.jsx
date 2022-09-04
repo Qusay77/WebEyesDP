@@ -11,12 +11,14 @@ import DropDownArrow from './DropDownArrow';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useSelector, useDispatch } from 'react-redux';
 import { setChoice } from '../../../../redux/DPSlice';
-
+import ToolTip from '../../Tooltip/ToolTip';
+import { ToolTipText } from '../../../atoms/GlobalAtoms/Tooltip/TooltipAtoms';
 const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
   const { options, key } = values;
   const choice = useSelector(({ DPState }) => DPState[key]);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <OutsideClickHandler
       onOutsideClick={() => {
@@ -55,6 +57,7 @@ const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
                   >
                     {option.label}
                   </DropDownMenuLabelOrOptionAtom>
+                  {/* <ToolTipText>{option.label}</ToolTipText> */}
                 </TextWrap>
               ))}
           </DropDownOptionsContainer>

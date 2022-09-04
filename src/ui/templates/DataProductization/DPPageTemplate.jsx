@@ -41,7 +41,11 @@ const DPPageTemplate = () => {
         <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
           <ActionHeader />
           <DropDownMenu />
-          <ActionHeaderButton mobile action={() => dispatch(getCall(true))} />
+          <ActionHeaderButton
+            anchor
+            mobile
+            action={() => dispatch(getCall(true))}
+          />
           <MobileInfoHeader />
         </MediaQuery>
         {Sections.map((sect, i) => (

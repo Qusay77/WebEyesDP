@@ -47,7 +47,7 @@ const SubInfoSection = ({ section, color }) => {
     <BlocksLayout
       wrap={'wrap'}
       dir={'column'}
-      height={isMobile ? 'fit-content' : '282px'}
+      height={isMobile ? 'fit-content' : '284px'}
       padding={isMobile ? '0' : '0 24px'}
     >
       {problems.map((problem, i) => (

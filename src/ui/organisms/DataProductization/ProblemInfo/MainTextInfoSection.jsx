@@ -13,7 +13,7 @@ const MainTextInfoSection = ({ section, color, index }) => {
 
   return (
     <VariableFlexLayout
-      height={isMobile ? 'fit-content' : '282px'}
+      height={isMobile ? 'fit-content' : '284px'}
       dir={'column'}
       padding={isMobile ? '0' : '0 24px 0 0'}
     >

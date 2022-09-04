@@ -9,14 +9,18 @@ import DropDownBlock from '../../../molecules/DataProductization/DropDownMenu/Dr
 import MediaQuery from 'react-responsive';
 import theme from '../../../theme';
 
+const labelWidth = '334px';
+const menuWidth = '330px';
+const labelBottomMargin = '8px';
+
 const DropDownMenu = () => {
   return (
     <DropDownMenusContainer>
       <DropDownBlock
-        labelWidth={'258px'}
-        menuWidth={'254px'}
+        labelWidth={labelWidth}
+        menuWidth={menuWidth}
         persist
-        labelBottomMargin={'8px'}
+        labelBottomMargin={labelBottomMargin}
         values={{
           options: IndustryOptions,
           label: 'My Industry',
@@ -25,9 +29,9 @@ const DropDownMenu = () => {
       />
       <MediaQuery minWidth={theme.breakpoints.magicMachine}>
         <DropDownBlock
-          labelWidth={'258px'}
-          menuWidth={'254px'}
-          labelBottomMargin={'8px'}
+          labelWidth={labelWidth}
+          menuWidth={menuWidth}
+          labelBottomMargin={labelBottomMargin}
           values={{
             options: AverageOrderValueOptions,
             label: 'Average Order Value',
@@ -35,21 +39,21 @@ const DropDownMenu = () => {
           }}
         />
         <DropDownBlock
-          labelWidth={'258px'}
-          menuWidth={'254px'}
-          labelBottomMargin={'8px'}
+          labelWidth={labelWidth}
+          menuWidth={menuWidth}
+          labelBottomMargin={labelBottomMargin}
           values={{
             options: MonthlyVisitsOptions,
-            label: 'Monthly Visits',
+            label: 'Monthly Visitors',
             key: 'numberOfVisits',
           }}
         />
       </MediaQuery>
       <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
         <DropDownBlock
-          labelWidth={'258px'}
-          menuWidth={'254px'}
-          labelBottomMargin={'8px'}
+          labelWidth={labelWidth}
+          menuWidth={menuWidth}
+          labelBottomMargin={labelBottomMargin}
           values={{
             options: AverageOrderValueOptions,
             label: 'Average Order Value',
@@ -57,12 +61,12 @@ const DropDownMenu = () => {
           }}
         />
         <DropDownBlock
-          labelWidth={'258px'}
-          menuWidth={'254px'}
-          labelBottomMargin={'8px'}
+          labelWidth={labelWidth}
+          menuWidth={menuWidth}
+          labelBottomMargin={labelBottomMargin}
           values={{
             options: MonthlyVisitsOptions,
-            label: 'Monthly Visits',
+            label: 'Monthly Visitors',
             key: 'numberOfVisits',
           }}
         />

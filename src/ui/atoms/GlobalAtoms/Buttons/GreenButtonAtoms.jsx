@@ -23,4 +23,9 @@ const ButtonTextAtom = styled.p`
   line-height: 19.5px;
   color: #fff;
 `;
-export { ButtonAtom, ButtonTextAtom };
+
+const Anchor = styled.a`
+  outline: none;
+  text-decoration: none !important;
+`;
+export { ButtonAtom, ButtonTextAtom, Anchor };

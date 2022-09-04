@@ -8,8 +8,8 @@ import { validateEmail, validatePassword } from '../utils/validation';
 
 const initialState = {
   industryId: IndustryOptions[0],
-  aov: AverageOrderValueOptions[3],
-  numberOfVisits: MonthlyVisitsOptions[6],
+  aov: AverageOrderValueOptions.find((e) => e.default),
+  numberOfVisits: MonthlyVisitsOptions.find((e) => e.default),
   platform: null,
   lostRevenueData: null,
   isModalOpen: false,
