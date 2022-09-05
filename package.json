@@ -28,7 +28,7 @@
   "scripts": {
     "webpack": "webpack",
     "dev": "npm run webpack -- --env mode=development",
-    "dev-watch": "npm run webpack -- --env mode=development --watch",
+    "local": "npm run webpack -- --env mode=development --watch",
     "prod": "npm run webpack -- --env mode=production",
     "lint": "eslint --fix --ext .js,.jsx ."
   },
