@@ -4,13 +4,17 @@ import CustomPieChartToolTip from './CustomPieChartToolTip';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../../theme';
 
+const colorPercentage = [100, 80, 60, 40];
+
 const PercentagePieChart = ({ problems, color, index }) => {
-  const data = problems.map(({ percentage, title, lostRevenue }) => ({
-    title,
-    lostRevenue,
-    value: percentage,
-    color: `rgba(${color},${(percentage / 2 + 50) / 100})`,
-  }));
+  const data = [...problems]
+    .sort((a, b) => a - b)
+    .map(({ percentage, title, lostRevenue }, i) => ({
+      title,
+      lostRevenue,
+      value: percentage,
+      color: `rgba(${color},${colorPercentage[i] / 100})`,
+    }));
 
   const onPieEnter = (e) => {
     if (e) {

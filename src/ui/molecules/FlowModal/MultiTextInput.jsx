@@ -49,7 +49,7 @@ const MultiTextInput = () => {
             value={input}
             error={input.length && !validateEmail(input)}
             onChange={(e) => setValues(i, e.target.value)}
-            placeholder={'ceo@mydomain.com'}
+            placeholder={'Email Address'}
             key={`input-${i}`}
           />
         ))}

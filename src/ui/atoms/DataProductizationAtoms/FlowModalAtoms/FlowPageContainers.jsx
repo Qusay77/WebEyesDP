@@ -24,6 +24,14 @@ const FlowPageContainer = styled.div`
       56px;
     width: 944px;
   }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+  }
+
   ${({ soloCheck, isCustomPositioned }) =>
     soloCheck &&
     `
@@ -31,9 +39,6 @@ const FlowPageContainer = styled.div`
     background-position: ${isCustomPositioned ? 'center 64px' : 'center 100px'};
     background-repeat: no-repeat;
   `}
-  ${DropDownMenuContainer}, ${TextInput} {
-    box-shadow: unset !important;
-  }
 `;
 const FlowHeaderContainer = styled.div`
   display: flex;
@@ -101,6 +106,10 @@ const TextInputBlockContainer = styled.div`
     ${MainText} {
       font-size: 16px;
     }
+  }
+  @media screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    width: ${({ width }) => width ?? 'unset'};
   }
 `;
 

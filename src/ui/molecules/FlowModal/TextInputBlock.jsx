@@ -30,7 +30,7 @@ const TextInputBlock = ({ disabled }) => {
           );
         }}
         value={email ?? ''}
-        placeholder={'ceo@mydomain.com'}
+        placeholder={'Email Address'}
       />
     </TextInputBlockContainer>
   );

@@ -20,7 +20,6 @@ const theme = {
     optional: '#444C6A4D',
     sliderBlue: '#4B9DF7',
     chipBlue: '#EDF5FE',
-    checkboxBlue: '#2e6498',
   },
 };
 

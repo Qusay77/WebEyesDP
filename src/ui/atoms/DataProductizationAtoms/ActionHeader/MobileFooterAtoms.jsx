@@ -11,7 +11,7 @@ const MobileFooterContent = styled.div`
 `;
 
 const MobileFooterContainer = styled.div`
-  position: sticky;
+  position: ${({ isSticky }) => (isSticky ? 'sticky' : 'relative')};
   bottom: 0;
   background-color: #fff;
   width: 100%;

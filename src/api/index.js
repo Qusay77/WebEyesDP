@@ -1,8 +1,7 @@
 import axios from 'axios';
 import store from '../redux/configureStore';
 import { decrement, increment } from '../redux/counterSlice';
-// export const baseURL = 'http://localhost:8000';
-export const baseURL = 'https://prp.webeyez.com';
+export const baseURL = process.env.REACT_APP_API_KEY;
 export const instance = axios.create({
   baseURL,
 });
@@ -18,12 +17,12 @@ instance.interceptors.request.use(
 );
 instance.interceptors.response.use(
   (res) => {
-    store.dispatch(decrement());
+    setTimeout(() => store.dispatch(decrement()), 2000);
 
     return res;
   },
   (e) => {
-    store.dispatch(decrement());
+    setTimeout(() => store.dispatch(decrement()), 2000);
 
     return e;
   },

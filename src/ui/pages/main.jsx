@@ -4,7 +4,6 @@ import DPMain from './DPMain';
 
 const Main = () => {
   const { count } = useSelector(({ loaderState }) => loaderState);
-
   useEffect(() => {
     if (count) {
       document.body.style.pointerEvents = 'none';

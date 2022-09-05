@@ -1,8 +1,4 @@
 import styled from 'styled-components';
-import {
-  MenuToolTip,
-  ToolTipText,
-} from '../../GlobalAtoms/Tooltip/TooltipAtoms';
 
 const Arrow = styled.i`
   border: solid ${({ theme }) => theme.colors.sliderBlue};
@@ -32,12 +28,9 @@ const DropDownMenuContainer = styled.div`
   overflow: hidden;
   max-height: 489px;
   background: #ffffff;
-
   border: 1px solid ${({ theme }) => theme.colors.borderBlue};
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 0 16px;
-
   position: absolute;
   z-index: 9999;
 
@@ -81,11 +74,13 @@ const DropDownOptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 100%;
   height: fit-content;
   max-height: 432px;
   padding-inline-end: 10px;
   padding-bottom: 16px;
   overflow-y: scroll;
+
   ${TextWrap} {
     margin-top: 16px;
   }

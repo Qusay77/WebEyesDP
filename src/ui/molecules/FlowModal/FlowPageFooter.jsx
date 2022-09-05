@@ -12,13 +12,14 @@ const FlowPageFooter = ({
   disabled,
   passwordCheck,
 }) => {
-  const { flow, moveAction } = tools;
+  const { flow, moveAction, updateCall } = tools;
   const { emailValid } = useSelector(({ DPState }) => DPState.validations);
   const dispatch = useDispatch();
   const validateFirstStep = (free) => {
     dispatch(setValidations({ types: ['emailValid'] }));
     if (emailValid.value) {
       free ? action('freeTrail') : action('monthlyReport');
+      updateCall();
     }
   };
   return (

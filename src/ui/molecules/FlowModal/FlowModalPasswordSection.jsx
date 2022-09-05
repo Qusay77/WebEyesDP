@@ -17,6 +17,7 @@ const FlowModalPasswordSection = () => {
   const [passwords, setPasswords] = useState(['', '']);
 
   useEffect(() => {
+    console.log(validatePassword(passwords));
     if (validatePassword(passwords)) {
       dispatch(
         setParams({
@@ -43,11 +44,9 @@ const FlowModalPasswordSection = () => {
                 return newArr;
               });
             }}
+            placeholder="Password"
             error={
-              i
-                ? password.length && !validatePassword(passwords)
-                : password.length &&
-                  (password.length < 8 || /\s/.test(password))
+              password.length && !validatePassword(i ? passwords : password)
             }
             value={password}
             type="password"

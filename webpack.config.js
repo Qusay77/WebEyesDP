@@ -4,8 +4,10 @@ const modeConfiguration = (env) => require(`./build-utils/webpack.${env}`)(env);
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 module.exports = ({ mode } = { mode: 'production' }) => {
   console.log(`mode is: ${mode}`);
+  const envPath = mode ? `.env.${mode}` : '.env';
   return merge(
     {
       mode,
@@ -49,7 +51,12 @@ module.exports = ({ mode } = { mode: 'production' }) => {
           },
         ],
       },
-      plugins: [new MiniCssExtractPlugin()],
+      plugins: [
+        new MiniCssExtractPlugin(),
+        new Dotenv({
+          path: envPath,
+        }),
+      ],
     },
     modeConfiguration(mode),
   );

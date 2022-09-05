@@ -26,6 +26,7 @@ const MainTextInfoSection = ({ section, color, index }) => {
       {problems.map(({ title, percentage }, i) => (
         <InfoTextRow
           color={color}
+          index={i}
           problem={{ title, percentage }}
           key={`${title}-${i}`}
         />

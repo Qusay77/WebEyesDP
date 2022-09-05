@@ -6,11 +6,15 @@ const validateEmail = (email) => {
 };
 
 const validatePassword = (password) => {
+  const strongPassword = new RegExp(
+    '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})',
+  );
+
   if (Array.isArray(password)) {
     const [pass, confirm] = password;
-    return pass.length > 7 && pass === confirm && !/\s/.test(pass);
+    return pass.length > 7 && pass === confirm && strongPassword.test(pass);
   }
-  return password?.length > 7 && !/\s/.test(password);
+  return password?.length > 7 && strongPassword.test(password);
 };
 
 export { validateEmail, validatePassword };

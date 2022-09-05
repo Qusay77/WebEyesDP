@@ -9,7 +9,7 @@ const FlowModalCompanyInfoSection = () => {
   const dispatch = useDispatch();
   const { companyName } = useSelector(({ DPState }) => DPState.params);
   return (
-    <TextInputBlockContainer>
+    <TextInputBlockContainer width={'712px'}>
       <OptionalLabel text={'Company Name'} />
       <TextInput
         onChange={(e) =>

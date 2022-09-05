@@ -25,9 +25,14 @@ const FlowPageController = ({ setIsOpen }) => {
     window.location.href = '/';
   };
   const registrationFlowAction = () => {
-    dispatch(verificationCall()).then(() =>
-      dispatch(setFlowOrStep({ step: +1 })),
+    dispatch(updateCall()).then(() =>
+      dispatch(verificationCall()).then(() =>
+        dispatch(setFlowOrStep({ step: +1 })),
+      ),
     );
+  };
+  const update = () => {
+    dispatch(updateCall());
   };
   const otherPlatformAction = (flow) => {
     if (flow === 'monthlyReport') {
@@ -91,7 +96,7 @@ const FlowPageController = ({ setIsOpen }) => {
         component: <MainFlowFourthStepModalPage />,
         headerText: 'Thank You For Your Registration!',
         headerSpacing: '315px',
-        buttonText: 'Take me to the Main Page',
+        buttonText: 'Go to my account',
         hasCheck: true,
         finalAction: homePageAction,
       },
@@ -140,7 +145,7 @@ const FlowPageController = ({ setIsOpen }) => {
       {flows[flow]?.[step]?.component ?? ''}
       <FlowPageFooter
         passwordCheck={flow === 'registration' && !passwordValid.value}
-        tools={{ flow, moveAction }}
+        tools={{ flow, moveAction, updateCall: update }}
         action={(flow) => flowController(flow)}
         disabled={!params.email || !platform}
         hasReportButton={flows[flow]?.[step]?.hasReportButton}

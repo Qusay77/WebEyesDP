@@ -44,6 +44,7 @@ const OptionalLabelContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 6px;
+  margin-top: ${({ marginTop }) => marginTop ?? '0'};
 `;
 
 const CloseSymbol = styled.p`

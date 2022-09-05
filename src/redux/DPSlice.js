@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createSlice } from '@reduxjs/toolkit';
 import {
   AverageOrderValueOptions,
@@ -11,6 +12,7 @@ const initialState = {
   aov: AverageOrderValueOptions.find((e) => e.default),
   numberOfVisits: MonthlyVisitsOptions.find((e) => e.default),
   platform: null,
+  stickyFooter: false,
   lostRevenueData: null,
   isModalOpen: false,
   flow: null,
@@ -27,6 +29,11 @@ const initialState = {
     emailValid: { value: null, func: validateEmail, key: 'email' },
     passwordValid: { value: null, func: validatePassword, key: 'password' },
   },
+};
+
+const setStickyFooterFun = (state, { payload }) => {
+  const { value } = payload;
+  state.stickyFooter = value;
 };
 
 const setValidationsFun = (state, { payload }) => {
@@ -54,18 +61,28 @@ const setParamsFun = (state, { payload }) => {
   });
 };
 const resetParamsFun = (state) => {
-  // eslint-disable-next-line no-unused-vars
-  const { industryId, aov, numberOfVisits, lostRevenueData, ...rest } =
-    initialState;
+  const {
+    stickyFooter,
+    industryId,
+    aov,
+    numberOfVisits,
+    lostRevenueData,
+    ...rest
+  } = initialState;
   const resetState = { ...state, ...rest };
   return resetState;
 };
 const setIsModalOpenFun = (state, { payload }) => {
   const { open } = payload;
   if (!open) {
-    // eslint-disable-next-line no-unused-vars
-    const { industryId, aov, numberOfVisits, lostRevenueData, ...rest } =
-      initialState;
+    const {
+      stickyFooter,
+      industryId,
+      aov,
+      numberOfVisits,
+      lostRevenueData,
+      ...rest
+    } = initialState;
     const resetState = { ...state, ...rest };
     return resetState;
   }
@@ -91,6 +108,7 @@ const DPSlice = createSlice({
   name: 'dataProductization',
   initialState,
   reducers: {
+    setStickyFooter: setStickyFooterFun,
     setFlowOrStep: setFlowOrStepFun,
     setIsModalOpen: setIsModalOpenFun,
     setValidations: setValidationsFun,
@@ -111,6 +129,7 @@ export const {
   setParams,
   resetParams,
   setValidations,
+  setStickyFooter,
 } = DPSlice.actions;
 export { initialState };
 export default DPSlice.reducer;

@@ -30,6 +30,9 @@ const WrapContainer = styled.div`
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
     max-width: ${({ theme }) => theme.breakpoints.mobileM};
+    > div:not(:nth-child(1)) {
+      margin-top: 16px;
+    }
     > div:last-child {
       margin-top: unset;
     }

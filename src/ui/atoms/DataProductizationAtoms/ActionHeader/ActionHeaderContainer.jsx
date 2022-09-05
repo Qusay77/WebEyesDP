@@ -17,7 +17,10 @@ const ActionHeaderContainer = styled.div`
       theme.breakpoints.magicMachine}) {
     border: none;
     padding: 0;
+    padding-bottom: 16px;
     background: #fff;
+    border-radius: unset;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderBlue};
   }
 `;
 

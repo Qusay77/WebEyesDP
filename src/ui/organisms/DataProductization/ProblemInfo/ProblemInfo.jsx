@@ -28,7 +28,7 @@ const ControlledInfoContainer = styled(InfoContainer)`
 
 const ProblemInfo = ({ section, color, index }) => {
   const { name } = section;
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   return (
     <ControlledInfoContainer isExpanded={isExpanded}>
       <InfoHeader

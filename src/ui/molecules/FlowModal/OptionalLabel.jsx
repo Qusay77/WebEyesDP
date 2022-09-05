@@ -4,9 +4,9 @@ import {
   OptionalLabelContainer,
 } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 
-const OptionalLabel = ({ text }) => {
+const OptionalLabel = ({ text, marginTop }) => {
   return (
-    <OptionalLabelContainer>
+    <OptionalLabelContainer marginTop={marginTop}>
       <MainText isLabel>{text}</MainText>
       <MainText optional isLabel>
         (optional)

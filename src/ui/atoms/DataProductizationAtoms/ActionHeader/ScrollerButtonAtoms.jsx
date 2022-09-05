@@ -28,7 +28,7 @@ const ScrollerWrap = styled.div`
   justify-content: center;
   align-items: center;
   position: sticky;
-  bottom: 200px;
+  bottom: ${({ isSticky }) => (isSticky ? '200px' : '50px')};
   float: right;
   z-index: 999;
 `;

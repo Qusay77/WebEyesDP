@@ -8,14 +8,14 @@ import {
   InfoNumber,
   InfoText,
 } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/ParagraphAtoms';
-
-const InfoTextRow = ({ problem, color, colorReady, noTopMargin }) => {
+const colorPercentage = [100, 80, 60, 40];
+const InfoTextRow = ({ problem, color, colorReady, noTopMargin, index }) => {
   const { title, percentage } = problem;
   return (
     <InfoTextRowContainer noTopMargin={noTopMargin}>
       <CircledText>
         <ColoredLittleCircle
-          color={colorReady ?? `rgba(${color},${(percentage / 2 + 50) / 100})`}
+          color={colorReady ?? `rgba(${color},${colorPercentage[index] / 100})`}
         />
         <InfoText>{title}</InfoText>
       </CircledText>

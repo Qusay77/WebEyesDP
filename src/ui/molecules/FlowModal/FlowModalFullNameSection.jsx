@@ -7,6 +7,10 @@ import { TextInput } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/In
 import OptionalLabel from './OptionalLabel';
 import { useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
+import theme from '../../theme';
+import MediaQuery from 'react-responsive';
+
+const Fillers = ['First Name', 'Last Name'];
 const FlowModalFullNameSection = () => {
   const dispatch = useDispatch();
   const [names, setNames] = useState(['', '']);
@@ -18,22 +22,53 @@ const FlowModalFullNameSection = () => {
   }, [names]);
   return (
     <TextInputBlockContainer>
-      <OptionalLabel text={'Full Name'} />
-      <MultiInputsContainer>
-        {names.map((name, i) => (
-          <TextInput
-            onChange={(e) =>
-              setNames((prev) => {
-                const newArr = [...prev];
-                newArr[i] = e.target.value;
-                return newArr;
-              })
-            }
-            value={name}
-            key={`name-${i}`}
-          />
-        ))}
-      </MultiInputsContainer>
+      <MediaQuery minWidth={theme.breakpoints.magicMachine}>
+        <OptionalLabel text={'Full Name'} />
+        <MultiInputsContainer>
+          {names.map((name, i) => (
+            <TextInput
+              onChange={(e) =>
+                setNames((prev) => {
+                  const newArr = [...prev];
+                  newArr[i] = e.target.value;
+                  return newArr;
+                })
+              }
+              placeholder={Fillers[i]}
+              value={name}
+              key={`name-${i}`}
+            />
+          ))}
+        </MultiInputsContainer>
+      </MediaQuery>
+      <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
+        <OptionalLabel text={'First Name'} />
+        <TextInput
+          onChange={(e) =>
+            setNames((prev) => {
+              const newArr = [...prev];
+              newArr[0] = e.target.value;
+              return newArr;
+            })
+          }
+          placeholder={Fillers[0]}
+          value={names[0]}
+          key={`name-${0}`}
+        />
+        <OptionalLabel marginTop={'16px'} text={'Last Name'} />
+        <TextInput
+          onChange={(e) =>
+            setNames((prev) => {
+              const newArr = [...prev];
+              newArr[1] = e.target.value;
+              return newArr;
+            })
+          }
+          placeholder={Fillers[1]}
+          value={names[1]}
+          key={`name-${1}`}
+        />
+      </MediaQuery>
     </TextInputBlockContainer>
   );
 };

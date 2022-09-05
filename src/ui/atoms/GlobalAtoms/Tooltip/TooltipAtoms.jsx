@@ -1,36 +1,25 @@
 import styled from 'styled-components';
 
-const ToolTipText = styled('span')({
-  visibility: 'hidden',
-  width: '120px',
-  backgroundColor: '#000',
-  color: '#fff',
-  textAlign: 'center',
-  borderRadius: '6px',
-  padding: '5px 0',
-  position: 'absolute',
-  zIndex: 1,
-  bottom: '150%',
-  left: '50%',
-  marginLeft: '-60px',
-  ':after': {
-    content: '""',
-    position: 'absolute',
-    top: '100%',
-    left: '50%',
-    marginLeft: '-5px',
-    borderWidth: '5px',
-    borderStyle: 'solid',
-    borderColor: 'black transparent transparent transparent',
-  },
-});
+const ToolTipText = styled.span`
+  visibility: hidden;
+  max-width: 280px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  bottom: 150%;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+`;
 
-const MenuToolTip = styled('div')({
-  position: 'relative',
-  display: 'inline-block',
-  ':hover span': {
-    visibility: 'visible',
-  },
-});
-
-export { MenuToolTip, ToolTipText };
+export { ToolTipText };
