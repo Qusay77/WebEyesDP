@@ -10,6 +10,7 @@ import { setParams } from '../../../redux/DPSlice';
 import { validatePassword } from '../../../utils/validation';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../theme';
+import { eventTracker } from '../../../../ProductAnalytics';
 
 const FlowModalPasswordSection = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,6 @@ const FlowModalPasswordSection = () => {
   const [passwords, setPasswords] = useState(['', '']);
 
   useEffect(() => {
-    console.log(validatePassword(passwords));
     if (validatePassword(passwords)) {
       dispatch(
         setParams({
@@ -30,7 +30,9 @@ const FlowModalPasswordSection = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
   });
-
+  useEffect(() => {
+    eventTracker('DP - Let webeyez analyze - passwords - viewed');
+  }, []);
   return (
     <TextInputBlockContainer extraMargin={isMobile && '130px'}>
       <MainText isLabel>Password</MainText>

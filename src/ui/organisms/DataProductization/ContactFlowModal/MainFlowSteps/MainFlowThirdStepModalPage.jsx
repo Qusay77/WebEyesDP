@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { eventTracker } from '../../../../../../ProductAnalytics';
 import {
   InfoOptionsContainer,
   MainFlowSecondStepModalPageContainer,
@@ -21,6 +22,10 @@ const MainFlowThirdStepModalPage = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
   });
+
+  useEffect(() => {
+    eventTracker('DP - Just one more step modal viewed');
+  }, []);
   return (
     <MainFlowSecondStepModalPageContainer>
       <FlowModalTextSection dynamicText={dynamicText} />

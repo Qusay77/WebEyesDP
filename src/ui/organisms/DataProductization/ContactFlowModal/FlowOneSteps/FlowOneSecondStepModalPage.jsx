@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { eventTracker } from '../../../../../../ProductAnalytics';
 import { FlowOneSecondStepModalPageContainer } from '../../../../atoms/DataProductizationAtoms/FlowModalAtoms/FlowPageContainers';
 import FlowModalTextSection from '../../../../molecules/FlowModal/FlowModalTextSection';
 import theme from '../../../../theme';
@@ -22,6 +23,10 @@ const FlowOneSecondStepModalPage = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
   });
+
+  useEffect(() => {
+    eventTracker('DP - Take Control modal viewed');
+  }, []);
   return (
     <FlowOneSecondStepModalPageContainer>
       <FlowModalTextSection

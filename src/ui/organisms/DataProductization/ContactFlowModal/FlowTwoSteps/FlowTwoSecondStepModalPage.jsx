@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { eventTracker } from '../../../../../../ProductAnalytics';
 import {
   FlowTwoSecondStepModalPageContainer,
   InputsContainers,
@@ -33,6 +34,10 @@ const FlowTwoSecondStepModalPage = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
   });
+  useEffect(() => {
+    eventTracker('DP - thanks for your subscription modal viewed');
+  }, []);
+
   return (
     <FlowTwoSecondStepModalPageContainer>
       <FlowModalTextSection

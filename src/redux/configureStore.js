@@ -4,9 +4,16 @@ import {
   createListenerMiddleware,
 } from '@reduxjs/toolkit';
 import { getCall } from './apiCalls/getCall';
-import DPState, { setChoice, setParams } from './DPSlice';
+import DPState, { setChoice } from './DPSlice';
 import theme from '../ui/theme';
 import loaderState from './counterSlice';
+import { eventTracker } from '../../ProductAnalytics';
+
+const events = {
+  industryId: 'DP - Industry changed',
+  aov: 'DP - AOV Changed',
+  numberOfVisits: 'DP - Number of visitors changed',
+};
 
 const listenerMiddleware = createListenerMiddleware();
 listenerMiddleware.startListening({
@@ -14,16 +21,15 @@ listenerMiddleware.startListening({
   effect: async (action) => {
     const currentSize = window.innerWidth;
     const isMobile = currentSize <= theme.breakpoints.magicMachineInt;
-    if (action.payload.key !== 'platform' && !isMobile)
+    if (action.payload.key !== 'platform') {
+      eventTracker(events[action.payload.key]);
+    }
+    if (!isMobile) {
       store.dispatch(getCall(true));
+    }
   },
 });
-listenerMiddleware.startListening({
-  actionCreator: setParams,
-  effect: async (action) => {
-    console.log(action);
-  },
-});
+
 const root = combineReducers({
   DPState,
   loaderState,

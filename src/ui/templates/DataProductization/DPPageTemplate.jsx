@@ -17,6 +17,8 @@ import MobileFooter from '../../organisms/DataProductization/ActionHeader/Mobile
 import ScrollButton from '../../organisms/DataProductization/ActionHeader/ScrollButton';
 import MarketingStatement from '../../organisms/MarketingStatement/MarketingStatement';
 import { Loader } from '../../atoms/LoaderAtoms/LoaderAtoms';
+import { eventTracker } from '../../../../ProductAnalytics';
+
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
@@ -28,6 +30,9 @@ const DPPageTemplate = () => {
     }
     window.scrollTo(0, 0);
   }, [lostRevenueData]);
+  useEffect(() => {
+    eventTracker('DP - Lost revenue Viewed');
+  }, []);
   const { sections } = lostRevenueData || {};
   const Sections = sections
     ? Object.entries(sections).map(([k, v]) => ({

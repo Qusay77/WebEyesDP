@@ -24,6 +24,7 @@ const DropDownBlock = ({
   });
   const DPState = useSelector(({ DPState }) => DPState);
   const val = DPState[key]?.label;
+
   return (
     <DropDownBlockContainer>
       <TextWrap width={isMobile ? '100%' : labelWidth}>

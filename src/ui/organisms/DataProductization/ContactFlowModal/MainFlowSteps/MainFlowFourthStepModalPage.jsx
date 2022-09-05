@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { eventTracker } from '../../../../../../ProductAnalytics';
 import { MainFlowThanksPageContainer } from '../../../../atoms/DataProductizationAtoms/FlowModalAtoms/FlowPageContainers';
 import FlowModalTextSection from '../../../../molecules/FlowModal/FlowModalTextSection';
 import theme from '../../../../theme';
@@ -41,6 +42,9 @@ const MainFlowFourthStepModalPage = () => {
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
   });
+  useEffect(() => {
+    eventTracker('DP - registration thank you modal viewed');
+  }, []);
   return (
     <MainFlowThanksPageContainer>
       <FlowModalTextSection
