@@ -1,6 +1,7 @@
 import axios from 'axios';
 import store from '../redux/configureStore';
 import { decrement, increment } from '../redux/counterSlice';
+// eslint-disable-next-line no-undef
 export const baseURL = process.env.REACT_APP_API_KEY;
 export const instance = axios.create({
   baseURL,

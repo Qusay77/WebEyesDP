@@ -3,8 +3,6 @@ import topSVG from '../../../assets/Background Illustration - Circle.svg';
 import BottomSVG from '../../../assets/Background Illustration.svg';
 import CheckBG from '../../../assets/Check Illustration.svg';
 import { ButtonAtom } from '../../GlobalAtoms/Buttons/GreenButtonAtoms';
-import { DropDownMenuContainer } from '../DropDownMenuAtoms/MenuAtoms';
-import { TextInput } from './Inputs';
 import { MainText } from './ParagraphAtoms';
 
 const FlowPageContainer = styled.div`
