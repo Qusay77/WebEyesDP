@@ -91,8 +91,9 @@ const setIsModalOpenFun = (state, { payload }) => {
 
 const setFlowOrStepFun = (state, { payload }) => {
   const { flow, step } = payload;
+  console.log(payload);
   if (flow) {
-    state.flow = flow;
+    state.flow = flow === 'reset' ? null : flow;
   }
   if (step) {
     state.step = state.step + step;

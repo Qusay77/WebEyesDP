@@ -65,6 +65,7 @@ const FlowPageController = ({ setIsOpen }) => {
         headerSpacing: '315px',
         hasCheck: true,
         finalAction: homePageAction,
+        isLast: true,
       },
     },
     monthlyReport: {
@@ -99,6 +100,7 @@ const FlowPageController = ({ setIsOpen }) => {
         buttonText: 'Go to my account',
         hasCheck: true,
         finalAction: homePageAction,
+        isLast: true,
       },
     },
   };
@@ -113,6 +115,7 @@ const FlowPageController = ({ setIsOpen }) => {
     }
   };
   const { passwordValid } = useSelector(({ DPState }) => DPState.validations);
+
   return (
     <FlowPageContainer
       hasCheck={flows[flow]?.[step]?.hasCheck}
@@ -145,10 +148,11 @@ const FlowPageController = ({ setIsOpen }) => {
       {flows[flow]?.[step]?.component ?? ''}
       <FlowPageFooter
         passwordCheck={flow === 'registration' && !passwordValid.value}
-        tools={{ flow, moveAction, updateCall: update }}
+        tools={{ flow, moveAction, updateCall: update, step }}
         action={(flow) => flowController(flow)}
         disabled={!params.email || !platform}
         hasReportButton={flows[flow]?.[step]?.hasReportButton}
+        isLast={flows[flow]?.[step]?.isLast}
         footerText={
           flow ? flows[flow]?.[step]?.buttonText : 'I want a Free Trial'
         }

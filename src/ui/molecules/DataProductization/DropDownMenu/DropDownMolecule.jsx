@@ -21,7 +21,7 @@ const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
   return (
     <OutsideClickHandler
       onOutsideClick={() => {
-        setIsOpen(false);
+        null;
       }}
     >
       <DropMenuWrapper>

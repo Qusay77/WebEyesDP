@@ -3,7 +3,7 @@ import { FlowFooterContainer } from '../../atoms/DataProductizationAtoms/FlowMod
 import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 import FlowModalFooterButton from './FlowModalFooterButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { setValidations } from '../../../redux/DPSlice';
+import { setFlowOrStep, setValidations } from '../../../redux/DPSlice';
 const FlowPageFooter = ({
   footerText,
   action,
@@ -11,9 +11,11 @@ const FlowPageFooter = ({
   hasReportButton,
   disabled,
   passwordCheck,
+  isLast,
 }) => {
-  const { flow, moveAction, updateCall } = tools;
+  const { flow, moveAction, updateCall, step } = tools;
   const { emailValid } = useSelector(({ DPState }) => DPState.validations);
+
   const dispatch = useDispatch();
   const validateFirstStep = (free) => {
     dispatch(setValidations({ types: ['emailValid'] }));
@@ -36,6 +38,22 @@ const FlowPageFooter = ({
           clickable
         >
           I only want to get a monthly report
+        </MainText>
+      ) : (
+        ''
+      )}
+      {flow && !isLast ? (
+        <MainText
+          onClick={() => {
+            dispatch(
+              setFlowOrStep({
+                ...(step ? { step: -1 } : { flow: 'reset' }),
+              }),
+            );
+          }}
+          clickable
+        >
+          Previous Step
         </MainText>
       ) : (
         ''
