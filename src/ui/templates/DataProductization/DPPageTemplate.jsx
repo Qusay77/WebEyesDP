@@ -9,7 +9,7 @@ import DropDownMenu from '../../organisms/DataProductization/DropDownMenu/DropDo
 import DPHeaderContainer from '../../organisms/DataProductization/Header/DPHeaderContainer';
 import ProblemInfo from '../../organisms/DataProductization/ProblemInfo/ProblemInfo';
 import { useSelector, useDispatch } from 'react-redux';
-import MediaQuery from 'react-responsive';
+import MediaQuery, { useMediaQuery } from 'react-responsive';
 import theme from '../../theme';
 import ActionHeaderButton from '../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
 import MobileInfoHeader from '../../molecules/DataProductization/Header/MobileInfoHeader';
@@ -22,8 +22,34 @@ import { eventTracker } from '../../../../ProductAnalytics';
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
-  const { lostRevenueData } = useSelector(({ DPState }) => DPState);
+  const { lostRevenueData, stickyFooter } = useSelector(
+    ({ DPState }) => DPState,
+  );
   const dispatch = useDispatch();
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
+  useEffect(() => {
+    const notificationElement = document.getElementById('beamerSelector');
+    const messagingElement = document.getElementById(
+      'hubspot-messages-iframe-container',
+    );
+    if (notificationElement) {
+      if (stickyFooter) {
+        notificationElement.style.bottom = '185px !important';
+      } else {
+        notificationElement.style.bottom = '25px !important';
+      }
+    }
+    if (messagingElement) {
+      if (stickyFooter) {
+        messagingElement.style.bottom = '240px !important';
+      } else {
+        messagingElement.style.left = '-3px !important';
+        messagingElement.style.bottom = '85px !important';
+      }
+    }
+  }, [isMobile, stickyFooter]);
 
   useEffect(() => {
     dispatch(getCall()).then(() => window.scrollTo(0, 0));
