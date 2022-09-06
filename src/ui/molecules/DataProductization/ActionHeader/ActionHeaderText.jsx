@@ -9,7 +9,7 @@ const ActionHeaderText = () => {
     <TextAtomsContainer>
       <MediaQuery minWidth={theme.breakpoints.magicMachine}>
         <TextAtom>
-          Our simulator will show you where your revenue is lost and why, based
+          Our simulator will reveal details for revenue loss per industry, based
           on real industry data.
           <br /> Do you want a
         </TextAtom>
@@ -18,7 +18,7 @@ const ActionHeaderText = () => {
       </MediaQuery>
       <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
         <TextAtom>
-          Our simulator will show you where your revenue is lost and why, based
+          Our simulator will reveal details for revenue loss per industry, based
           on real industry data.
         </TextAtom>
         <br />

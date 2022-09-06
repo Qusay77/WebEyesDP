@@ -16,12 +16,12 @@ const ActionHeaderButton = ({ action, mobile, anchor }) => {
       {anchor ? (
         <Anchor href="#info-section">
           <ButtonTextAtom>
-            {mobile ? 'Simulate my Lost Revenue' : 'Test my Real Data!'}
+            {mobile ? 'Simulate my Lost Revenue' : 'Test your Data!'}
           </ButtonTextAtom>
         </Anchor>
       ) : (
         <ButtonTextAtom>
-          {mobile ? 'Simulate my Lost Revenue' : 'Test my Real Data!'}
+          {mobile ? 'Simulate my Lost Revenue' : 'Test your Data!'}
         </ButtonTextAtom>
       )}
     </ButtonAtom>

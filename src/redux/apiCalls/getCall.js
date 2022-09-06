@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { baseURL, instance } from '../../api';
 import store from '../configureStore';
+import { setGetCall } from '../counterSlice';
 import { initialState, setLostRevenueData } from '../DPSlice';
 
 export const getCall = createAsyncThunk('getLostRevenue', async () => {
@@ -13,7 +14,12 @@ export const getCall = createAsyncThunk('getLostRevenue', async () => {
     );
     if (res.status !== 200)
       throw new Error('Error: Server error while getting data');
-    store.dispatch(setLostRevenueData({ data: res.data?.result }));
+    store.dispatch(setGetCall({ value: true }));
+
+    setTimeout(() => {
+      store.dispatch(setLostRevenueData({ data: res.data?.result }));
+      store.dispatch(setGetCall({ value: false }));
+    }, 2000);
   } catch (e) {
     console.log(e, 'error');
   }

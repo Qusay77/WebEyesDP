@@ -25,10 +25,8 @@ const FlowPageController = ({ setIsOpen }) => {
     window.location.href = '/';
   };
   const registrationFlowAction = () => {
-    dispatch(updateCall()).then(() =>
-      dispatch(verificationCall()).then(() =>
-        dispatch(setFlowOrStep({ step: +1 })),
-      ),
+    dispatch(verificationCall()).then(() =>
+      dispatch(setFlowOrStep({ step: +1 })),
     );
   };
   const update = () => {
@@ -82,10 +80,11 @@ const FlowPageController = ({ setIsOpen }) => {
       0: {
         component: <MainFlowSecondStepModalPage />,
         headerText: isMobile
-          ? 'Lost Revenue Simulation'
+          ? 'Lost Revenue Simulator'
           : 'Let Webeyez Analyze Your Real Data',
         buttonText: 'Create an Account',
         hasReportButton: true,
+        flowAction: registrationFlowAction,
       },
       1: {
         component: <MainFlowThirdStepModalPage />,
@@ -139,7 +138,7 @@ const FlowPageController = ({ setIsOpen }) => {
           flow
             ? flows[flow]?.[step]?.headerText
             : isMobile
-            ? 'Lost Revenue Simulation'
+            ? 'Lost Revenue Simulator'
             : 'Let Webeyez Analyze Your Real Data'
         }
         action={() => setIsOpen(false)}

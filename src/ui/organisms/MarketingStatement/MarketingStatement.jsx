@@ -11,8 +11,10 @@ const dynamicText = [
     text: 'Webeyez’s Lost Revenue Simulator provides benchmarks from e-commerce brands similar to yours to highlight the most common conversion and revenue killers in the online funnel.',
     newLine: true,
   },
-  { text: 'We divide root causes into' },
-  { text: 'business problems', bold: true },
+  {
+    text: 'We reveal the root causes of business and technical issues that cause friction to the online funnel, conversion loss and site abandonment',
+  },
+  { text: 'Business Issues', bold: true },
   { text: '(non-technical issues causing user friction) and' },
   { text: 'technical problems', bold: true },
   { text: '(issues with the underlying code or page performance).' },

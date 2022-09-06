@@ -4,7 +4,10 @@ import {
   TextInputBlockContainer,
 } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/FlowPageContainers';
 import { TextInput } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/Inputs';
-import { MainText } from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
+import {
+  BottomText,
+  MainText,
+} from '../../atoms/DataProductizationAtoms/FlowModalAtoms/ParagraphAtoms';
 import { useDispatch } from 'react-redux';
 import { setParams } from '../../../redux/DPSlice';
 import { validatePassword } from '../../../utils/validation';
@@ -56,6 +59,10 @@ const FlowModalPasswordSection = () => {
           />
         ))}
       </MultiInputsContainer>
+      <BottomText>
+        Password must be at least 8 characters long and Contains at least 1
+        upper and lower letters, number and special character
+      </BottomText>
     </TextInputBlockContainer>
   );
 };

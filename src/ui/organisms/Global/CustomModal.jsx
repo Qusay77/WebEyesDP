@@ -18,6 +18,7 @@ const customStyles = {
     padding: '0',
     overflow: 'visible',
     position: 'absolute',
+    height: 'fit-content',
   },
 };
 

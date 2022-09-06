@@ -1,8 +1,10 @@
 import React from 'react';
 import {
   AverageOrderValueOptions,
+  AverageOrderValueOptionsMobile,
   IndustryOptions,
   MonthlyVisitsOptions,
+  MonthlyVisitsOptionsMobile,
 } from '../../../../utils/DPDropDownOptions';
 import { DropDownMenusContainer } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/DropDownMenusContainerAtom';
 import DropDownBlock from '../../../molecules/DataProductization/DropDownMenu/DropDownBlock';
@@ -23,7 +25,7 @@ const DropDownMenu = () => {
         labelBottomMargin={labelBottomMargin}
         values={{
           options: IndustryOptions,
-          label: 'My Industry',
+          label: 'Industry',
           key: 'industryId',
         }}
       />
@@ -55,7 +57,7 @@ const DropDownMenu = () => {
           menuWidth={menuWidth}
           labelBottomMargin={labelBottomMargin}
           values={{
-            options: AverageOrderValueOptions,
+            options: AverageOrderValueOptionsMobile,
             label: 'Average Order Value',
             key: 'aov',
           }}
@@ -65,7 +67,7 @@ const DropDownMenu = () => {
           menuWidth={menuWidth}
           labelBottomMargin={labelBottomMargin}
           values={{
-            options: MonthlyVisitsOptions,
+            options: MonthlyVisitsOptionsMobile,
             label: 'Monthly Visitors',
             key: 'numberOfVisits',
           }}

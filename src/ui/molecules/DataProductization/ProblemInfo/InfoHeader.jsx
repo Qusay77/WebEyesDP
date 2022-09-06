@@ -8,7 +8,7 @@ import theme from '../../../theme';
 const InfoHeader = ({ text, action, isOpen }) => {
   return (
     <InfoHeaderAtom>
-      <HeaderText>{text} Problems</HeaderText>
+      <HeaderText>{text} Issues</HeaderText>
       <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
         <DropDownArrow isOpen={isOpen} onClick={action} />
       </MediaQuery>

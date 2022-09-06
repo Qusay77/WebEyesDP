@@ -36,7 +36,7 @@ const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
             <DropDownMenuLabelOrOptionAtom
               placeholderColor={placeholder && !choice}
             >
-              {placeholder && !choice ? placeholder : choice.label}
+              {placeholder && !choice ? placeholder : choice?.label}
             </DropDownMenuLabelOrOptionAtom>
             <DropDownArrow />
           </DropDownLabelContainer>

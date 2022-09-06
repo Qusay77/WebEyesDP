@@ -32,7 +32,7 @@ const MobileFooter = () => {
   return (
     <MobileFooterContainer isSticky={stickyFooter} id={'mobile-footer'}>
       <MobileFooterContent>
-        <TextAtom>Your lost monthly revenue is</TextAtom>
+        <TextAtom>Lost monthly revenue:</TextAtom>
         <TotalNumberText>{totalLostRevenue}</TotalNumberText>
         <ActionHeaderButton
           action={() => dispatch(setIsModalOpen({ open: true }))}

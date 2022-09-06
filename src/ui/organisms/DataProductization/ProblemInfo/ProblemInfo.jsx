@@ -37,7 +37,12 @@ const ProblemInfo = ({ section, color, index }) => {
         text={name}
       />
       <InfoContainerLayout>
-        <MainTextInfoSection color={color} section={section} index={index} />
+        <MainTextInfoSection
+          text={name}
+          color={color}
+          section={section}
+          index={index}
+        />
         <SubInfoSection color={color} section={section} />
       </InfoContainerLayout>
     </ControlledInfoContainer>

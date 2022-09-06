@@ -10,7 +10,8 @@ import {
 } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/ParagraphAtoms';
 import PercentagePieChart from '../../../organisms/DataProductization/ProblemInfo/PieChart';
 
-const InfoChartBlock = ({ problems, color, totalLostRevenue, index }) => {
+const InfoChartBlock = ({ problems, color, totalLostRevenue, index, text }) => {
+  const capital = text.charAt(0).toUpperCase() + text.substring(1);
   return (
     <ChartBlock>
       <PercentagePieChart problems={problems} color={color} index={index} />
@@ -18,7 +19,10 @@ const InfoChartBlock = ({ problems, color, totalLostRevenue, index }) => {
         <TotalNumberText>{`${totalLostRevenue}`}</TotalNumberText>
         <TextBlock>
           <TotalInfoText isBold>Lost </TotalInfoText>
-          <TotalInfoText>over Business Problems</TotalInfoText>
+          <TotalInfoText>
+            {text === 'business' ? `due to ${capital} ` : `over ${capital} `}
+            Issues
+          </TotalInfoText>
         </TextBlock>
       </ChartTextBlock>
     </ChartBlock>

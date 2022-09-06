@@ -5,7 +5,7 @@ import InfoTextRow from '../../../molecules/DataProductization/ProblemInfo/InfoT
 import theme from '../../../theme';
 import { useMediaQuery } from 'react-responsive';
 
-const MainTextInfoSection = ({ section, color, index }) => {
+const MainTextInfoSection = ({ section, color, index, text }) => {
   const { problems, totalLostRevenue } = section;
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
@@ -22,6 +22,7 @@ const MainTextInfoSection = ({ section, color, index }) => {
         totalLostRevenue={totalLostRevenue}
         color={color}
         index={index}
+        text={text}
       />
       {problems.map(({ title, percentage }, i) => (
         <InfoTextRow

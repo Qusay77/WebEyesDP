@@ -12,13 +12,14 @@ const FlowModalHeader = ({
 }) => {
   return (
     <FlowHeaderContainer>
-      <HeaderText isCustomPositioned={isCustomPositioned} soloCheck={soloCheck}>
+      <HeaderText
+        headerSpacing={soloCheck ? '0px' : headerSpacing}
+        isCustomPositioned={isCustomPositioned}
+        soloCheck={soloCheck}
+      >
         {text}
       </HeaderText>
-      <CloseButton
-        headerSpacing={soloCheck ? '0px' : headerSpacing}
-        action={action}
-      />
+      <CloseButton action={action} />
     </FlowHeaderContainer>
   );
 };

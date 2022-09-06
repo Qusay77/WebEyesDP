@@ -24,13 +24,9 @@ const Colors = ['255,102,99', '113,74,255'];
 const DPPageTemplate = () => {
   const { lostRevenueData } = useSelector(({ DPState }) => DPState);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    if (!lostRevenueData) {
-      dispatch(getCall());
-    }
-    window.scrollTo(0, 0);
-  }, [lostRevenueData]);
-  useEffect(() => {
+    dispatch(getCall()).then(() => window.scrollTo(0, 0));
     eventTracker('DP - Lost revenue Viewed');
   }, []);
   const { sections } = lostRevenueData || {};

@@ -11,12 +11,15 @@ const HeaderText = styled.p`
   margin-top: ${isCustomPositioned ? '300px' : '410px'};
   `
       : ''}
+  margin-inline-end: ${({ headerSpacing }) => headerSpacing ?? '124px'};
+
   @media screen and (max-width: ${({ theme }) =>
-    theme.breakpoints.magicMachine}) {
+      theme.breakpoints.magicMachine}) {
     height: fit-content;
     font-weight: 800;
     font-size: 30px;
     line-height: 37px;
+    margin-inline-end: ${({ headerSpacing }) => headerSpacing ?? '70px'};
   }
 `;
 
@@ -50,12 +53,28 @@ const OptionalLabelContainer = styled.div`
 const CloseSymbol = styled.p`
   color: ${({ theme }) => theme.colors.closeButtonGrey};
   font-size: 18px;
+  position: fixed;
+  top: 56px;
+  right: 56px;
   cursor: pointer;
-  margin-inline-start: ${({ headerSpacing }) => headerSpacing ?? '124px'};
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
-    margin-inline-start: ${({ headerSpacing }) => headerSpacing ?? '70px'};
+    top: 16px;
+    right: 16px;
   }
 `;
 
-export { MainText, HeaderText, CloseSymbol, OptionalLabelContainer };
+const BottomText = styled.p`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.lightBlack};
+  margin-top: 8px;
+  max-width: 740px;
+`;
+
+export {
+  MainText,
+  HeaderText,
+  CloseSymbol,
+  OptionalLabelContainer,
+  BottomText,
+};

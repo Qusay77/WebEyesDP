@@ -7,7 +7,7 @@ import { MainText } from './ParagraphAtoms';
 
 const FlowPageContainer = styled.div`
   width: ${({ theme }) => theme.breakpoints.mobileM};
-  padding: 16px;
+  padding: 24px 16px;
   height: fit-content;
   max-height: 100vh;
   overflow-y: auto;

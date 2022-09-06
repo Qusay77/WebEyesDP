@@ -18,12 +18,12 @@ instance.interceptors.request.use(
 );
 instance.interceptors.response.use(
   (res) => {
-    setTimeout(() => store.dispatch(decrement()), 2000);
+    store.dispatch(decrement());
 
     return res;
   },
   (e) => {
-    setTimeout(() => store.dispatch(decrement()), 2000);
+    store.dispatch(decrement());
 
     return e;
   },
