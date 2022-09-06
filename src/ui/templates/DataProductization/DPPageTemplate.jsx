@@ -22,34 +22,8 @@ import { eventTracker } from '../../../../ProductAnalytics';
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
-  const { lostRevenueData, stickyFooter } = useSelector(
-    ({ DPState }) => DPState,
-  );
+  const { lostRevenueData } = useSelector(({ DPState }) => DPState);
   const dispatch = useDispatch();
-  const isMobile = useMediaQuery({
-    query: `(max-width: ${theme.breakpoints.magicMachine})`,
-  });
-  useEffect(() => {
-    const notificationElement = document.getElementById('beamerSelector');
-    const messagingElement = document.getElementById(
-      'hubspot-messages-iframe-container',
-    );
-    if (notificationElement) {
-      if (stickyFooter) {
-        notificationElement.style.bottom = '185px !important';
-      } else {
-        notificationElement.style.bottom = '25px !important';
-      }
-    }
-    if (messagingElement) {
-      if (stickyFooter) {
-        messagingElement.style.bottom = '240px !important';
-      } else {
-        messagingElement.style.left = '-3px !important';
-        messagingElement.style.bottom = '85px !important';
-      }
-    }
-  }, [isMobile, stickyFooter]);
 
   useEffect(() => {
     dispatch(getCall()).then(() => window.scrollTo(0, 0));
