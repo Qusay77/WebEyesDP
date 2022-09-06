@@ -19,16 +19,17 @@ const dynamicText = [
 ];
 const dynamicTextMobile = [
   {
-    text: 'WebeyeZ will send you a monthly report',
+    text: 'WebeyeZ will send you a monthly report to your email!',
     newLine: true,
   },
   {
-    text: 'to your email!',
+    text: '',
     newLine: true,
   },
-  { text: 'Before going to the main page, you can', newLine: true },
-  { text: 'add more recipients so they get the report', newLine: true },
-  { text: ' as well.' },
+  {
+    text: 'Before going to the main page, you can add more recipients so they get the report as well.',
+    newLine: true,
+  },
 ];
 const FlowTwoSecondStepModalPage = () => {
   const isMobile = useMediaQuery({

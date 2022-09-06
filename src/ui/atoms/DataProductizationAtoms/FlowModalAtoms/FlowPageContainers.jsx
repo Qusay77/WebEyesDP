@@ -63,7 +63,7 @@ const FlowFooterContainer = styled.div`
 `;
 
 const FlowTextContainer = styled.div`
-  padding-inline-end: 53px;
+  padding-inline-end: 124px;
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
     padding-inline-end: unset;

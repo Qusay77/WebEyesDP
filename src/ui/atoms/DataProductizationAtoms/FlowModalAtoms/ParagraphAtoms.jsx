@@ -68,7 +68,7 @@ const BottomText = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.lightBlack};
   margin-top: 8px;
-  max-width: 740px;
+  max-width: 730px;
 `;
 
 export {

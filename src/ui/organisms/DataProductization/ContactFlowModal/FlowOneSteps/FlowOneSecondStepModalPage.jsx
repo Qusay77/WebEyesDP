@@ -12,10 +12,10 @@ const dynamicText = [
   { text: 'and take control over your monthly lost revenue' },
 ];
 const dynamicTextMobile = [
-  { text: 'Our team will contact you soon to create', newLine: true },
-  { text: 'your account so you can start analyzing', newLine: true },
-  { text: 'your' },
-  { text: 'real data,', bold: true, newLine: true },
+  {
+    text: 'Our team will contact you soon to create your account so you can start analyzing your',
+  },
+  { text: 'real data,', bold: true },
   { text: 'and take control over your monthly lost revenue' },
 ];
 

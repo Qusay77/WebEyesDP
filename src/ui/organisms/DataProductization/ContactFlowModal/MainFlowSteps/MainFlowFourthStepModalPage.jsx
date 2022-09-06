@@ -21,21 +21,11 @@ const dynamicText = [
 ];
 const dynamicTextMobile = [
   {
-    text: 'We’ve sent a confirmation link to your',
-    newLine: true,
-  },
-  { text: 'email in order to validate your account.', newLine: true },
-  { text: ' ', newLine: true },
-  {
-    text: 'After validating your email you will be able',
+    text: 'We’ve sent a confirmation link to your email in order to validate your account.',
     newLine: true,
   },
   {
-    text: 'to access your account and start analyzing',
-    newLine: true,
-  },
-  {
-    text: 'right away!',
+    text: 'After validating your email you will be able to access your account and start analyzing right away!',
   },
 ];
 const MainFlowFourthStepModalPage = () => {

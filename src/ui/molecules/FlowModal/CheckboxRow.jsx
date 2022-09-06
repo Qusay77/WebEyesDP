@@ -21,7 +21,6 @@ const dynamicTextMobile = [
   { text: 'based', newLine: true },
   { text: 'on real industry data' },
 ];
-
 const CheckboxRow = ({ marginTop }) => {
   const { subscribeToMonthlyReport } = useSelector(
     ({ DPState }) => DPState.params,
