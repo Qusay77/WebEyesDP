@@ -17,7 +17,7 @@ const ActionHeader = () => {
   const { totalLostRevenue } = lostRevenueData || {};
   const dispatch = useDispatch();
   useEffect(() => {
-    isModalOpen && (document.body.style.overflow = 'hidden');
+    isModalOpen && (document.body.style.overflow = 'clip');
     !isModalOpen && (document.body.style.overflow = 'unset');
   }, [isModalOpen]);
   return (

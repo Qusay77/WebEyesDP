@@ -10,7 +10,7 @@ const FlowPageContainer = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.mobileM};
   padding: 24px 16px;
   height: fit-content;
-  max-height: calc(100vh - 10px);
+  max-height: 100vh;
   overflow-y: auto;
   @media screen and (min-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
@@ -21,6 +21,7 @@ const FlowPageContainer = styled.div`
     background-repeat: no-repeat, no-repeat, no-repeat;
     padding: 56px 56px ${({ fullBottom }) => (fullBottom ? '56px' : '32px')}
       56px;
+    max-width: unset;
     width: 944px;
   }
   ::-webkit-scrollbar {
@@ -43,6 +44,10 @@ const FlowHeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    margin-top: 20px;
+  }
 `;
 
 const FlowFooterContainer = styled.div`
@@ -50,8 +55,10 @@ const FlowFooterContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 32px;
+
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
+    margin-bottom: 20px;
     ${ButtonAtom} {
       width: 342px;
       height: 52px;

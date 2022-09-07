@@ -96,7 +96,7 @@ const FlowPageController = ({ setIsOpen }) => {
         component: <MainFlowFourthStepModalPage />,
         headerText: 'Thank You For Your Registration!',
         headerSpacing: '315px',
-        buttonText: 'Go to my account',
+        buttonText: 'Take me to the Main Page',
         hasCheck: true,
         finalAction: homePageAction,
         isLast: true,
