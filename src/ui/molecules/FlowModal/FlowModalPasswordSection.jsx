@@ -60,8 +60,8 @@ const FlowModalPasswordSection = () => {
         ))}
       </MultiInputsContainer>
       <BottomText>
-        Password must be at least 8 characters long and Contains at least 1
-        upper and lower letters, number and a special character
+        Passwords must be at least 8 characters long and must contain an upper
+        and lower case letters, a number and a special character
       </BottomText>
     </TextInputBlockContainer>
   );

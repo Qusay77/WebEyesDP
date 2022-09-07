@@ -26,7 +26,7 @@ const WrapContainer = styled.div`
   > div:not(:nth-child(1)) {
     margin-top: 24px;
   }
-
+  min-width: 340px;
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
     max-width: ${({ theme }) => theme.breakpoints.mobileM};

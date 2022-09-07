@@ -2,11 +2,13 @@ import styled from 'styled-components';
 import { ButtonAtom } from '../../GlobalAtoms/Buttons/GreenButtonAtoms';
 
 const MobileFooterContent = styled.div`
-  width: ${({ theme }) => theme.breakpoints.mobileM};
+  width: 100%;
+  max-width: ${({ theme }) => theme.breakpoints.mobileM};
   padding: 24px;
   ${ButtonAtom} {
     margin-top: 16px;
-    width: 342px;
+    width: 100%;
+    max-width: 342px;
   }
 `;
 

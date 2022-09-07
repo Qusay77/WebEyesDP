@@ -18,13 +18,56 @@ import ScrollButton from '../../organisms/DataProductization/ActionHeader/Scroll
 import MarketingStatement from '../../organisms/MarketingStatement/MarketingStatement';
 import { Loader } from '../../atoms/LoaderAtoms/LoaderAtoms';
 import { eventTracker } from '../../../../ProductAnalytics';
+import { dropDownEvents } from '../../../utils/DPDropDownOptions';
+import CustomLoader from '../../organisms/Global/CustomLoader';
 
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
   const { lostRevenueData } = useSelector(({ DPState }) => DPState);
-  const dispatch = useDispatch();
+  const { count, getCall: getCallState } = useSelector(
+    ({ loaderState }) => loaderState,
+  );
+  const { stickyFooter } = useSelector(({ DPState }) => DPState || {});
 
+  const dispatch = useDispatch();
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMachine})`,
+  });
+  const isSmallMobile = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.magicMobile})`,
+  });
+  const notificationElement = document.getElementById('beamerSelector');
+  const messagingElement = document.getElementById(
+    'hubspot-messages-iframe-container',
+  );
+  console.log(notificationElement, messagingElement);
+  useEffect(() => {
+    if (notificationElement) {
+      if (stickyFooter) {
+        notificationElement.style.bottom = '185px !important';
+      } else {
+        notificationElement.style.bottom = '25px !important';
+      }
+    }
+    if (messagingElement) {
+      if (stickyFooter) {
+        messagingElement.style.bottom = '240px !important';
+      } else {
+        messagingElement.style.left = '-3px !important';
+        messagingElement.style.bottom = '85px !important';
+      }
+    }
+  }, [isMobile, stickyFooter]);
+
+  useEffect(() => {
+    const rootElement = document.getElementsByTagName('section')[0];
+    if (!isSmallMobile) {
+      rootElement.style.overflowX = 'clip';
+    } else {
+      rootElement.style.overflowX = 'unset';
+    }
+  }, [isSmallMobile]);
   useEffect(() => {
     dispatch(getCall()).then(() => window.scrollTo(0, 0));
     eventTracker('DP - Lost revenue Viewed');
@@ -36,10 +79,16 @@ const DPPageTemplate = () => {
         ...v,
       }))
     : [];
-
+  const MobileLoaderCondition = isMobile && (count || getCallState);
   return (
     <MainContainer id="header-container">
-      {!lostRevenueData ? <Loader>Loading...</Loader> : ''}
+      {!lostRevenueData || MobileLoaderCondition ? (
+        <Loader>
+          <CustomLoader />
+        </Loader>
+      ) : (
+        ''
+      )}
       <WrapContainer visible={lostRevenueData}>
         <DPHeaderContainer />
         <MediaQuery minWidth={theme.breakpoints.magicMachine}>
@@ -52,7 +101,11 @@ const DPPageTemplate = () => {
           <ActionHeaderButton
             anchor
             mobile
-            action={() => dispatch(getCall(true))}
+            action={() =>
+              dispatch(getCall(true)).then(() =>
+                Object.values(dropDownEvents).map((e) => eventTracker(e)),
+              )
+            }
           />
           <MobileInfoHeader />
         </MediaQuery>

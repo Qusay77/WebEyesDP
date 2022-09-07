@@ -1,6 +1,7 @@
 const theme = {
   breakpoints: {
     mobileS: '320px',
+    magicMobile: '340px',
     mobileM: '375px',
     mobileL: '425px',
     tablet: '768px',

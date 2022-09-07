@@ -31,9 +31,12 @@ const AverageOrderValueOptionsMobile = [...Array(500 / 50).keys()].map(
     };
   },
 );
-const MonthlyVisitsOptionsMobile = [...Array(10000000 / 100000).keys()].map(
+const MonthlyVisitsOptionsMobile = [...Array(100000000 / 100000).keys()].map(
   (opt) => {
-    const formatter = Intl.NumberFormat('en', { notation: 'compact' });
+    const formatter = Intl.NumberFormat('en', {
+      notation: 'compact',
+      maximumSignificantDigits: 4,
+    });
     const pure = (opt + 1) * 100000;
     const val = formatter.format(pure);
     return {
@@ -79,6 +82,11 @@ const platformOptions = [
   },
 ];
 
+const dropDownEvents = {
+  industryId: 'DP - Industry changed',
+  aov: 'DP - AOV Changed',
+  numberOfVisits: 'DP - Number of visitors changed',
+};
 export {
   IndustryOptions,
   AverageOrderValueOptions,
@@ -86,4 +94,5 @@ export {
   platformOptions,
   MonthlyVisitsOptionsMobile,
   AverageOrderValueOptionsMobile,
+  dropDownEvents,
 };

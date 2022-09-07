@@ -7,10 +7,11 @@ import {
 import { Arrow } from '../../../atoms/DataProductizationAtoms/DropDownMenuAtoms/MenuAtoms';
 
 const ScrollButton = () => {
-  const { stickyFooter } = useSelector(({ DPState }) => DPState || {});
-
+  const { stickyFooter, isIntersecting } = useSelector(
+    ({ DPState }) => DPState || {},
+  );
   return (
-    <ScrollerWrap isSticky={stickyFooter}>
+    <ScrollerWrap isIntersecting={isIntersecting} isSticky={stickyFooter}>
       <ScrollerContainer onClick={() => window.scrollTo(0, 0)}>
         <Arrow isOpen />
       </ScrollerContainer>

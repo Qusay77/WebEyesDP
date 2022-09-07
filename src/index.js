@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import LoadableApp from './LoadableApp';
 
-const root = ReactDOM.createRoot(document.getElementsByTagName('section')[0]);
+const rootElement = document.getElementsByTagName('section')[0];
+const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <App />

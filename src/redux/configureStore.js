@@ -8,12 +8,7 @@ import DPState, { setChoice } from './DPSlice';
 import theme from '../ui/theme';
 import loaderState from './counterSlice';
 import { eventTracker } from '../../ProductAnalytics';
-
-const events = {
-  industryId: 'DP - Industry changed',
-  aov: 'DP - AOV Changed',
-  numberOfVisits: 'DP - Number of visitors changed',
-};
+import { dropDownEvents } from '../utils/DPDropDownOptions';
 
 const listenerMiddleware = createListenerMiddleware();
 listenerMiddleware.startListening({
@@ -22,10 +17,11 @@ listenerMiddleware.startListening({
     const currentSize = window.innerWidth;
     const isMobile = currentSize <= theme.breakpoints.magicMachineInt;
     if (action.payload.key !== 'platform') {
-      eventTracker(events[action.payload.key]);
-    }
-    if (!isMobile) {
-      store.dispatch(getCall(true));
+      if (!isMobile) {
+        store
+          .dispatch(getCall(true))
+          .then(() => eventTracker(dropDownEvents[action.payload.key]));
+      }
     }
   },
 });

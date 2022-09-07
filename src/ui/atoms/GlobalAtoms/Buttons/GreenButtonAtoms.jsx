@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const ButtonAtom = styled.div`
-  width: ${({ width }) => width};
+  width: 100%;
+  max-width: ${({ width }) => width};
   height: ${({ height }) => height};
   background: ${({ theme }) => theme.colors.ButtonGreen};
   border-radius: 70px;

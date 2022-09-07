@@ -13,6 +13,7 @@ const initialState = {
   numberOfVisits: MonthlyVisitsOptions.find((e) => e.default),
   platform: null,
   stickyFooter: false,
+  isIntersecting: false,
   lostRevenueData: null,
   isModalOpen: false,
   flow: null,
@@ -35,7 +36,10 @@ const setStickyFooterFun = (state, { payload }) => {
   const { value } = payload;
   state.stickyFooter = value;
 };
-
+const setIsIntersectingFun = (state, { payload }) => {
+  const { value } = payload;
+  state.isIntersecting = value;
+};
 const setValidationsFun = (state, { payload }) => {
   const { types } = payload;
   types.map((k) => {
@@ -108,6 +112,7 @@ const DPSlice = createSlice({
   name: 'dataProductization',
   initialState,
   reducers: {
+    setIsIntersecting: setIsIntersectingFun,
     setStickyFooter: setStickyFooterFun,
     setFlowOrStep: setFlowOrStepFun,
     setIsModalOpen: setIsModalOpenFun,
@@ -130,6 +135,7 @@ export const {
   resetParams,
   setValidations,
   setStickyFooter,
+  setIsIntersecting,
 } = DPSlice.actions;
 export { initialState };
 export default DPSlice.reducer;

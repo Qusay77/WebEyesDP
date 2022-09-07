@@ -5,7 +5,8 @@ const RangeInputContainer = styled.div`
 `;
 
 const RangeInput = styled.input`
-  width: 356px;
+  width: 100%;
+  max-width: 356px;
   outline: none;
   -webkit-appearance: none;
 
