@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { getCall } from '../../../redux/apiCalls/getCall';
 import {
   MainContainer,
+  PDFContainer,
   WrapContainer,
 } from '../../atoms/GlobalAtoms/ContainerAtoms/ContainerAtoms';
 import ActionHeader from '../../organisms/DataProductization/ActionHeader/ActionHeader';
@@ -20,14 +21,18 @@ import { Loader } from '../../atoms/LoaderAtoms/LoaderAtoms';
 import { eventTracker } from '../../../../ProductAnalytics';
 import { dropDownEvents } from '../../../utils/DPDropDownOptions';
 import CustomLoader from '../../organisms/Global/CustomLoader';
+import { exportToPDF } from '../../../../ExportTools/toPDF';
+import { setPDF } from '../../../redux/counterSlice';
 
 const Colors = ['255,102,99', '113,74,255'];
 
 const DPPageTemplate = () => {
   const { lostRevenueData } = useSelector(({ DPState }) => DPState);
-  const { count, getCall: getCallState } = useSelector(
-    ({ loaderState }) => loaderState,
-  );
+  const {
+    isPDF,
+    count,
+    getCall: getCallState,
+  } = useSelector(({ loaderState }) => loaderState);
   const { stickyFooter } = useSelector(({ DPState }) => DPState || {});
 
   const dispatch = useDispatch();
@@ -41,7 +46,6 @@ const DPPageTemplate = () => {
   const messagingElement = document.getElementById(
     'hubspot-messages-iframe-container',
   );
-  console.log(notificationElement, messagingElement);
   useEffect(() => {
     if (notificationElement) {
       if (stickyFooter) {
@@ -80,6 +84,20 @@ const DPPageTemplate = () => {
       }))
     : [];
   const MobileLoaderCondition = isMobile && (count || getCallState);
+  const DPRef = useRef(null);
+  const exportClickAction = () => {
+    if (isPDF < 10) {
+      dispatch(setPDF({ value: isPDF + 1 }));
+    }
+  };
+
+  useEffect(() => {
+    if (isPDF === 10) {
+      if (DPRef && lostRevenueData) {
+        exportToPDF(DPRef.current);
+      }
+    }
+  }, [isPDF]);
   return (
     <MainContainer id="header-container">
       {!lostRevenueData || MobileLoaderCondition ? (
@@ -90,42 +108,45 @@ const DPPageTemplate = () => {
         ''
       )}
       <WrapContainer visible={lostRevenueData}>
-        <DPHeaderContainer />
-        <MediaQuery minWidth={theme.breakpoints.magicMachine}>
-          <DropDownMenu />
-          <ActionHeader />
-        </MediaQuery>
-        <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
-          <ActionHeader />
-          <DropDownMenu />
-          <ActionHeaderButton
-            anchor
-            mobile
-            action={() =>
-              dispatch(getCall(true)).then(() =>
-                Object.values(dropDownEvents).map((e) => eventTracker(e)),
-              )
-            }
-          />
-          <MobileInfoHeader />
-        </MediaQuery>
-        {Sections.map((sect, i) => (
-          <ProblemInfo
-            section={sect}
-            color={Colors[i]}
-            key={`problem-info-${i}`}
-            index={i}
-          />
-        ))}
-        <MarketingStatement />
-        {lostRevenueData ? (
+        <DPHeaderContainer onClick={() => exportClickAction()} />
+        <PDFContainer ref={DPRef}>
           <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
-            <ScrollButton />
+            <ActionHeader />
+            <DropDownMenu />
+            <ActionHeaderButton
+              anchor
+              mobile
+              action={() =>
+                dispatch(getCall(true)).then(() =>
+                  Object.values(dropDownEvents).map((e) => eventTracker(e)),
+                )
+              }
+            />
+            <MobileInfoHeader />
           </MediaQuery>
-        ) : (
-          ''
-        )}
+          <MediaQuery minWidth={theme.breakpoints.magicMachine}>
+            <DropDownMenu />
+            <ActionHeader />
+          </MediaQuery>
+          {Sections.map((sect, i) => (
+            <ProblemInfo
+              section={sect}
+              color={Colors[i]}
+              key={`problem-info-${i}`}
+              index={i}
+            />
+          ))}
+          <MarketingStatement />
+          {lostRevenueData ? (
+            <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
+              <ScrollButton />
+            </MediaQuery>
+          ) : (
+            ''
+          )}
+        </PDFContainer>
       </WrapContainer>
+
       {lostRevenueData ? (
         <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
           <MobileFooter />

@@ -17,6 +17,7 @@ const InfoContainerLayout = styled.div`
       padding-bottom: 24px;
       margin-bottom: 24px;
       border-right: unset;
+      max-width: 100%;
       &:after {
         content: '';
         display: block;

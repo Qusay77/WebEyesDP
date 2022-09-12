@@ -10,7 +10,6 @@ const MainTextInfoSection = ({ section, color, index, text }) => {
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
   });
-
   return (
     <VariableFlexLayout
       height={isMobile ? 'fit-content' : '284px'}

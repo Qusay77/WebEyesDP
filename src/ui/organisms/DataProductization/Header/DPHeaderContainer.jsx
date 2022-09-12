@@ -2,10 +2,10 @@ import React from 'react';
 import { HeaderContainer } from '../../../atoms/GlobalAtoms/ContainerAtoms/ContainerAtoms';
 import DPHeader from '../../../molecules/DataProductization/Header/DPHeaderMolecule';
 
-const DPHeaderContainer = () => {
+const DPHeaderContainer = ({ onClick }) => {
   return (
     <HeaderContainer start="true">
-      <DPHeader />
+      <DPHeader onClick={onClick} />
     </HeaderContainer>
   );
 };

@@ -6,7 +6,7 @@ const Loader = styled.div`
   width: 64px;
   height: 64px;
   top: 50%;
-  right: 50%;
+  right: 45%;
   z-index: 9999;
 `;
 

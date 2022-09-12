@@ -59,7 +59,7 @@ const CloseSymbol = styled.p`
   cursor: pointer;
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
-    top: 16px;
+    top: 66px;
     right: 16px;
   }
 `;

@@ -49,6 +49,7 @@ const ChartTextBlock = styled.div`
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
     gap: 14px;
+    margin-left: 8px;
   }
 `;
 

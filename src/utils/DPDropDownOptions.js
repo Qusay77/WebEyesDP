@@ -35,7 +35,7 @@ const MonthlyVisitsOptionsMobile = [...Array(100000000 / 100000).keys()].map(
   (opt) => {
     const formatter = Intl.NumberFormat('en', {
       notation: 'compact',
-      maximumSignificantDigits: 4,
+      // maximumSignificantDigits: 4,
     });
     const pure = (opt + 1) * 100000;
     const val = formatter.format(pure);

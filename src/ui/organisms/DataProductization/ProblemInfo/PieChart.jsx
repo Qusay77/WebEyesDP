@@ -39,7 +39,7 @@ const PercentagePieChart = ({ problems, color, index }) => {
     : { cx: 55, cy: 55, innerRadius: 40, outerRadius: 60 };
 
   return (
-    <ResponsiveContainer width={120} height={120}>
+    <ResponsiveContainer width={isMobile ? 100 : 120} height={120}>
       <PieChart>
         <Pie
           stroke="none"

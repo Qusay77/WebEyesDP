@@ -46,7 +46,7 @@ const FlowHeaderContainer = styled.div`
   justify-content: space-between;
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
-    margin-top: 20px;
+    margin-top: 50px;
   }
 `;
 
@@ -58,7 +58,7 @@ const FlowFooterContainer = styled.div`
 
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     ${ButtonAtom} {
       width: 342px;
       height: 52px;

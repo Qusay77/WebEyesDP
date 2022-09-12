@@ -17,7 +17,13 @@ const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
   const choice = useSelector(({ DPState }) => DPState[key]);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-
+  // const [isHoverOn, setIsHoverOn] = useState(false);
+  // const showTooltip = () => {
+  //   setIsHoverOn(true);
+  // };
+  // const hideTooltip = () => {
+  //   setIsHoverOn(false);
+  // };
   return (
     <OutsideClickHandler
       onOutsideClick={() => {
@@ -57,7 +63,6 @@ const DropDownMolecule = ({ values, menuWidth, placeholder, disabled }) => {
                   >
                     {option.label}
                   </DropDownMenuLabelOrOptionAtom>
-                  {/* <ToolTipText>{option.label}</ToolTipText> */}
                 </TextWrap>
               ))}
           </DropDownOptionsContainer>
