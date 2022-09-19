@@ -21,6 +21,7 @@ const ActionHeaderContainer = styled.div`
     background: #fff;
     border-radius: unset;
     border-bottom: 1px solid ${({ theme }) => theme.colors.borderBlue};
+    height: unset;
   }
 `;
 

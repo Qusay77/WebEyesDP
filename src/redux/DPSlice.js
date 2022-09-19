@@ -104,8 +104,15 @@ const setFlowOrStepFun = (state, { payload }) => {
 };
 
 const setChoiceFun = (state, { payload }) => {
-  const { option, key } = payload;
-  state[key] = option;
+  const { option, key, multiple } = payload;
+  if (multiple) {
+    multiple.forEach(([k, v]) => {
+      console.log(k);
+      state[k] = v;
+    });
+  } else {
+    state[key] = option;
+  }
 };
 
 const DPSlice = createSlice({

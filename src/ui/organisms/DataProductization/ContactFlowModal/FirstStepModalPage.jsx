@@ -12,7 +12,7 @@ const dynamicText = [
   { text: 'in a few small steps.', newLine: true },
   { text: 'You can also get a' },
   { text: 'Monthly Report', bold: true },
-  { text: 'based on real industry data!' },
+  { text: 'based on industry data!' },
 ];
 const dynamicTextMobile = [
   { text: 'WebeyeZ can show you your lost revenue', newLine: true },

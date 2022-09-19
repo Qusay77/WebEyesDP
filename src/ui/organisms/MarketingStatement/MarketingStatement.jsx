@@ -6,19 +6,14 @@ import { TextAtom } from '../../atoms/DataProductizationAtoms/ActionHeader/Parag
 
 const dynamicText = [
   {
-    text: 'Webeyez’s Lost Revenue Simulator provides benchmarks from e-commerce brands similar to yours to highlight the most common conversion and revenue killers in the online funnel.',
-    newLine: true,
-  },
-  {
-    text: 'We reveal the root causes of business and technical issues that cause friction to the online funnel, conversion loss and site abandonment',
+    text: 'Webeyez is the secret weapon that online businesses use to immediately fix leaky funnels and grow revenue. The platform illuminates every step of the onsite consumer journey and uses machine learning to surface and prioritize points of hidden friction – giving revenue leaders a heat-seeking missile to instantly identify issues causing conversion drops and revenue loss.',
   },
 ];
-
 const MarketingStatement = () => {
   return (
     <MarketingStatementContainer>
       <MainText isBold isLabel>
-        How much revenue is your website losing – and why?
+        About Webeyez
       </MainText>
 
       <TextBlock>

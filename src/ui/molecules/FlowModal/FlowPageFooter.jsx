@@ -53,7 +53,7 @@ const FlowPageFooter = ({
           }}
           clickable
         >
-          Previous Step
+          Go to Previous Step
         </MainText>
       ) : (
         ''

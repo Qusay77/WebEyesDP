@@ -23,6 +23,8 @@ import { dropDownEvents } from '../../../utils/DPDropDownOptions';
 import CustomLoader from '../../organisms/Global/CustomLoader';
 import { exportToPDF } from '../../../../ExportTools/toPDF';
 import { setPDF } from '../../../redux/counterSlice';
+import { queryParams } from '../../../utils/urlParams';
+import InfoStatement from '../../molecules/DataProductization/ActionHeader/InfoStatement';
 
 const Colors = ['255,102,99', '113,74,255'];
 
@@ -33,7 +35,7 @@ const DPPageTemplate = () => {
     count,
     getCall: getCallState,
   } = useSelector(({ loaderState }) => loaderState);
-  const { stickyFooter } = useSelector(({ DPState }) => DPState || {});
+  // const { stickyFooter } = useSelector(({ DPState }) => DPState || {});
 
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({
@@ -42,27 +44,31 @@ const DPPageTemplate = () => {
   const isSmallMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMobile})`,
   });
-  const notificationElement = document.getElementById('beamerSelector');
-  const messagingElement = document.getElementById(
-    'hubspot-messages-iframe-container',
-  );
+  // const notificationElement = document.getElementById('beamerSelector');
+  // const messagingElement = document.getElementById(
+  //   'hubspot-messages-iframe-container',
+  // );
+  // useEffect(() => {
+  //   if (notificationElement) {
+  //     if (stickyFooter) {
+  //       notificationElement.style.bottom = '185px !important';
+  //     } else {
+  //       notificationElement.style.bottom = '25px !important';
+  //     }
+  //   }
+  //   if (messagingElement) {
+  //     if (stickyFooter) {
+  //       messagingElement.style.bottom = '240px !important';
+  //     } else {
+  //       messagingElement.style.left = '-3px !important';
+  //       messagingElement.style.bottom = '85px !important';
+  //     }
+  //   }
+  // }, [isMobile, stickyFooter]);
+
   useEffect(() => {
-    if (notificationElement) {
-      if (stickyFooter) {
-        notificationElement.style.bottom = '185px !important';
-      } else {
-        notificationElement.style.bottom = '25px !important';
-      }
-    }
-    if (messagingElement) {
-      if (stickyFooter) {
-        messagingElement.style.bottom = '240px !important';
-      } else {
-        messagingElement.style.left = '-3px !important';
-        messagingElement.style.bottom = '85px !important';
-      }
-    }
-  }, [isMobile, stickyFooter]);
+    queryParams();
+  }, []);
 
   useEffect(() => {
     const rootElement = document.getElementsByTagName('section')[0];
@@ -109,6 +115,9 @@ const DPPageTemplate = () => {
       )}
       <WrapContainer visible={lostRevenueData}>
         <DPHeaderContainer onClick={() => exportClickAction()} />
+        <MediaQuery minWidth={theme.breakpoints.magicMachine}>
+          <InfoStatement />
+        </MediaQuery>
         <PDFContainer ref={DPRef}>
           <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
             <ActionHeader />

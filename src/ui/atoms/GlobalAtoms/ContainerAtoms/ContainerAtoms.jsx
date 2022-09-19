@@ -6,6 +6,10 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: ${({ start, center, end }) =>
     (start && 'flex-start') || (center && 'center') || (end && 'flex-end')};
+  @media screen and (min-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    margin-bottom: 20px;
+  }
 `;
 
 const MainContainer = styled.div`

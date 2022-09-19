@@ -25,12 +25,12 @@ const ActionHeaderButton = ({ action, mobile, anchor }) => {
           }
         >
           <ButtonTextAtom>
-            {mobile ? 'Simulate my Lost Revenue' : 'Test your Data!'}
+            {mobile ? 'Simulate my Lost Revenue' : 'Test your Sit!'}
           </ButtonTextAtom>
         </Anchor>
       ) : (
         <ButtonTextAtom>
-          {mobile ? 'Simulate my Lost Revenue' : 'Test your Data!'}
+          {mobile ? 'Simulate my Lost Revenue' : 'Test your Sit!'}
         </ButtonTextAtom>
       )}
     </ButtonAtom>

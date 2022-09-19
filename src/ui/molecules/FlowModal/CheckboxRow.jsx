@@ -13,13 +13,13 @@ import MediaQuery from 'react-responsive';
 const dynamicText = [
   { text: 'I want to get a' },
   { text: 'Monthly Report', bold: true },
-  { text: 'based on real industry data' },
+  { text: 'based on industry data' },
 ];
 const dynamicTextMobile = [
   { text: 'I want to get a' },
   { text: 'Monthly Report', bold: true },
   { text: 'based', newLine: true },
-  { text: 'on real industry data' },
+  { text: 'on industry data' },
 ];
 const CheckboxRow = ({ marginTop }) => {
   const { subscribeToMonthlyReport } = useSelector(

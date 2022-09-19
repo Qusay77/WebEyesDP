@@ -25,11 +25,10 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('section');
 
-const CustomModal = ({ modalIsOpen, setIsOpen, Content, ContentProps }) => {
+const CustomModal = ({ modalIsOpen, Content, ContentProps }) => {
   return (
     <Modal
       isOpen={modalIsOpen}
-      onRequestClose={() => setIsOpen(false)}
       style={customStyles}
       contentLabel="Custom Modal"
     >
