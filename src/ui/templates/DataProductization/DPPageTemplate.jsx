@@ -23,7 +23,7 @@ import { dropDownEvents } from '../../../utils/DPDropDownOptions';
 import CustomLoader from '../../organisms/Global/CustomLoader';
 import { exportToPDF } from '../../../../ExportTools/toPDF';
 import { setPDF } from '../../../redux/counterSlice';
-import { queryParams } from '../../../utils/urlParams';
+import { multipleQuery, queryParams } from '../../../utils/urlParams';
 import InfoStatement from '../../molecules/DataProductization/ActionHeader/InfoStatement';
 
 const Colors = ['255,102,99', '113,74,255'];
@@ -126,9 +126,10 @@ const DPPageTemplate = () => {
               anchor
               mobile
               action={() =>
-                dispatch(getCall(true)).then(() =>
-                  Object.values(dropDownEvents).map((e) => eventTracker(e)),
-                )
+                dispatch(getCall(true)).then(() => {
+                  Object.values(dropDownEvents).map((e) => eventTracker(e));
+                  multipleQuery();
+                })
               }
             />
             <MobileInfoHeader />

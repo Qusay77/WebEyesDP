@@ -13,10 +13,16 @@ const RangeSlider = ({ values }) => {
     `${options.findIndex((op) => op.value === DPState[key]?.value)}`,
   );
   const val = DPState[key]?.value;
+
   const dispatch = useDispatch();
   useEffect(() => {
+    if (options.findIndex((op) => op.value === DPState[key]?.value) !== range) {
+      setRange(options.findIndex((op) => op.value === DPState[key]?.value));
+    }
+  }, [val]);
+  useEffect(() => {
     dispatch(setChoice({ option: options[range], key }));
-  }, [range, val]);
+  }, [range]);
   return (
     <RangeInputContainer>
       <RangeInput

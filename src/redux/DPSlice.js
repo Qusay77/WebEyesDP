@@ -107,7 +107,6 @@ const setChoiceFun = (state, { payload }) => {
   const { option, key, multiple } = payload;
   if (multiple) {
     multiple.forEach(([k, v]) => {
-      console.log(k);
       state[k] = v;
     });
   } else {

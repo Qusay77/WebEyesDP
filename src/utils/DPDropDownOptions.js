@@ -1,6 +1,5 @@
 const IndustryOptions = [
   { label: 'Apparel and Accessories', value: 1 },
-
   { label: 'Health and Beauty', value: 2 },
   { label: 'Home and Garden', value: 3 },
   { label: 'Luxury Items', value: 4 },
@@ -31,26 +30,29 @@ const AverageOrderValueOptionsMobile = [...Array(500 / 50).keys()].map(
     };
   },
 );
-const MonthlyVisitsOptionsMobile = [...Array(100000000 / 100000).keys()].map(
-  (opt) => {
-    const formatter = Intl.NumberFormat('en', {
-      notation: 'compact',
-      // maximumSignificantDigits: 4,
-    });
-    const pure = (opt + 1) * 100000;
-    const val = formatter.format(pure);
-    return {
-      label: `${val}`,
-      value: pure,
-      ...(pure === 1000000 ? { default: true } : {}),
-    };
-  },
-);
+const toMill = [...Array(1000000 / 100000).keys()];
+toMill.pop();
+const MonthlyVisitsOptionsMobile = [
+  ...toMill,
+  ...Array(100000000 / 1000000).keys(),
+].map((opt, i) => {
+  const formatter = Intl.NumberFormat('en', {
+    notation: 'compact',
+    // maximumSignificantDigits: 4,
+  });
+  const pure = (opt + 1) * (i >= 9 ? 1000000 : 100000);
+  const val = formatter.format(pure);
+  return {
+    label: `${val}`,
+    value: pure,
+    ...(pure === 1000000 ? { default: true } : {}),
+  };
+});
 const MonthlyVisitsOptions = [
   { label: '100K', value: 100000 },
-  { label: '250K', value: 250000 },
+  { label: '200K', value: 200000 },
   { label: '500K', value: 500000 },
-  { label: '750K', value: 750000 },
+  { label: '700K', value: 700000 },
   { label: '1M', value: 1000000, default: true },
   { label: '2M', value: 2000000 },
   { label: '3M', value: 3000000 },
@@ -63,9 +65,9 @@ const MonthlyVisitsOptions = [
   { label: '10M', value: 10000000 },
   { label: '15M', value: 15000000 },
   { label: '20M', value: 20000000 },
-  { label: '25M', value: 250000000 },
+  { label: '25M', value: 25000000 },
   { label: '50M', value: 50000000 },
-  { label: '100M', value: 1000000000 },
+  { label: '100M', value: 100000000 },
 ];
 const platformOptions = [
   {
@@ -92,7 +94,7 @@ export {
   AverageOrderValueOptions,
   MonthlyVisitsOptions,
   platformOptions,
-  MonthlyVisitsOptionsMobile,
-  AverageOrderValueOptionsMobile,
+  // MonthlyVisitsOptionsMobile,
+  // AverageOrderValueOptionsMobile,
   dropDownEvents,
 };

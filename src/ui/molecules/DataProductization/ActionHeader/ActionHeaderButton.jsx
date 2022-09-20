@@ -8,7 +8,6 @@ import {
 
 const ActionHeaderButton = ({ action, mobile, anchor }) => {
   const { isPDF } = useSelector(({ loaderState }) => loaderState);
-  console.log(isPDF);
   return (
     <ButtonAtom
       height={'52px'}
@@ -25,12 +24,12 @@ const ActionHeaderButton = ({ action, mobile, anchor }) => {
           }
         >
           <ButtonTextAtom>
-            {mobile ? 'Simulate my Lost Revenue' : 'Test your Sit!'}
+            {mobile ? 'Simulate my Lost Revenue' : 'Test your Site!'}
           </ButtonTextAtom>
         </Anchor>
       ) : (
         <ButtonTextAtom>
-          {mobile ? 'Simulate my Lost Revenue' : 'Test your Sit!'}
+          {mobile ? 'Simulate my Lost Revenue' : 'Test your Site!'}
         </ButtonTextAtom>
       )}
     </ButtonAtom>

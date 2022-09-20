@@ -9,6 +9,7 @@ import theme from '../ui/theme';
 import loaderState from './counterSlice';
 import { eventTracker } from '../../ProductAnalytics';
 import { dropDownEvents } from '../utils/DPDropDownOptions';
+import { queryParams } from '../utils/urlParams';
 
 const listenerMiddleware = createListenerMiddleware();
 listenerMiddleware.startListening({
@@ -16,11 +17,19 @@ listenerMiddleware.startListening({
   effect: async (action) => {
     const currentSize = window.innerWidth;
     const isMobile = currentSize <= theme.breakpoints.magicMachineInt;
+    const isMultiple = action.payload.multiple;
     if (action.payload.key !== 'platform') {
       if (!isMobile) {
-        store
-          .dispatch(getCall(true))
-          .then(() => eventTracker(dropDownEvents[action.payload.key]));
+        store.dispatch(getCall(true)).then(() => {
+          if (isMultiple) {
+            isMultiple.forEach(([k]) => {
+              eventTracker(dropDownEvents[k]);
+            });
+          } else {
+            eventTracker(dropDownEvents[action.payload.key]);
+            queryParams([action.payload.key, action.payload.option.value]);
+          }
+        });
       }
     }
   },
