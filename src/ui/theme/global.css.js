@@ -10,4 +10,8 @@ export default createGlobalStyle`
   p {
     margin: 0;
   }
+  .react-tooltip {
+    max-width: 280px;
+    white-space : normal;
+  }
 `;

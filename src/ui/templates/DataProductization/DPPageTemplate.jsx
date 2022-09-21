@@ -36,7 +36,6 @@ const DPPageTemplate = () => {
     getCall: getCallState,
   } = useSelector(({ loaderState }) => loaderState);
   // const { stickyFooter } = useSelector(({ DPState }) => DPState || {});
-
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMachine})`,
@@ -65,7 +64,6 @@ const DPPageTemplate = () => {
   //     }
   //   }
   // }, [isMobile, stickyFooter]);
-
   useEffect(() => {
     queryParams();
   }, []);
