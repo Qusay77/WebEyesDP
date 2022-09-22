@@ -10,6 +10,10 @@ const HeaderContainer = styled.div`
       theme.breakpoints.magicMachine}) {
     margin-bottom: 20px;
   }
+  @media screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.magicMachine}) {
+    height: 40px;
+  }
 `;
 
 const MainContainer = styled.div`
@@ -45,7 +49,7 @@ const WrapContainer = styled.div`
       margin-top: unset;
     }
     > div:nth-child(2) {
-      margin-top: 48px;
+      margin-top: 24px;
     }
     padding: 0 8px;
   }

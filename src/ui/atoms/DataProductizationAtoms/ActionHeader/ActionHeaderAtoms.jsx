@@ -43,8 +43,8 @@ const ShareIconBox = styled.div`
 const ShareIcon = styled.div`
   background-image: ${({ copied }) =>
     copied ? `url(${ShareGreenBG})` : `url(${ShareBG})`};
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   ${({ absolute }) =>
     absolute
       ? `
