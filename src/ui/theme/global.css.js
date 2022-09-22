@@ -14,4 +14,5 @@ export default createGlobalStyle`
     max-width: 280px;
     white-space : normal;
   }
+ 
 `;

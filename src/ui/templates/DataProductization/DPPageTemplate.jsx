@@ -25,6 +25,7 @@ import { exportToPDF } from '../../../../ExportTools/toPDF';
 import { setPDF } from '../../../redux/counterSlice';
 import { multipleQuery, queryParams } from '../../../utils/urlParams';
 import InfoStatement from '../../molecules/DataProductization/ActionHeader/InfoStatement';
+import MobileResultsHeader from '../../organisms/DataProductization/ActionHeader/MobileResultsHeader';
 
 const Colors = ['255,102,99', '113,74,255'];
 
@@ -43,6 +44,9 @@ const DPPageTemplate = () => {
   const isSmallMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.magicMobile})`,
   });
+
+  // this is experimental for action icons on live site which are disabled for the moment
+
   // const notificationElement = document.getElementById('beamerSelector');
   // const messagingElement = document.getElementById(
   //   'hubspot-messages-iframe-container',
@@ -131,6 +135,7 @@ const DPPageTemplate = () => {
               }
             />
             <MobileInfoHeader />
+            <MobileResultsHeader />
           </MediaQuery>
           <MediaQuery minWidth={theme.breakpoints.magicMachine}>
             <DropDownMenu />

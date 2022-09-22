@@ -4,8 +4,6 @@ import {
   MobileFooterContainer,
   MobileFooterContent,
 } from '../../../atoms/DataProductizationAtoms/ActionHeader/MobileFooterAtoms';
-import { TextAtom } from '../../../atoms/DataProductizationAtoms/ActionHeader/ParagraphAtoms';
-import { TotalNumberText } from '../../../atoms/DataProductizationAtoms/ProblemsInfoAtoms/ParagraphAtoms';
 import ActionHeaderButton from '../../../molecules/DataProductization/ActionHeader/ActionHeaderButton';
 import { useDispatch } from 'react-redux';
 import {
@@ -14,9 +12,6 @@ import {
   setStickyFooter,
 } from '../../../../redux/DPSlice';
 const MobileFooter = () => {
-  const { totalLostRevenue } = useSelector(
-    ({ DPState }) => DPState.lostRevenueData || {},
-  );
   const { stickyFooter } = useSelector(({ DPState }) => DPState || {});
   const dispatch = useDispatch();
 
@@ -54,8 +49,6 @@ const MobileFooter = () => {
   return (
     <MobileFooterContainer isSticky={stickyFooter} id={'mobile-footer'}>
       <MobileFooterContent>
-        <TextAtom>Monthly lost revenue:</TextAtom>
-        <TotalNumberText>{totalLostRevenue}</TotalNumberText>
         <ActionHeaderButton
           action={() => dispatch(setIsModalOpen({ open: true }))}
         />

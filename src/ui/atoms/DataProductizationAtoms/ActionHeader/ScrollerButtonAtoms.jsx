@@ -29,7 +29,7 @@ const ScrollerWrap = styled.div`
   align-items: center;
   position: ${({ isIntersecting }) => (isIntersecting ? 'fixed' : 'sticky')};
   ${({ isIntersecting }) => (isIntersecting ? 'right: 50%' : '')};
-  bottom: ${({ isSticky }) => (isSticky ? '200px' : '50px')};
+  bottom: ${({ isSticky }) => (isSticky ? '125px' : '50px')};
   float: right;
   z-index: 999;
 `;

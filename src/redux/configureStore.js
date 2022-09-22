@@ -4,7 +4,7 @@ import {
   createListenerMiddleware,
 } from '@reduxjs/toolkit';
 import { getCall } from './apiCalls/getCall';
-import DPState, { setChoice } from './DPSlice';
+import DPState, { setChoice, setShareCopied } from './DPSlice';
 import theme from '../ui/theme';
 import loaderState from './counterSlice';
 import { eventTracker } from '../../ProductAnalytics';
@@ -20,6 +20,7 @@ listenerMiddleware.startListening({
     const isMultiple = action.payload.multiple;
     if (action.payload.key !== 'platform') {
       if (!isMobile) {
+        store.dispatch(setShareCopied({ value: false }));
         store.dispatch(getCall(true)).then(() => {
           if (isMultiple) {
             isMultiple.forEach(([k]) => {

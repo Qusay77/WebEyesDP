@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import { isOverflown } from '../../../utils/tools';
 
-const ToolTip = ({ text, value, isHoverOn, children }) => {
+const ToolTip = ({ text, value, isHoverOn, children, OFAllow }) => {
   const [isOver, setIsOver] = useState(false);
   const tipRef = useRef(null);
   // eslint-disable-next-line react/display-name
@@ -14,7 +14,7 @@ const ToolTip = ({ text, value, isHoverOn, children }) => {
   };
   useEffect(() => {
     if (tipRef) {
-      if (isOverflown(tipRef.current)) {
+      if (isOverflown(tipRef.current) || OFAllow) {
         setIsOver(true);
       }
     }

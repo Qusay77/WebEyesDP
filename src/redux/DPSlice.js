@@ -5,9 +5,11 @@ import {
   IndustryOptions,
   MonthlyVisitsOptions,
 } from '../utils/DPDropDownOptions';
+import { copyToClipboard } from '../utils/tools';
 import { validateEmail, validatePassword } from '../utils/validation';
 
 const initialState = {
+  shareCopied: false,
   industryId: IndustryOptions[0],
   aov: AverageOrderValueOptions.find((e) => e.default),
   numberOfVisits: MonthlyVisitsOptions.find((e) => e.default),
@@ -31,7 +33,13 @@ const initialState = {
     passwordValid: { value: null, func: validatePassword, key: 'password' },
   },
 };
-
+const setShareCopiedFun = (state, { payload }) => {
+  const { value } = payload;
+  if (value) {
+    copyToClipboard(location.href);
+  }
+  state.shareCopied = value;
+};
 const setStickyFooterFun = (state, { payload }) => {
   const { value } = payload;
   state.stickyFooter = value;
@@ -66,6 +74,7 @@ const setParamsFun = (state, { payload }) => {
 };
 const resetParamsFun = (state) => {
   const {
+    shareCopied,
     stickyFooter,
     industryId,
     aov,
@@ -80,6 +89,7 @@ const setIsModalOpenFun = (state, { payload }) => {
   const { open } = payload;
   if (!open) {
     const {
+      shareCopied,
       stickyFooter,
       industryId,
       aov,
@@ -118,6 +128,7 @@ const DPSlice = createSlice({
   name: 'dataProductization',
   initialState,
   reducers: {
+    setShareCopied: setShareCopiedFun,
     setIsIntersecting: setIsIntersectingFun,
     setStickyFooter: setStickyFooterFun,
     setFlowOrStep: setFlowOrStepFun,
@@ -142,6 +153,7 @@ export const {
   setValidations,
   setStickyFooter,
   setIsIntersecting,
+  setShareCopied,
 } = DPSlice.actions;
 export { initialState };
 export default DPSlice.reducer;

@@ -4,9 +4,9 @@ import { ButtonAtom } from '../../GlobalAtoms/Buttons/GreenButtonAtoms';
 const MobileFooterContent = styled.div`
   width: 100%;
   max-width: ${({ theme }) => theme.breakpoints.mobileM};
-  padding: 24px;
+  display: flex;
+  align-items: center;
   ${ButtonAtom} {
-    margin-top: 16px;
     width: 100%;
     max-width: 342px;
   }
@@ -17,7 +17,7 @@ const MobileFooterContainer = styled.div`
   bottom: 0;
   background-color: #fff;
   width: 100%;
-  height: 175px;
+  height: 100px;
   border-top: 1px solid ${({ theme }) => theme.colors.borderBlue};
   margin-top: 16px;
   display: flex;

@@ -31,7 +31,8 @@ const SmallInfoText = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 19.5px;
-  color: ${({ theme }) => theme.colors.lightBlack};
+  color: ${({ theme, copied }) =>
+    copied ? theme.colors.ButtonGreen : theme.colors.lightBlack};
 `;
 
 const TotalNumberText = styled.p`

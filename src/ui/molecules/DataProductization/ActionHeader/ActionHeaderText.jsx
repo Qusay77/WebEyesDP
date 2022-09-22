@@ -9,9 +9,14 @@ const ActionHeaderText = () => {
   return (
     <TextAtomsContainer>
       <MediaQuery minWidth={theme.breakpoints.magicMachine}>
+        <TextAtom>Companies that see </TextAtom>
+        <TextAtom isBold>1000000</TextAtom>
+        <TextAtom> monthly visitors and have an AOV of </TextAtom>
+        <TextAtom isBold>$150</TextAtom>
+        <TextAtom> lose – on average –</TextAtom>
+        <TextAtom isBold>$500000</TextAtom>
         <TextAtom>
-          Our simulator will reveal details for revenue loss per industry, based
-          on industry data.
+          in revenue every month.
           <br /> Do you want a
         </TextAtom>
         <TextAtom isBold> Free Trial</TextAtom> <TextAtom>with your</TextAtom>
@@ -19,11 +24,6 @@ const ActionHeaderText = () => {
       </MediaQuery>
       <MediaQuery maxWidth={theme.breakpoints.magicMachine}>
         <InfoStatement />
-        <br />
-        <br />
-        <TextAtom isBold>
-          You can edit the data and test different values!
-        </TextAtom>
       </MediaQuery>
     </TextAtomsContainer>
   );

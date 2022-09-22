@@ -24,8 +24,8 @@ const FlowPageController = ({ setIsOpen }) => {
   const homePageAction = () => {
     window.location.href = '/';
   };
-  const registrationFlowAction = () => {
-    dispatch(verificationCall()).then(() =>
+  const registrationFlowAction = (id) => {
+    dispatch(verificationCall(id)).then(() =>
       dispatch(setFlowOrStep({ step: +1 })),
     );
   };
@@ -90,7 +90,7 @@ const FlowPageController = ({ setIsOpen }) => {
         component: <MainFlowThirdStepModalPage />,
         headerText: 'Just One More Step!',
         buttonText: 'Sign Up',
-        flowAction: registrationFlowAction,
+        flowAction: () => registrationFlowAction(true),
       },
       2: {
         component: <MainFlowFourthStepModalPage />,
