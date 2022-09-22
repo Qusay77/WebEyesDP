@@ -7,7 +7,8 @@ const ParagraphHeaderAtom = styled.p`
   color: ${({ theme }) => theme.colors.black};
   @media screen and (max-width: ${({ theme }) =>
       theme.breakpoints.magicMachine}) {
-    font-size: 28px;
+    font-size: 26px;
+    letter-spacing: -1px;
     line-height: 43.88px;
     height: fit-content;
   }
